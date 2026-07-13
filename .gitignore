@@ -530,3 +530,4 @@ Models/Whisper/
 *.bin
 /VerifyIndiaAdminPanel/wwwroot/assets/js/pages/leaflet-map.init.js
 /AuthenticateIndiaCustomerPanel/wwwroot/assets/js/pages/leaflet-map.init.js
+/UpgrowAdminPanel/wwwroot/assets/js/pages/leaflet-map.init.js

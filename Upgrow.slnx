@@ -1,9 +1,9 @@
 <Solution>
-  <Project Path="AuthenticateIndia.Shared/Upgrow.Shared.csproj" Id="7cb23bfe-9fb8-48aa-a76e-23ffd9e07279" />
   <Project Path="FileApiService/FileApiService.csproj" Id="944c550b-dc9d-4bf9-ab93-f5eaf2000f88" />
   <Project Path="Moonbyte.UI/Moonbyte.UI.csproj" Id="f8d76787-a06d-4bbf-bdd6-e88262a83852" />
-  <Project Path="VerifyIndia.Application/Upgrow.Application.csproj" />
-  <Project Path="VerifyIndia.Domain/Upgrow.Domain.csproj" Id="7750cae2-0630-4415-a52b-d1aa9a25cc95" />
-  <Project Path="VerifyIndia.Infrastructure/Upgrow.Infrastructure.csproj" Id="88f1b75a-69cc-4c75-b463-55d2d8a22afc" />
-  <Project Path="VerifyIndiaAdminPanel/UpgrowAdminPanel.csproj" Id="5d862f53-fe3c-4ebc-9a6d-5b66e1e4c713" />
+  <Project Path="Upgrow.Application/Upgrow.Application.csproj" />
+  <Project Path="Upgrow.Domain/Upgrow.Domain.csproj" />
+  <Project Path="Upgrow.Infrastructure/Upgrow.Infrastructure.csproj" />
+  <Project Path="Upgrow.Shared/Upgrow.Shared.csproj" />
+  <Project Path="UpgrowAdminPanel/UpgrowAdminPanel.csproj" />
 </Solution>
