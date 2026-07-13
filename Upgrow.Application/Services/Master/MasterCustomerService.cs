@@ -1,4 +1,4 @@
-﻿using AuthenticateIndia.Shared.Constants.Registration;
+﻿using Upgrow.Shared.Constants.Registration;
 using AutoMapper;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System;

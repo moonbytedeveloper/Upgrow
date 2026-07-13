@@ -1,4 +1,4 @@
-﻿using AuthenticateIndia.Shared.Constants;
+﻿using Upgrow.Shared.Constants;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;

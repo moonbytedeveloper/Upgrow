@@ -1,5 +1,5 @@
-﻿using AuthenticateIndia.Shared.Constants;
-using AuthenticateIndia.Shared.Constants.TransactionDocument;
+﻿using Upgrow.Shared.Constants;
+using Upgrow.Shared.Constants.TransactionDocument;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;

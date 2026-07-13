@@ -1,4 +1,4 @@
-﻿using AuthenticateIndia.Shared.Constants;
+﻿using Upgrow.Shared.Constants;
 using FFMpegCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

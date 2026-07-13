@@ -1,5 +1,5 @@
 ﻿
-using AuthenticateIndia.Shared.Constants;
+using Upgrow.Shared.Constants;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System;

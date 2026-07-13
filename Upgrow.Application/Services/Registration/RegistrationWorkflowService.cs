@@ -1,5 +1,5 @@
-﻿using AuthenticateIndia.Shared.Constants;
-using AuthenticateIndia.Shared.Constants.Registration;
+﻿using Upgrow.Shared.Constants;
+using Upgrow.Shared.Constants.Registration;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -25,7 +25,7 @@ using Upgrow.Domain.Entities.Registration;
 using Upgrow.Domain.IRepositories.Master;
 using Upgrow.Domain.IRepositories.Registration;
 using ICustomerVideoKycRepository = Upgrow.Application.Interfaces.Registration.ICustomerVideoKycRepository;
-using RegistrationSteps = AuthenticateIndia.Shared.Constants.Registration.RegistrationSteps;
+using RegistrationSteps = Upgrow.Shared.Constants.Registration.RegistrationSteps;
 
 namespace Upgrow.Application.Services.Registration
 {

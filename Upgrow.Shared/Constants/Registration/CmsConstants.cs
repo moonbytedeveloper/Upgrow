@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthenticateIndia.Shared.Constants.Registration
+namespace Upgrow.Shared.Constants.Registration
 {
     public static class CmsConstants
     {

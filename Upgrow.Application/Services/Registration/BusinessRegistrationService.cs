@@ -1,5 +1,5 @@
-﻿using AuthenticateIndia.Shared.Constants;
-using AuthenticateIndia.Shared.Constants.Registration;
+﻿using Upgrow.Shared.Constants;
+using Upgrow.Shared.Constants.Registration;
 using System;
 using System.Collections.Generic;
 using System.Linq;

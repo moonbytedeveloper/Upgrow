@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthenticateIndia.Shared.Constants
+namespace Upgrow.Shared.Constants
 {
     public static class CreditTypeConstants
     {

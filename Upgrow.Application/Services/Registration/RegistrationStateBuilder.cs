@@ -1,6 +1,6 @@
 ﻿//using Upgrow.Application.Constant;
-using AuthenticateIndia.Shared.Constants;
-using AuthenticateIndia.Shared.Constants.Registration;
+using Upgrow.Shared.Constants;
+using Upgrow.Shared.Constants.Registration;
 using Microsoft.AspNetCore.Http.HttpResults;
 using System.Reflection.Metadata;
 using Upgrow.Application.DTO.Customer;

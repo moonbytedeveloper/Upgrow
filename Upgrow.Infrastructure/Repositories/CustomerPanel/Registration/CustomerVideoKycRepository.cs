@@ -1,4 +1,4 @@
-﻿using AuthenticateIndia.Shared.Constants.Registration;
+﻿using Upgrow.Shared.Constants.Registration;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
