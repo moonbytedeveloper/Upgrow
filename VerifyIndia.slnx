@@ -1,0 +1,15 @@
+<Solution>
+  <Project Path="AixDocumentation/AixDocumentation.csproj" Id="79e460c5-2197-4110-8d37-9b8f3ebf42d4" />
+  <Project Path="AuthenticateIndia.Shared/AuthenticateIndia.Shared.csproj" Id="7cb23bfe-9fb8-48aa-a76e-23ffd9e07279" />
+  <Project Path="AuthenticateIndiaCentralAPI/AuthenticateIndiaCentralAPI.csproj" Id="6f508532-3cdd-4e3a-acd6-d319e49fb8f3" />
+  <Project Path="AuthenticateIndiaCustomerPanel/AuthenticateIndiaCustomerPanel.csproj" Id="7c9a62e7-b609-4427-9553-46fe1ffe4466" />
+  <Project Path="AuthenticateIndiaWebsite/AuthenticateIndiaWebsite.csproj" Id="2e3db7ec-d051-4f97-99e8-52b5be232b6e" />
+  <Project Path="FileApiService/FileApiService.csproj" Id="944c550b-dc9d-4bf9-ab93-f5eaf2000f88" />
+  <Project Path="Moonbyte.UI/Moonbyte.UI.csproj" Id="f8d76787-a06d-4bbf-bdd6-e88262a83852" />
+  <Project Path="VerifyIndia.Application/VerifyIndia.Application.csproj" />
+  <Project Path="VerifyIndia.Domain/VerifyIndia.Domain.csproj" Id="7750cae2-0630-4415-a52b-d1aa9a25cc95" />
+  <Project Path="VerifyIndia.Infrastructure/VerifyIndia.Infrastructure.csproj" Id="88f1b75a-69cc-4c75-b463-55d2d8a22afc" />
+  <Project Path="VerifyIndiaAdminPanel/VerifyIndiaAdminPanel.csproj" Id="5d862f53-fe3c-4ebc-9a6d-5b66e1e4c713" />
+  <Project Path="VerifyIndiaPublicApi/VerifyIndiaPublicApi.csproj" Id="6813b8f1-98e6-4bd5-b5a4-5816ed6a3c0b" />
+  <Project Path="WhiteLabelAdminPanel/WhiteLabelAdminPanel.csproj" />
+</Solution>
