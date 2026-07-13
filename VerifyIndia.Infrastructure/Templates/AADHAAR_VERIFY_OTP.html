@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Aadhaar Verification Report</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial,Helvetica,sans-serif;
+            font-size: 14px;
+            color: #222;
+            background: #ffffff;
+            padding: 32px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #1E88E5;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .company {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1E88E5;
+        }
+
+        .report-title {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .section {
+            margin-top: 25px;
+        }
+
+        .section-title {
+            background: #1E88E5;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .label {
+            width: 30%;
+            background: #f7f7f7;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="company">
+            Authenticate India
+        </div>
+
+        <div class="report-title">
+            Aadhaar Verification Report
+        </div>
+    </div>
+
+    <div class="section">
+
+        <div class="section-title">
+            Verification Details
+        </div>
+
+        <table>
+
+            <tr>
+                <td class="label">Reference ID</td>
+                <td>{{reference_id}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Status</td>
+                <td>{{status}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Client ID</td>
+                <td>{{client_id}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Unique ID</td>
+                <td>{{uniqueness_id}}</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div class="section">
+
+        <div class="section-title">
+            Personal Details
+        </div>
+
+        <table>
+
+            <tr>
+                <td class="label">Full Name</td>
+                <td>{{full_name}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Aadhaar Number</td>
+                <td>{{aadhaar_number}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Date of Birth</td>
+                <td>{{dob}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Gender</td>
+                <td>{{gender}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Mobile Verified</td>
+                <td>{{mobile_verified}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Face Verified</td>
+                <td>{{face_status}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Face Score</td>
+                <td>{{face_score}}</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div class="section">
+
+        <div class="section-title">
+            Address
+        </div>
+
+        <table>
+
+            <tr>
+                <td class="label">House</td>
+                <td>{{address.house}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Street</td>
+                <td>{{address.street}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Locality</td>
+                <td>{{address.loc}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Village / Town</td>
+                <td>{{address.vtc}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Sub District</td>
+                <td>{{address.subdist}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">District</td>
+                <td>{{address.dist}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">State</td>
+                <td>{{address.state}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Country</td>
+                <td>{{address.country}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">PIN Code</td>
+                <td>{{zip}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Post Office</td>
+                <td>{{address.po}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Landmark</td>
+                <td>{{address.landmark}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Care Of</td>
+                <td>{{care_of}}</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div class="section">
+
+        <div class="section-title">
+            Additional Information
+        </div>
+
+        <table>
+
+            <tr>
+                <td class="label">Email Hash</td>
+                <td>{{email_hash}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Mobile Hash</td>
+                <td>{{mobile_hash}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Share Code</td>
+                <td>{{share_code}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Has Profile Image</td>
+                <td>{{has_image}}</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div class="footer">
+        Generated by Authenticate India • {{GeneratedAt}}
+    </div>
+
+</body>
+</html>

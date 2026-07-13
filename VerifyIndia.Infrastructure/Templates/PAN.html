@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <style>
+
+        body {
+            font-family: Arial;
+            margin: 30px;
+            font-size: 14px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid #cccccc;
+            padding: 10px;
+        }
+
+            td:first-child {
+                width: 35%;
+                font-weight: bold;
+            }
+    </style>
+
+</head>
+
+<body>
+
+    <h2>PAN Verification Report</h2>
+
+    <table>
+
+        <tr>
+            <td>PAN Number</td>
+            <td>{{pan_number}}</td>
+        </tr>
+
+        <tr>
+            <td>Full Name</td>
+            <td>{{full_name}}</td>
+        </tr>
+
+        <tr>
+            <td>Gender</td>
+            <td>{{gender}}</td>
+        </tr>
+
+        <tr>
+            <td>Date of Birth</td>
+            <td>{{dob}}</td>
+        </tr>
+
+        <tr>
+            <td>Category</td>
+            <td>{{category}}</td>
+        </tr>
+
+    </table>
+
+</body>
+
+</html>

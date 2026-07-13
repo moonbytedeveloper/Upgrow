@@ -1,0 +1,10 @@
+using VerifyIndia.Application.DTO.AIX;
+
+namespace VerifyIndia.Application.IServices.Api
+{
+    public interface IMaster_ProgrammingLanguageService
+    {
+        Task<List<ProgrammingLanguageDto>> GetAllActiveLangunagesAsync();
+        Task<ProgrammingLanguageDto?> GetByUuidAsync(string uuid);
+    }
+}

@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Verification\Providers\SprintVerify\Models\**" />
+    <EmbeddedResource Remove="Verification\Providers\SprintVerify\Models\**" />
+    <None Remove="Verification\Providers\SprintVerify\Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VerifyIndia.Application\VerifyIndia.Application.csproj" />
+    <ProjectReference Include="..\VerifyIndia.Domain\VerifyIndia.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FFMpegCore" Version="5.4.0" />
+    <PackageReference Include="Finbuckle.MultiTenant" Version="9.4.6" />
+    <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="9.4.6" />
+    <PackageReference Include="MailKit" Version="4.17.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.25" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.23" />
+    <PackageReference Include="Microsoft.Playwright" Version="1.61.0" />
+    <PackageReference Include="MimeKit" Version="4.17.0" />
+    <PackageReference Include="OpenCvSharp4" Version="4.13.0.20260602" />
+    <PackageReference Include="OpenCvSharp4.runtime.win" Version="4.13.0.20260602" />
+    <PackageReference Include="Whisper.net" Version="1.9.1" />
+    <PackageReference Include="Whisper.net.Runtime" Version="1.9.1" />
+  </ItemGroup>
+	
+  <ItemGroup>
+	<Content Include="Documents\Templates\**\*.html">
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
+  </ItemGroup>
+</Project>

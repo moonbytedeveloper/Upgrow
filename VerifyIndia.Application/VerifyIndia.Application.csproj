@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DTO\VerificationDto\**" />
+    <Compile Remove="IService\**" />
+    <Compile Remove="Service\**" />
+    <EmbeddedResource Remove="DTO\VerificationDto\**" />
+    <EmbeddedResource Remove="IService\**" />
+    <EmbeddedResource Remove="Service\**" />
+    <None Remove="DTO\VerificationDto\**" />
+    <None Remove="IService\**" />
+    <None Remove="Service\**" />
+  </ItemGroup>
+  <ItemGroup>
+	  <FrameworkReference Include="Microsoft.AspNetCore.App" />
+	  <PackageReference Include="AutoMapper" Version="16.0.0" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.3.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.25" />
+    <PackageReference Include="Razorpay" Version="3.3.2" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.16.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AuthenticateIndia.Shared\AuthenticateIndia.Shared.csproj" />
+    <ProjectReference Include="..\VerifyIndia.Domain\VerifyIndia.Domain.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<None Include="Keys\*.pem">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="IServices\AuthCentralAPI\" />
+	  <Folder Include="Services\AuthCentralAPI\" />
+	</ItemGroup>
+
+</Project>

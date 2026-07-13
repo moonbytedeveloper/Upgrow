@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
+using VerifyIndia.Application.DTO.DropDown;
+using VerifyIndia.Application.DTOs;
+using VerifyIndia.Domain.Common;
+
+namespace VerifyIndia.Application.IServices.WL
+{
+    public interface IWLBaseService<TEntity, TDto, TCommand>
+    {
+        Task<PagedResult<TDto>> GetPagedByTenantAsync(DataTableRequest request, string? tenantUuid);
+        Task<List<MasterDropDownDto>> GetTenantDropdownAsync();
+
+    }
+}
