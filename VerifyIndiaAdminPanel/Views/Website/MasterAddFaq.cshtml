@@ -1,0 +1,139 @@
+﻿@using VerifyIndia.Application.Common.Dropdowns
+@model VerifyIndiaAdminPanel.Models.Website.FaqVM
+
+@{
+    var isEditMode = !string.IsNullOrWhiteSpace(Model?.Faq?.UUID);
+    var pageTitle = isEditMode ? "Edit FAQ" : "Add FAQ";
+    ViewData["Title"] = pageTitle;
+}
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20">@pageTitle</h3>
+                    </div><!--end col-->
+                </div> <!--end row-->
+            </div><!--end card-header-->
+            <div class="card-body pt-0">
+                <form id="bannerForm" asp-action="MasterAddFaq" method="post">
+                    <input type="hidden" asp-for="Faq.UUID" />
+                    <input type="hidden" asp-for="Faq.IsActive" />
+                    <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+
+                        <form-field asp-for="Faq.FAQCategoryUUID"
+                                    label="FAQ Category"
+                                    type="Select"
+                                    asp-items="@Model.FaqCategoryList"
+                                    required="true"
+                                    placeholder="Select FAQ Category" />
+                    </div>
+
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+                            <form-field asp-for="Faq.Title"
+                                        label="Title"
+                                        type="Text"
+                                        required="true" />
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 pt-4">
+                            <form-field asp-for="Faq.IsFeatured"
+                                        label="Is Featured"
+                                        type="Checkbox" />
+                        </div>
+                        
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+
+                            <form-field asp-for="Faq.Description"
+                                        label="Description"
+                                        type="CKEditor"
+                                        required="true" />
+                        </div>
+
+                        
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-align-end pt-4">
+                            <form-button label="Cancel"
+                                         type="Cancel"
+                                         url="@Url.Action("MasterViewFaq", "Website")" />
+                            <form-button label="Submit"
+                                         type="Submit" />
+                        </div>
+
+                    </div>
+                </form>
+
+            </div><!--end card-body-->
+        </div><!--end card-->
+    </div>
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+
+@section Scripts
+{
+    <script src="~/ckeditor/ckeditor/ckeditor.js"></script>
+    <script>
+        // Keep your existing initialization script (unchanged)
+               function initializeForm() {
+            if (typeof jQuery === 'undefined') {
+                setTimeout(initializeForm, 100);
+                return;
+            }
+            if (typeof CKEDITOR !== 'undefined') {
+                document.querySelectorAll('.ckeditor-textarea').forEach(function (textarea) {
+                    if (!CKEDITOR.instances[textarea.id]) {
+                        var editor = CKEDITOR.replace(textarea.id, {
+                            extraAllowedContent: 'div(*)[*]{*}; span(*)[*]{*}; p(*)[*]{*};',
+                            allowedContent: true,
+                            height: 300,
+                            toolbar: [
+                                { name: 'document', items: ['Source', '-', 'Save', 'NewPage', 'Preview'] },
+                                { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'] },
+                                { name: 'editing', items: ['Find', 'Replace', '-', 'SelectAll'] },
+                                '/',
+                                { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'] },
+                                { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote'] },
+                                { name: 'links', items: ['Link', 'Unlink'] },
+                                { name: 'insert', items: ['Image', 'Table', 'HorizontalRule'] },
+                                '/',
+                                { name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize'] },
+                                { name: 'colors', items: ['TextColor', 'BGColor'] }
+                            ]
+                        });
+
+                        editor.on('change', function () {
+                            editor.updateElement();
+                        });
+                    }
+                });
+            }
+        }
+
+                document.addEventListener('DOMContentLoaded', initializeForm);
+                if (typeof jQuery !== 'undefined') {
+                    jQuery(document).ready(function () {
+                        initializeForm();
+
+                        // Tell jQuery Validate to ignore nothing, so it can see the hidden textarea
+                        if ($.validator) {
+                            $.validator.setDefaults({
+                                ignore: []
+                            });
+                        }
+                    });
+                }
+    </script>
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/dp-dropdown.js"></script>
+    <script src="~/assets/js/validationanimation.js"></script>
+    <script src="~/assets/js/select2.min.js"></script>
+
+
+}

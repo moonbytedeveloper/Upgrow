@@ -1,0 +1,314 @@
+@model VerifyIndiaAdminPanel.Models.Inquiry.InquiryGeneralStatusVM
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    ViewData["Title"] = "Manage Distributer Inquiries";
+
+    var statusList = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "true", Text = "Open" },
+        new SelectListItem { Value = "false", Text = "Closed" }
+    };
+}
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+@section Styles {
+    <partial name="_ViewStyles" />
+}
+
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="card">
+        <div class="card-header">
+            <div class="row align-items-center">
+                <div class="col-9">
+                    <h3 class="card-title fs-20 mt-3 mb-3 ms-2">@ViewData["Title"]</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover datatableeditpopup" id="datatable_1">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Sr.</th>
+                            <th style="display:none;">UUID</th>
+                            <th>Full Name</th>
+                            <th>Email Id</th>
+                            <th>Phone No</th>
+                            <th>Message</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        </div><!--end card-->
+    </div>
+
+    <div id="rowActionMenu" class="row-action-menu">
+        <ul>
+            <action-link id="updateInquiryStatusLink" label="Update Status" type="Edit"></action-link>
+            <action-link id="viewHistoryLink" label="View History" type="ViewHistory"></action-link>
+            <action-link id="viewDetailsLink" label="View Details" type="View"></action-link>
+        </ul>
+    </div>
+</div>
+
+<div class="modal fade" id="statusModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="statusUpdateForm">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Inquiry Status</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input asp-for="UUID" type="hidden" id="Status_UUID" />
+
+                    <div class="row">
+                        <div class="col-12">
+                            <form-field asp-for="IsActive"
+                                        label="Status"
+                                        type="Select"
+                                        asp-items="statusList"
+                                        required="true">
+                            </form-field>
+                        </div>
+                        <div class="col-12">
+                            <form-field asp-for="Remark"
+                                        label="Remark"
+                                        type="TextArea"
+                                        required="true">
+                            </form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-round theme-cancel-button" data-bs-dismiss="modal">Cancel</button>
+                    <form-button label="Submit" type="Submit">Submit</form-button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="inquiryDetailsModal" tabindex="-1" aria-labelledby="inquiryDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header text-white" style="background: linear-gradient(90deg, #111827 0%, #0f172a 100%);">
+                <h5 class="modal-title" id="inquiryDetailsModalLabel">Inquiry Details</h5>
+                <button type="button" class="btn-close btn-close-white opacity-75" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive border rounded">
+                    <table class="table table-sm table-bordered align-middle mb-0">
+                        <tbody id="inquiryDetailsBody"></tbody>
+                    </table>
+                </div>
+            </div>            
+        </div>
+    </div>
+</div>
+
+<partial name="_Timer" />
+
+@section Scripts {
+    <partial name="_ViewScripts" />
+    <script src="~/assets/js/validationanimation.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/select2.min.js"></script>
+    <script>
+        const statusModal = new bootstrap.Modal(document.getElementById('statusModal'));
+        const $statusForm = $('#statusUpdateForm');
+        const detailsModal = new bootstrap.Modal(document.getElementById('inquiryDetailsModal'));
+
+        $.validator.unobtrusive.parse($statusForm);
+        const statusValidator = $statusForm.validate();
+        statusValidator.settings.ignore = [];
+
+        function getRemarkUi() {
+            const remarkEl = document.getElementById('Remark');
+            const wrapper = remarkEl?.closest('.inputGroup, .formgroup, .col-12');
+            const icon = wrapper?.querySelector('i.error-icon');
+            return { remarkEl, wrapper, icon };
+        }
+
+        function setRemarkErrorUi(showError) {
+            const { remarkEl, wrapper, icon } = getRemarkUi();
+            if (!remarkEl || !wrapper) return;
+
+            if (showError) {
+                wrapper.classList.add('input-error');
+                remarkEl.classList.add('input-validation-error');
+                if (icon) icon.style.display = 'block';
+            } else {
+                wrapper.classList.remove('input-error');
+                remarkEl.classList.remove('input-validation-error');
+                if (icon) icon.style.display = '';
+            }
+        }
+
+        initMasterTable({
+            tableId: '#datatable_1',
+            ajaxUrl: '@Url.Action("GetDistributerInquiries", "Inquiry")',
+            columns: [
+                { data: 'srno', orderable: false },
+                { data: 'uuid', visible: false },
+                { data: 'fullName' },
+                { data: 'emailId' },
+                { data: 'phoneNo' },
+                { data: 'message' },
+                {
+                    data: 'status',
+                    render: function (data) {
+                        const badgeClass = data === 'Open' ? 'badge-outline-warning' : 'badge-outline-success';
+                        return `<span class="badge ${badgeClass}">${data}</span>`;
+                    }
+                }
+            ],
+            rowActions: [
+                {
+                    selector: '#updateInquiryStatusLink',
+                    baseUrl: 'javascript:void(0)',
+                    idProperty: 'uuid',
+                    handler: function (rowData) {
+                        if (!rowData.isActive) return;
+                        statusValidator.resetForm();
+                        setRemarkErrorUi(false);
+
+                        $('#Status_UUID').val(rowData.uuid);
+                        $('#IsActive').val(rowData.isActive ? 'false' : 'true');
+                        $('#Remark').val('');
+
+                        statusModal.show();
+                    }
+                },
+                {
+                    selector: '#viewHistoryLink',
+                    baseUrl: 'javascript:void(0)',
+                    idProperty: 'uuid',
+                    handler: function (rowData) {
+                        AuditLogsUI.openLogs("Inquiry_Distributor", rowData.uuid, false, "");
+                    }
+                },
+                            {
+            selector: '#viewDetailsLink',
+            baseUrl: 'javascript:void(0)',
+            idProperty: 'uuid',
+            handler: function (rowData) {
+                const rows = buildDetailsRows(rowData)
+                    .map(x => `<tr><th style="width:40%">${x.label}</th><td>${x.value ?? '-'}</td></tr>`)
+                    .join('');
+                $('#inquiryDetailsBody').html(rows);
+                detailsModal.show();
+            }
+        }
+            ]
+        });
+
+        const $updateStatusItem = $('#updateInquiryStatusLink').closest('li');
+        $('#datatable_1 tbody').on('click', 'tr', function () {
+            const rowData = $('#datatable_1').DataTable().row(this).data();
+            if (!rowData) return;
+            $updateStatusItem.toggle(!!rowData.isActive);
+        });
+
+        AuditLogsUI.init(
+            AuditLogsUI.common.mergeConfig({
+                foreignKeyMap: {
+                    "ActionTakenBy": "/Common/GetEmployeeName"
+                },
+                friendlyFieldMap: {
+                    "FullName": "Full Name",
+                    "EmailId": "Email Id",
+                    "PhoneNo": "Phone No",
+                    "Message": "Message",
+                    "IsActive": "Status",
+                    "Remark": "Remark",
+                    "ActionTakenBy": "Action Taken By"
+                },
+                hiddenFields: []
+            })
+        );
+
+        
+                $statusForm.on('submit', function (e) {
+            e.preventDefault();
+
+            const uuid = $('#Status_UUID').val();
+            const isActive = ($('#IsActive').val() || '').toLowerCase() === 'true';
+            const remark = ($('#Remark').val() || '').trim();
+
+            // clear previous manual errors
+            statusValidator.resetForm();
+            setRemarkErrorUi(false);
+
+            // explicit required message fallback
+            if (!remark) {
+                statusValidator.showErrors({
+                    Remark: 'Remark is required.'
+                });
+
+                setRemarkErrorUi(true);               
+                return;
+            }
+
+            // run unobtrusive validation as well
+            if (!$statusForm.valid()) {
+                setRemarkErrorUi(true);
+                return;
+            }
+
+            $.ajax({
+                url: '@Url.Action("ChangeDistributerInquiryStatus", "Inquiry")',
+                type: 'POST',
+                data: { uuid: uuid, isActive: isActive, remark: remark },
+                success: function (response) {
+                    if (response.success) {
+                        statusModal.hide();
+                        $('#datatable_1').DataTable().ajax.reload(null, false);
+                        Swal.fire('Updated!', response.message, 'success');
+                    } else {
+                        if ((response.message || '').toLowerCase().includes('remark')) {
+                            statusValidator.showErrors({ Remark: response.message });
+                            setRemarkErrorUi(true);
+                            return;
+                        }
+                        Swal.fire('Error!', response.message || 'Unable to update status.', 'error');
+                    }
+                },
+                error: function () {
+                    Swal.fire('Error!', 'Unable to update status.', 'error');
+                }
+            });
+        });
+
+        $('#Remark').on('input', function () {
+            if ((this.value || '').trim()) {
+                setRemarkErrorUi(false);
+            }
+        });
+    </script>
+    <script>
+                function buildDetailsRows(r) {
+            return [
+                { label: 'Full Name', value: r.fullName },
+                { label: 'Email Id', value: r.emailId },
+                { label: 'Phone No', value: r.phoneNo },
+                { label: 'Company Name', value: r.companyName },
+                { label: 'Business Type', value: r.businessType },
+                { label: 'Expected Retailers', value: r.expectedRetailers },
+                { label: 'State', value: r.stateUUID },
+                { label: 'City', value: r.cityUUID },
+                { label: 'Message', value: r.message },
+                { label: 'Status', value: r.status },
+                { label: 'Remark', value: r.remark },
+                { label: 'Action Taken By', value: r.actionTakenBy }
+            ];
+        }
+    </script>
+}

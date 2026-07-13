@@ -1,0 +1,138 @@
+﻿@model VerifyIndiaAdminPanel.Models.ApiProviderMappingVM
+@{
+    var isEdit = Model?.ApiProvider != null && !string.IsNullOrEmpty(Model.ApiProvider.UUID);
+    ViewData["Title"] = isEdit ? "Edit Api Provider Mapping" : "Add Api Provider Mapping";
+}
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row mt-2">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20"> @ViewData["Title"]</h3>
+                    </div><!--end col-->
+
+                </div> <!--end row-->
+            </div><!--end card-header-->
+            <div class="card-body pt-0">
+                <form id="bannerForm"
+                      asp-action="AddApiProviderMapping"
+                      method="post">
+
+                    <input type="hidden" asp-for="ApiProvider.UUID" />
+                    <input type="hidden" asp-for="ApiProvider.IsActive" />
+                   
+
+                    <div class="row align-items-end">
+
+                            <div class="row">
+                                
+                                
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                <form-field asp-for="ApiProvider.ApiUUID"
+                                            label="Api"
+                                            type="Select"
+                                            asp-items="@Model.Api"
+                                            placeholder="-- Api --"
+                                            required="true" />
+
+
+                                </div>
+
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                <form-field asp-for="ApiProvider.ProviderUUID"
+                                            label="Provider"
+                                            type="Select"
+                                            asp-items="@Model.Provider"
+                                            required="true" />
+                                </div>
+
+                            <div class="col-lg-12 text-align-end pt-4" id="submit">
+                                <form-button label="Cancel"
+                                             type="Cancel"
+                                             url="@Url.Action("ViewApiProviderMapping", "Api")" />
+
+                                <form-button label="Submit"
+                                             type="Submit" />
+                          
+                            </div>
+                            
+                                </div>
+                                
+
+                                
+                         
+                        <!-- Buttons -->
+                       
+
+                        </div>
+
+
+                       
+                  
+
+                </form>
+            </div><!--end card-body-->
+        </div><!--end card-->
+    </div><!--end row-->
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/fileupload.js"></script>
+    <script src="~/assets/js/select-clear.js"></script>
+    <script src="~/assets/js/select2.min.js"></script>
+    <script src="~/assets/js/validationanimation.js"></script>
+    <script src="~/assets/js/customdate.js"></script>
+    <script src="~/assets/js/dependent-dropdowns.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Initialize API -> Provider dependent dropdown filtering
+            var mappings = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ApiProviderMappings ?? new List<VerifyIndiaAdminPanel.Models.ApiProviderMapItem>()));
+            var providerList = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Provider ?? new List<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem>()));
+
+            window.DependentDropdowns.initApiProviderDependency(
+                '#ApiProvider_ApiUUID',      // API dropdown selector
+                '#ApiProvider_ProviderUUID', // Provider dropdown selector
+                providerList,                 // All available providers
+                mappings                     // API-to-Provider mappin
+            );
+             var apiMap = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.IsProviderSwitchable));
+
+        function toggleMultiEndpoint() {
+            var apiUUID = $('#ApiProvider_ApiUUID').val();
+
+            var isMulti = apiMap && apiUUID ? apiMap[apiUUID] === true : false;
+
+            if (isMulti) {
+                $('#multiEndpointSection1').show();
+                $('#multiEndpointSection2').show();
+
+                $('#ApiProvider.ProviderUUID1').prop('required', true);
+                $('#ApiProvider.ProviderUUID2').prop('required', false);
+                $('#submit').removeClass('col-lg-6').addClass('col-lg-12');
+            } else {
+                $('#multiEndpointSection1').hide();
+                $('#multiEndpointSection2').hide();
+
+                $('#ApiProvider.ProviderUUID1').prop('required', false).val('');
+                $('#ApiProvider.ProviderUUID2').prop('required', false).val('');
+                $('#submit').removeClass('col-lg-12').addClass('col-lg-6');
+            }
+        }
+
+        toggleMultiEndpoint();
+
+        $('#ApiProvider_ApiUUID').on('change', function () {
+            toggleMultiEndpoint();
+        });
+        });
+    </script>
+}

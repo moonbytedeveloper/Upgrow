@@ -1,0 +1,119 @@
+﻿@{
+    ViewData["Title"] = "View Document";
+}
+@section Styles {
+    <partial name="_ViewStyles" />
+}
+
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row mt-2">
+        <div class="card">
+        <div class="card-header">
+            <div class="row align-items-center">
+                <div class="col-9">
+                    <h3 class="card-title fs-20 mt-3 mb-3 ms-2">View Document</h3>
+                </div>
+                <div class="col-3 text-align-end">
+                    <form-button label="Add Document"
+                                 type="Add"
+                                 url="@Url.Action("MasterAddDocument", "Master")">
+                    </form-button>
+                  
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover datatableeditpopup" id="datatable_1">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Sr. No</th>
+                            <th style="display:none;">UUID</th>
+                            <th>Title</th>
+                            <th>File Type</th>
+                            <th data-action-column="true">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div><!--end card-->
+    </div>
+
+    <div id="rowActionMenu" class="row-action-menu">
+        <ul>
+            <action-link id="viewDocumentLink"  label="View Document"  type="View"></action-link>
+            <action-link id="editDocumentLink" label="Edit Document Details" type="Edit"></action-link>
+            <action-link id="viewHistoryLink" label="View History" type="ViewHistory"></action-link>
+        </ul>
+    </div>
+</div>
+
+<partial name="_Timer" />
+
+@section Scripts {
+    <partial name="_ViewScripts" />
+
+    <script>
+        const documentTable = initMasterTable({
+            tableId: '#datatable_1',
+            ajaxUrl: '@Url.Action("GetDocument", "Master")',
+            columns: [
+                { data: 'srno', orderable: false },
+                { data: 'uuid', visible: false },
+                { data: 'title' },
+                { data: 'filetype' },
+                { data: 'action', orderable: false }
+            ],
+            rowActions: [
+                 {
+                    selector: '#viewDocumentLink',
+                    idProperty: 'uuid',
+                    handler: function (rowData) {
+
+                        if (!rowData.documentUrl)
+                            return;
+
+                        window.open(rowData.documentUrl, '_blank');
+                    }
+                },
+                {
+                    selector: '#editDocumentLink',
+                    baseUrl: '@Url.Action("MasterEditDocument", "Master")',
+                    idProperty: 'uuid',
+                    paramName: 'uuid'
+                },
+                {
+                selector: '#viewHistoryLink',
+                baseUrl: 'javascript:void(0)',
+                idProperty: 'uuid',
+                handler: function (rowData) {
+                    AuditLogsUI.openLogs("Master_Document", rowData.uuid, false, "");
+                }
+            },
+            ]
+        });
+                AuditLogsUI.init(
+            AuditLogsUI.common.mergeConfig({
+                foreignKeyMap: {
+                },
+                friendlyFieldMap: {
+                    "Title": "Title",
+                    "FileType": "File Type",
+                    "FilePath": "File Path",
+                    "SequenceNo": "Sequence Number"
+                },
+                hiddenFields: [
+                    "FilePath"
+                ]
+            })
+        );
+    </script>
+    <script>
+        initActivityLogTable({ menuName: 'Master_Document' });
+    </script>
+}

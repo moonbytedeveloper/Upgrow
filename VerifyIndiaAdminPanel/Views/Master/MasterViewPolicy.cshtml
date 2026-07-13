@@ -1,0 +1,204 @@
+﻿@using VerifyIndiaAdminPanel.Models.Master
+@model PolicyVersionVM
+@{
+    ViewData["Title"] = "Policy";
+}
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+@section Styles {
+    <link href="~/assets/css/datepicker.css" rel="stylesheet" type="text/css" />
+
+}
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20">@ViewData["Title"]</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body pt-0">
+                @* POST to the save action (MasterVersionPolicy) so page reload shows TempData success and no stray markup *@
+                <form id="bannerForm" asp-action="MasterViewPolicy" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" asp-for="Command.UUID" id="HiddenUUID" />
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <!-- Update this form-field: removed id="policySelect" to avoid targeting wrapper DIV -->
+                            <form-field asp-for="Command.UUID"
+                                        asp-items="@(Model.PolicyOptions.Select(x => new SelectListItem { Value = x.UUID, Text = x.Title }))"
+                                        label="Policy Title"
+                                        type="Select"
+                                        required="true"
+                                        searchable="true">
+                            </form-field>
+                        </div>
+                        <div class="col-lg-3">
+                            <input type="hidden" asp-for="Command.SequenceNo" />
+                            <form-field asp-for="Command.SequenceNo"
+                                        id="sequenceNo"
+                                        label="Sequence No"
+                                        type="Number"
+                                        required="true" attr-readonly="true" />
+                        </div>
+
+                        <div class="col-lg-3">
+                            <input type="hidden" asp-for="Command.Version" />
+                            <form-field asp-for="Command.Version"
+                                        id="currentVersion"
+                                        label="Current Version"
+                                        type="Text"
+                                        required="true" attr-readonly="true" />
+                        </div>
+                        <div class="col-lg-3">
+                            <form-field asp-for="Command.VersionType"
+                                        label="Select Version Type"
+                                        type="Select"
+                                        asp-items="Model.VersionTypeList"
+                                        required="true" searchable="true">
+                            </form-field>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+                            <form-field asp-for="Command.FromDate"
+                                        label="From Date"
+                                        required="true"
+                                        type="Date" />
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+                            <form-field asp-for="Command.ToDate"
+                                        label="To Date"
+                                        required="true"
+                                        type="Date" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                            <form-field asp-for="Command.PolicyContent" label="Policy Content" type="CKEditor" required="true"></form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-4 col-sm-6 col-12 text-align-end pt-4">
+                        <form-button label="Cancel"
+                                     type="Cancel"
+                                     url="@Url.Action("MasterViewPolicy", "Master")" />
+                        <form-button label="Update"
+                                     type="Submit" id="bumpBtn" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/ckeditor/ckeditor/ckeditor.js"></script>
+    <script>
+        (function () {
+            let ckeditorInstance = null;
+
+            $(function () {
+                // CKEditor init for the asp-for field
+                const descElem = $('[name="Command.PolicyContent"]');
+                if (descElem.length) {
+                    try {
+                        ckeditorInstance = CKEDITOR.replace(descElem[0], {
+                            extraAllowedContent: 'div(*)[*]{*}; span(*)[*]{*}; p(*)[*]{*};',
+                            allowedContent: true,
+                            height: 300,
+                            toolbar: [
+                                { name: 'document', items: ['Source', '-', 'Save', 'NewPage', 'Preview'] },
+                                { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'] },
+                                { name: 'editing', items: ['Find', 'Replace', '-', 'SelectAll'] },
+                                '/',
+                                { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat'] },
+                                { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote'] },
+                                { name: 'links', items: ['Link', 'Unlink'] },
+                                { name: 'insert', items: ['Image', 'Table', 'HorizontalRule'] },
+                                '/',
+                                { name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize'] },
+                                { name: 'colors', items: ['TextColor', 'BGColor'] }
+                            ]
+                        });
+                    } catch (e) {
+                        console.error('CKEditor init error:', e);
+                    }
+                }
+
+                // canonical selectors (target the actual <select> and inputs rendered by tag helpers)
+                 const $policySelect = $('select[name="Command.UUID"]');
+                const $sequenceNo = $('[name="Command.SequenceNo"]');
+                const $currentVersion = $('[name="Command.Version"]');
+
+                function setPolicyContent(value) {
+                    if (ckeditorInstance) {
+                        ckeditorInstance.setData(value || '');
+                    } else {
+                        $('[name="Command.PolicyContent"]').val(value || '');
+                    }
+                }
+
+                function resetForm() {
+                    $sequenceNo.val('');
+                    $currentVersion.val('');
+                    setPolicyContent('');
+                }
+
+                function loadPolicyData(uuid, title) {
+                    if (!uuid && !title) {
+                        resetForm();
+                        return;
+                    }
+
+                    $.ajax({
+                        url: '@Url.Action("GetPolicyData", "Master")',
+                        type: 'POST',
+                        data: { uuid: uuid, title: title },
+                        success: function (response) {
+                            if (response && response.success) {
+                                $sequenceNo.val(response.data.sequenceNo ?? '');
+                                $currentVersion.val(response.data.version ?? '');
+                                setPolicyContent(response.data.policyContent ?? '');
+                                $('#HiddenUUID').val(response.data.uuid || uuid || '');
+                            } else {
+                                alert(response && response.message ? response.message : 'Failed to load policy.');
+                            }
+                        },
+                        error: function () {
+                            alert('Error loading policy data.');
+                        }
+                    });
+                }
+
+                // wire change on the real select element
+                $policySelect.on('change', function () {
+                    const uuid = $(this).val();
+                    const title = $(this).find('option:selected').text() || '';
+                    $('#HiddenUUID').val(uuid || '');
+                    loadPolicyData(uuid, title);
+                });
+
+                // initial load if preselected
+                const initVal = $policySelect.val();
+                const initTitle = ($policySelect.find('option:selected').text() || '').trim();
+                if (initVal) {
+                    $('#HiddenUUID').val(initVal);
+                    loadPolicyData(initVal, initTitle);
+                }
+            });
+        })();
+    </script>
+
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/select-clear.js"></script>
+    <script src="~/assets/js/select2.min.js"></script>
+    <script src="~/assets/js/validationanimation.js"></script>
+    <script src="~/assets/js/customdate.js"></script>
+    <script src="~/assets/js/custom.js"></script>
+    <script src="~/assets/js/moment.js"></script>
+    <script src="~/assets/js/bootstrap-datetimepicker.min.js"></script>
+    
+}

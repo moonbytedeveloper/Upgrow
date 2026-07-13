@@ -1,0 +1,101 @@
+﻿@model VerifyIndiaAdminPanel.Models.Api.ApiEndpointVM
+@{
+    var isEdit = Model?.ApiEndpoint != null && !string.IsNullOrEmpty(Model.ApiEndpoint.UUID);
+    ViewData["Title"] = isEdit ? "Edit Api Endpoint" : "Add Api Endpoint";
+}
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row mt-2">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20"> @ViewData["Title"]</h3>
+                    </div><!--end col-->
+
+                </div> <!--end row-->
+            </div><!--end card-header-->
+            <div class="card-body pt-0">
+                <form id="bannerForm"
+                      asp-action="AddApiEndpoint"
+                      method="post">
+
+                    <input type="hidden" asp-for="ApiEndpoint.UUID" />
+                    <input type="hidden" asp-for="ApiEndpoint.IsActive" />
+
+
+                    <div class="row align-items-end">
+
+                        <div class="row">
+
+
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                <form-field asp-for="ApiEndpoint.ApiUUID"
+                                            label="Api"
+                                            type="Select"
+                                            asp-items="@Model.Api"
+                                            placeholder="-- Api --"
+                                            required="true" />
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                <form-field asp-for="ApiEndpoint.EndpointUrl"
+                                            label="Endpoint Url"
+                                            type="Text"
+                                            required="true" />
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                <form-field asp-for="ApiEndpoint.HttpMethod"
+                                            label="Http Method"
+                                            type="Select"
+                                            asp-items="@Model.HttpMethods"
+                                            placeholder="-- Http Method --"
+                                            required="true" />
+                            </div>
+                            <div class="col-lg-3 text-align-end pt-4" id="submit">
+                                <form-button label="Cancel"
+                                             type="Cancel"
+                                             url="@Url.Action("ViewApiEndpoint", "Api")" />
+
+                                <form-button label="Submit"
+                                             type="Submit" />
+                            </div>
+                        </div>
+                       
+
+                    </div>
+
+                </form>
+            </div><!--end card-body-->
+        </div><!--end card-->
+    </div><!--end row-->
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/fileupload.js"></script>
+    <script src="~/assets/js/select-clear.js"></script>
+    <script src="~/assets/js/select2.min.js"></script>
+    <script src="~/assets/js/validationanimation.js"></script>
+    <script src="~/assets/js/customdate.js"></script>
+    <script src="~/assets/js/dependent-dropdowns.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var mappings = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ApiProviderMapping ?? new List<VerifyIndiaAdminPanel.Models.Api.ApiProvidermapsItem>()));
+
+
+            window.DependentDropdowns.initApiProviderDependency(
+                '#ApiEndpoint_ApiUUID',      
+                '#ApiEndpoint_ProviderUUID', 
+                providerList,                 
+                mappings,                    
+                { placeholder: '', preserveOnLoad: true }
+            );
+        });
+    </script>
+}

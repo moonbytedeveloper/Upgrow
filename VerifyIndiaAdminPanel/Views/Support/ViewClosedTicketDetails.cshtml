@@ -1,0 +1,313 @@
+﻿@model VerifyIndiaAdminPanel.Models.Support.SupportTicketDetailsVM
+@{
+    ViewData["Title"] = "View Closed Tickets Details";
+}
+@functions {
+    public string TimeAgo(DateTimeOffset? date)
+    {
+        if (!date.HasValue)
+            return "-";
+
+        var now = DateTimeOffset.Now;
+        var time = now - date.Value;
+
+        if (time.TotalMinutes < 1)
+            return "Just now";
+
+        if (time.TotalMinutes < 60)
+            return $"{(int)time.TotalMinutes} minutes ago";
+
+        if (time.TotalHours < 24)
+            return $"{(int)time.TotalHours} hours ago";
+
+        if (time.TotalDays < 7)
+            return $"{(int)time.TotalDays} days ago";
+
+        return date.Value.ToString("dd MMM yyyy, hh:mm tt");
+    }
+}
+<div class="container-fluid">
+
+    <div class="row mt-2">
+        <div class="col-lg-9">
+
+            <div class="card mb-3">
+                 <form asp-action="ReopenTicket" method="post">
+                    <input type="hidden" asp-for="TicketUUID" />
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-lg-9">
+                    <h5>@Model.TicketNumber - @Model.Subject</h5>
+                       </div>
+                    <div class="col-lg-3 text-end">
+                        <form-button label="Reopen Ticket" type="Submit" />
+                    </div>
+                   </div>
+                </div>
+                </form>
+                <div class="card-body pt-0">
+                    <div class="card-body p-0 mt-4">
+
+                        <ul class="nav nav-pills nav-justified custom-tabs position-relative" role="tablist>
+                            <li class="nav-item waves-effect waves-light" role="presentation">
+                                <a class="nav-link active" data-bs-toggle="tab" href="#All">All</a>
+                            </li>
+                            <li class="nav-item waves-effect waves-light" role="presentation">
+                                <a class="nav-link" data-bs-toggle="tab" href="#Attachments">Attachments</a>
+                            </li>
+                            <span class="tab-indicator"></span>
+                        </ul>
+
+                        <div class="tab-content">
+
+                            <div class="tab-pane p-3 active show"
+                                 id="All"
+                                 role="tabpanel">
+
+                                @foreach (var msg in Model.Messages)
+                                {
+                                    var boxClass = msg.UserType == "Customer" || msg.UserType == "WhiteLabel"
+                                    ? "client-box"
+                                    : "supportbox";
+
+                                    var firstLetter = msg.UserName?.Substring(0, 1).ToUpper() ?? "?";
+
+                                    <div class="d-flex mb-4 align-items-start">
+
+                                        <!-- Avatar -->
+
+                                        <div class="avatar-circle me-3">
+                                            @firstLetter
+                                        </div>
+
+                                        <!-- Content -->
+
+                                        <div class="flex-grow-1">
+
+                                            <!-- Header -->
+
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+
+                                                <strong class="fs-13">
+                                                    @msg.UserName
+                                                </strong>
+
+                                                <small class="text-muted fs-11">
+                                                    @TimeAgo(msg.CreatedAt)
+                                                </small>
+
+                                            </div>
+
+                                            <!-- Message -->
+
+                                            <div class="conversation-box @boxClass">
+
+                                                <p class="mb-2">
+                                                    @msg.Message
+                                                </p>
+
+                                                @if (msg.UrlWithDomain?.Any() == true)
+                                                {
+                                                    foreach (var file in msg.UrlWithDomain)
+                                                    {
+                                                        <div class="attachment-box">
+
+                                                            <i class="mdi mdi-paperclip me-1"></i>
+
+                                                            <a href="@file" target="_blank">
+                                                                @System.IO.Path.GetFileName(file)
+                                                            </a>
+
+                                                        </div>
+                                                    }
+                                                }
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                }
+
+                            </div>
+
+                            <!-- ================= ATTACHMENTS TAB ================= -->
+                            <div class="tab-pane p-3" id="Attachments" role="tabpanel">
+
+                                @foreach (var msg in Model.Messages)
+                                {
+                                    if (msg.UrlWithDomain?.Any() == true)
+                                    {
+                                        foreach (var file in msg.UrlWithDomain)
+                                        {
+                                            <div class="d-flex mb-4 align-items-start">
+
+                                                <div class="avatar-circle me-3">
+                                                    @msg.UserName.Substring(0, 1).ToUpper()
+                                                </div>
+
+                                                <div class="flex-grow-1">
+
+                                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                                        <strong class="fs-13">@msg.UserName</strong>
+                                                        <small class="text-muted fs-11">
+                                                            @TimeAgo(msg.CreatedAt)
+                                                        </small>
+                                                    </div>
+
+                                                    <div class="conversation-box">
+                                                        <i class="mdi mdi-paperclip me-1"></i>
+                                                        <a href="@file" target="_blank">
+                                                            @System.IO.Path.GetFileName(file)
+                                                        </a>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                }
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-lg-3">
+
+            <div class="card" style="padding: 0px 15px 5px;">
+
+                <div class="card-header d-flex collapse-header"
+                     data-bs-toggle="collapse"
+                     data-bs-target="#ticketDetailsCollapse" aria-expanded="true">
+
+                    <h3 class="card-title fs-16 mt-2">Ticket Details</h3>
+                    <div class="toggleswitch mt-2">
+                    <i class="mdi mdi-chevron-up fs-20"></i>
+                    </div>
+                </div>
+
+                <div class="collapse" id="ticketDetailsCollapse">
+
+                    <ul class="list-unsyled m-0 ps-0 transaction-history ticketdetails">
+
+                        <li class="align-items-center d-flex justify-content-between">
+                            <div class="media">
+
+                                <div class="media-body align-self-center">
+                                    <div class="transaction-data">
+                                        <h5 class="m-0 fs-12  fw-bold">Status :</h5>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 class="m-0 fs-12">
+                                <span class="badge badge-outline-warning">
+                                    @Model.Status
+                                </span>
+                            </h5>
+
+                        </li>
+
+                        <li class="align-items-center d-flex justify-content-between">
+
+                            <div class="media">
+
+                                <div class="media-body align-self-center">
+                                    <div class="transaction-data">
+                                        <h5 class="m-0 fs-12  fw-bold">Ticket Id :</h5>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h5 class="m-0 fs-12">
+                                @Model.TicketNumber
+                            </h5>
+
+                        </li>
+
+                        <li class="align-items-center d-flex justify-content-between">
+
+                            <div class="media">
+
+                                <div class="media-body align-self-center">
+                                    <div class="transaction-data">
+                                        <h5 class="m-0 fs-12  fw-bold">Created :</h5>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h5 class="m-0 fs-12">
+                                @Model.CreatedAt?.ToString("dd-MM-yyyy hh:mm tt")
+                            </h5>
+
+                        </li>
+
+                        <li class="align-items-center d-flex justify-content-between">
+                            <div class="media">
+
+                                <div class="media-body align-self-center">
+                                    <div class="transaction-data">
+                                        <h5 class="m-0 fs-12 fw-bold">Assign To :</h5>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 class="m-0 fs-12">
+                                @Model.Assignee
+                            </h5>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/fileupload.js"></script>
+    <script src="~/assets/js/imagepreview.js"></script>
+    <script src="~/assets/js/validationanimation.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const indicator = document.querySelector(".tab-indicator");
+
+        function moveIndicator(el) {
+        const parent = el.parentElement.parentElement; 
+        const parentRect = parent.getBoundingClientRect();
+        const rect = el.getBoundingClientRect();
+               indicator.style.width = rect.width + "px";
+               indicator.style.left = (rect.left - parentRect.left) + "px";
+        }
+
+        const activeTab = document.querySelector(".custom-tabs .nav-link.active");
+        if (activeTab) moveIndicator(activeTab);
+        const tabs = document.querySelectorAll(".custom-tabs .nav-link");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("shown.bs.tab", function (e) {
+                moveIndicator(e.target);
+            });
+        });
+
+    });
+    </script>
+}

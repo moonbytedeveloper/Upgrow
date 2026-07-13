@@ -1,0 +1,158 @@
+﻿@model VerifyIndia.Application.Commands.Master.MasterOfferCommand
+@{
+    var isEditMode = !string.IsNullOrWhiteSpace(Model?.UUID);
+    var pageTitle = isEditMode ? "Edit Offer" : "Add Offer";
+    ViewData["Title"] = pageTitle;
+}       
+@section Styles {
+    <link href="~/assets/css/datepicker.css" rel="stylesheet" type="text/css" />
+}
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row mt-2">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20">@pageTitle</h3>
+                    </div><!--end col-->
+
+                </div> <!--end row-->
+            </div><!--end card-header-->
+            <div class="card-body pt-0">
+                <form id="bannerForm" asp-action="MasterAddOffer" method="post">
+                    <input type="hidden" asp-for="UUID" />
+                    <input type="hidden" asp-for="IsActive" />
+
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Name"
+                                        label="Offer Name"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="OfferCode"
+                                        label="Offer Code"
+                                        required="true"
+                                        type="Text">
+                            </form-field>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="OfferType"
+                                        label="Offer Type"
+                                        type="Select"
+                                        asp-items="@Model.OfferTypeList"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="OfferValue"
+                                        label="Offer Value"
+                                        required="true"
+                                        type="Text">
+                            </form-field>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="MinOrderAmount"
+                                        label="Min Order Amount"
+                                        required="true"
+                                        type="Text">
+                            </form-field>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="MaxDiscountAmount"
+                                        label="Max Discount Amount"
+                                        required="true"
+                                        type="Text">
+                            </form-field>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="MaxUsageCount"
+                                        label="Max Usage Count"
+                                        required="true"
+                                        type="Text">
+                            </form-field>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="PerUserUsageCount"
+                                        label="Per User Usage Count"
+                                        required="true"
+                                        type="Text">
+                            </form-field>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="ValidFrom"
+                                        label="Valid From"
+                                        required="true"
+                                        type="Date">
+                            </form-field>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="ValidTo"
+                                        label="Valid To"
+                                        required="true"
+                                        type="Date">
+                            </form-field>
+                        </div>
+                        <div class="col-lg-6 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Description"
+                                        label="Description"
+                                        required="true"
+                                        type="TextArea">
+                            </form-field>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="IsFirstTransactionOnly"
+                                        label="Is First Transaction Only"
+                                        required="true"
+                                        type="Checkbox">
+                            </form-field>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="IsApplicableForAllUsers"
+                                        label="IsApplicable For AllUsers"
+                                        required="true"
+                                        type="Checkbox">
+                            </form-field>
+                        </div>
+
+                        <div class="col-lg-6 col-md-4 col-sm-6 col-12 text-align-end pt-4">
+                            <form-button label="Cancel"
+                                         type="Cancel"
+                                         url="@Url.Action("MasterViewOffer", "Master")" />
+                            <form-button label="Submit"
+                                         type="Submit" />
+                        </div>
+
+                    </div>
+                </form>
+
+
+            </div><!--end card-body-->
+        </div><!--end card-->
+
+    </div><!--end row-->
+
+
+
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/validationanimation.js"></script>
+    <script src="~/assets/js/customdate.js"></script>
+    <script src="~/assets/js/custom.js"></script>
+    <script src="~/assets/js/moment.js"></script>
+    <script src="~/assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/assets/js/select2.min.js"></script>
+    <script src="~/assets/js/select-clear.js"></script>
+}
+

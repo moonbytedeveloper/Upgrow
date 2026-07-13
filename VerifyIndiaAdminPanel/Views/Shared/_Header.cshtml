@@ -1,0 +1,455 @@
+﻿@using System.Security.Claims
+@using VerifyIndia.Application.DTOs.Master
+@using VerifyIndia.Application.IServices.Master
+@inject VerifyIndia.Application.IServices.Master.IMenuQueryService MenuQueryService
+@inject VerifyIndia.Application.IServices.IDomainResolverService DomainResolverService
+@inject IMasterMenuService MenuService
+@{
+    var userName = User?.Identity?.Name ?? "User";
+    var profileImage = User.FindFirst("ProfilePic")?.Value;
+    var profileImageUrl = string.IsNullOrEmpty(profileImage)
+           ? Url.Content("~/assets/images/users/default-user.png")
+           : (DomainResolverService.BuildAbsoluteUrl(profileImage) ?? Url.Content("~/assets/images/users/default-user.png"));
+
+    var roleClaims = User?.Claims?
+        .Where(c => c.Type == ClaimTypes.Role || c.Type == "role" || c.Type == "Role_UUID" || c.Type == "RoleUUID")
+        .Select(c => c.Value)
+        .Where(v => !string.IsNullOrWhiteSpace(v))
+        .ToArray();
+
+    var employeeCodeClaim = User.FindFirst("EmployeeCode")?.Value;
+    var honorificClaim = User.FindFirst("Honorific")?.Value;
+
+    var menus = await MenuQueryService.GetMenusForRolesAsync(roleClaims != null && roleClaims.Length > 0 ? roleClaims : null);
+
+    var displayName = string.IsNullOrWhiteSpace(honorificClaim)
+        ? userName
+        : $"{honorificClaim.Trim()} {userName}";
+
+    // Load top-level menus (first level) to render dynamic sidebar icons and panes
+    var topMenus = await MenuService.GetMainParentsAsync();
+}
+
+<div>
+    <!-- leftbar-tab-menu -->
+    <div class="leftbar-tab-menu">
+        <div class="main-icon-menu">
+            <a href="/Dashboard/Index" class="logo logo-metrica d-block text-center">
+                <span>
+                    <img src="@Url.Content("~/assets/images/newwebsite/WhiteBgBlackCat.png")" alt="logo-small" class="logo-sm" id="smallwhitelogo" />
+                    <img src="@Url.Content("~/assets/images/newwebsite/BlackBgWhiteCat.png")" alt="logo-small" class="logo-sm d-none" id="smallcolorlogo" />
+                </span>
+            </a>
+            <div class="main-icon-menu-body">
+                <div class="position-reletive h-100" data-simplebar style="overflow-x: hidden;">
+                    <ul class="nav nav-tabs" role="tablist" id="tab-menu">
+                        @* Render dynamic first-level tabs (icons) using topMenus *@
+                        @foreach (var main in topMenus.Where(m => (m.MenuLevel ?? 0) == 1).OrderBy(m => m.Sequence ?? 0))
+                        {
+                            var raw = main.MenuIcon?.Trim() ?? "";
+                            string? iconHtml = null;
+
+                            if (!string.IsNullOrWhiteSpace(raw))
+                            {
+                                if (raw.StartsWith("<"))
+                                {
+                                    iconHtml = raw;
+                                }
+                                else
+                                {
+                                    iconHtml = $"<i class=\"{raw} menu-icon\"></i>";
+                                }
+                            }
+
+                            var tabHref = $"#Menu_{main.UUID}";
+                            <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="@main.MenuName"
+                                data-bs-trigger="hover">
+                                <a href="@tabHref" id="Menu_@main.UUID-tab" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="Menu_@main.UUID">
+                                    @if (!string.IsNullOrEmpty(iconHtml))
+                                    {
+                                        @Html.Raw(iconHtml)
+                                    }
+                                </a>
+                            </li>
+                        }
+                    </ul><!--end nav-->
+                </div><!--end /div-->
+            </div><!--end main-icon-menu-body-->
+            <div class="pro-metrica-end">
+                <span class="profile Ip" data-bs-toggle="tooltip" data-bs-placement="right" title="183.24.39.216"
+                      data-bs-trigger="hover">
+                    <i class="mdi mdi-ip-network menu-icon" style="color: #becae6; font-size: 22px;"></i>
+                </span>
+            </div><!--end pro-metrica-end-->
+        </div>
+        <!--end main-icon-menu-->
+
+        <div class="main-menu-inner">
+            <!-- LOGO -->
+            <div class="topbar-left">
+                <a href="/Dashboard/Index" class="logo">
+                    <span>
+                       
+                    </span> 
+                </a><!--end logo-->
+            </div><!--end topbar-left-->
+            <!--end logo-->
+            <div class="menu-body navbar-vertical tab-content" data-simplebar>
+                @* Render panes from the menu tree (keeps existing behavior) *@
+                @await Html.PartialAsync("~/Views/Shared/_AdminMenuPartial.cshtml", menus)
+            </div>
+            <!--end menu-body-->
+        </div><!-- end main-menu-inner-->
+    </div>
+    <!-- end leftbar-tab-menu-->
+    <!-- Top Bar Start -->
+    <div class="topbar">
+        <!-- Navbar -->
+        <nav class="navbar-custom" id="navbar-custom">
+            <ul class="list-unstyled topbar-nav float-end mb-0">
+                <li class="notification-list">
+                    <a class="nav-link arrow-none nav-icon me-0" href="#" id="themeToggle">
+                        <i class="fas fa-moon" id="moonIcon"></i>
+                        <i class="fas fa-sun d-none" id="sunIcon"></i>
+                    </a>
+                </li>
+
+                <li class="dropdown notification-list">
+                    <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#"
+                       role="button" aria-haspopup="false" aria-expanded="false">
+                        <i class="ti ti-bell"></i>
+                        <span class="alert-badge"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end dropdown-lg pt-0 dark-mode-dropdown">
+
+                        <h6 class="dropdown-item-text font-15 m-0 py-3 border-bottom d-flex justify-content-between align-items-center">
+                            Notifications <span class="badge bg-soft-primary badge-pill">2</span>
+                        </h6>
+                        <div class="notification-menu" data-simplebar>
+                            <!-- notifications (unchanged) -->
+                        </div>
+                        <a href="javascript:void(0);" class="dropdown-item text-center text-primary">
+                            View all <i class="fi-arrow-right"></i>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <a class="nav-link dropdown-toggle nav-user" data-bs-toggle="dropdown" href="#" role="button"
+                       aria-haspopup="false" aria-expanded="false">
+                        <div class="d-flex align-items-center">
+                            <img src="@profileImageUrl"
+                                 alt="profile-user"
+                                 class="rounded-circle me-2 thumb-sm" />
+                            <div>
+                                <small class="d-none d-md-block font-11">ID : <span>@(employeeCodeClaim ?? "CLL-IDR-2025001")</span></small>
+                                <span class="d-none d-md-block fw-semibold font-12">@displayName <i class="mdi mdi-chevron-down"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="@Url.ActionLink("ViewProfile", "Master")"><i class="ti ti-user font-16 me-1 align-text-bottom"></i> Profile</a>
+@*                         <a class="dropdown-item" href="#"><i class="ti ti-settings font-16 me-1 align-text-bottom"></i> Settings</a> *@
+                        <div class="dropdown-divider mb-0"></div>
+                        <a asp-controller="Auth" asp-action="Logout" class="dropdown-item Logoutbtn">
+                            <i class="ti ti-power font-16 me-1 align-text-bottom"></i> Logout
+                        </a>
+                    </div>
+                </li>
+            </ul><!--end topbar-nav-->
+
+            <ul class="list-unstyled topbar-nav mb-0">
+                <li>
+                    <button class="nav-link button-menu-mobile nav-icon" id="togglemenu">
+                        <i class="ti ti-menu-2"></i>
+                    </button>
+                </li>
+                <li class="hide-phone app-search">
+                    <a href="/Dashboard/Index">
+                        <img src="@Url.Content("~/assets/images/newwebsite/AuthenticateIndiaBlackLogo.png")" height="50" class="logo-light" />
+                        <img src="@Url.Content("~/assets/images/newwebsite/AuthenticateIndiaWhiteLogo.png")" height="50" class="logo-dark" />
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- end navbar-->
+    </div>
+    <!-- Top Bar End -->
+</div>
+
+<script>
+    //Update by Krishna (09-04-2026)
+    // Update for  Close sidebar when click again on menu icon
+    document.addEventListener('DOMContentLoaded', function () {
+        var body = document.body;
+        var toggleBtn = document.getElementById('togglemenu');
+        if (!toggleBtn) return;
+
+        function isSidebarOpen() {
+            // app expects 'enlarge-menu' on body when collapsed — so open when NOT present
+            return !body.classList.contains('enlarge-menu');
+        }
+
+        function clearActive() {
+            document.querySelectorAll('.main-icon-menu-pane.tab-pane').forEach(function (p) {
+                p.classList.remove('show', 'active');
+            });
+            document.querySelectorAll('#tab-menu a.nav-link').forEach(function (a) {
+                a.classList.remove('active');
+            });
+        }
+
+        function activatePane(id) {
+            if (!id) return;
+            clearActive();
+            var pane = document.getElementById(id);
+            var link = document.querySelector('#tab-menu a.nav-link[href="#' + id + '"]');
+            if (pane) pane.classList.add('show', 'active');
+            if (link) link.classList.add('active');
+        }
+
+        function normalizePath(path) {
+            if (!path) return '/';
+            var p = path.split('?')[0].split('#')[0];
+            p = p.replace(/\/+$/, '');
+            return p || '/';
+        }
+
+        function findInitialTopTabByCurrentUrl() {
+            var currentPath = normalizePath(window.location.pathname).toLowerCase();
+            var links = document.querySelectorAll('.menu-body .main-icon-menu-pane a.nav-link[href]:not([data-bs-toggle])');
+
+            for (var i = 0; i < links.length; i++) {
+                var href = links[i].getAttribute('href');
+                if (!href || href === '#' || href.startsWith('javascript:')) continue;
+
+                try {
+                    var targetPath = normalizePath(new URL(href, window.location.origin).pathname).toLowerCase();
+                    if (targetPath === currentPath) {
+                        var pane = links[i].closest('.main-icon-menu-pane.tab-pane');
+                        return pane ? pane.id : null;
+                    }
+                } catch (e) {
+                    // ignore invalid URLs
+                }
+            }
+
+            return null;
+        }
+
+        // Wait until isSidebarOpen() matches expectedOpen or timeout elapses.
+        function waitForSidebarState(expectedOpen, timeout) {
+            timeout = typeof timeout === 'number' ? timeout : 500;
+            var start = Date.now();
+            return new Promise(function (resolve) {
+                (function poll() {
+                    if (isSidebarOpen() === expectedOpen) return resolve(true);
+                    if (Date.now() - start >= timeout) return resolve(false);
+                    setTimeout(poll, 18); // small polling interval
+                })();
+            });
+        }
+
+        var activeTopTab = null;
+        var topMenuLinks = document.querySelectorAll('#tab-menu a.nav-link');
+
+        var initialTopTab = findInitialTopTabByCurrentUrl();
+        if (initialTopTab) {
+            activatePane(initialTopTab);
+            activeTopTab = initialTopTab;
+        } else {
+            clearActive();
+        }
+
+        // new flag to prevent the theme toggle from applying the "full hide" (sidebar-hidden)
+        // when we want the icon-rail (blue strip) to remain visible.
+        var preventFullHide = false;
+
+        topMenuLinks.forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                 // 🔥 CRITICAL FIX: stop Bootstrap tab from interfering
+            e.preventDefault();
+            e.stopImmediatePropagation();
+                var href = link.getAttribute('href') || '';
+                var clickedTab = href.replace('#', '') || null;
+
+                e.preventDefault();
+                e.stopPropagation();
+
+                // If collapsed -> open and show pane
+                if (!isSidebarOpen()) {
+                    // trigger the existing toggle flow (keeps other app behavior)
+                    toggleBtn.click();
+
+                    // wait until it actually opens, then activate pane
+                    waitForSidebarState(true, 600).then(function () {
+                        activatePane(clickedTab);
+                        activeTopTab = clickedTab;
+                    });
+
+                    return;
+                }
+
+                // Sidebar open and same icon clicked -> collapse sidebar (keep topbar menu icon visible)
+                if (isSidebarOpen() && activeTopTab === clickedTab) {
+                    // prevent the toggle handler from applying the full hide so the icon-rail remains visible
+                     clearActive();
+                    preventFullHide = true;
+                    toggleBtn.click();
+
+                    // wait until it actually collapses, then clear state
+                    waitForSidebarState(false, 700).then(function () {
+                        //clearActive();
+                        activeTopTab = null;
+                        preventFullHide = false;
+                        // ensure sidebar-hidden isn't lingering
+                        body.classList.remove('sidebar-hidden');
+                    });
+
+                    return;
+                }
+
+                // Sidebar open and different icon clicked -> switch pane
+                if (isSidebarOpen() && activeTopTab !== clickedTab) {
+                    activatePane(clickedTab);
+                    activeTopTab = clickedTab;
+                    return;
+                }
+
+                // Fallback
+                activatePane(clickedTab);
+                activeTopTab = clickedTab;
+            });
+        });
+
+        // Outside click and Escape: collapse (keep topbar visible) and clear panes
+        document.addEventListener('click', function (e) {
+            if (!isSidebarOpen()) return;
+            var sidebar = document.querySelector('.leftbar-tab-menu');
+            var topbar = document.querySelector('.topbar');
+            if (sidebar && sidebar.contains(e.target)) return;
+            if (topbar && topbar.contains(e.target)) return;
+
+            toggleBtn.click();
+            waitForSidebarState(false, 600).then(function () {
+                clearActive();
+                activeTopTab = null;
+                body.classList.remove('sidebar-hidden');
+            });
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && isSidebarOpen()) {
+                toggleBtn.click();
+                waitForSidebarState(false, 600).then(function () {
+                    clearActive();
+                    activeTopTab = null;
+                    body.classList.remove('sidebar-hidden');
+                });
+            }
+        });
+
+        // Keep state in sync if user uses the theme toggle directly
+        toggleBtn.addEventListener('click', function () {
+            setTimeout(function () {
+                // If theme collapsed sidebar, apply full hide only when not prevented.
+                if (!isSidebarOpen()) {
+                    if (!preventFullHide) {
+                        body.classList.add('sidebar-hidden');
+                        clearActive();
+                        activeTopTab = null;
+                    } else {
+                        // we're intentionally keeping the icon-rail visible; ensure sidebar-hidden is not applied
+                        body.classList.remove('sidebar-hidden');
+                    }
+                } else {
+                    // opened — ensure full-hide isn't present
+                    body.classList.remove('sidebar-hidden');
+                }
+            }, 160);
+        });
+    });
+</script>
+
+@* 
+    old script
+    <script>
+    // Prevent fragment navigation side-effects for tab/collapse triggers
+    document.addEventListener('click', function (ev) {
+        var a = ev.target.closest && ev.target.closest('a');
+        if (!a) return;
+
+        var href = a.getAttribute('href') || '';
+        var isBootstrapToggle = a.hasAttribute('data-bs-toggle') || a.hasAttribute('data-bs-target');
+
+        if (isBootstrapToggle) {
+            if (href.startsWith('#')) {
+                ev.preventDefault();
+            }
+            setTimeout(function () {
+                if (window.location.hash) {
+                    history.replaceState(null, '', window.location.pathname + window.location.search);
+                }
+            }, 50);
+        }
+    });
+
+    if (window.location.hash) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+</script>
+
+<script>
+    async function reloadAdminMenuPartial() {
+        try {
+            await new Promise(r => setTimeout(r, 300));
+            const res = await fetch('@Url.Action("RenderMenuPartial", "Master", new { area = "Admin" })', { credentials: 'same-origin' });
+            if (!res.ok) {
+                console.warn('Failed to fetch menu partial', res.status);
+                return;
+            }
+            const html = await res.text();
+            const container = document.querySelector('.menu-body.navbar-vertical.tab-content');
+
+            if (container) {
+                container.innerHTML = html;
+                try {
+                    if (window.feather && typeof feather.replace === 'function') feather.replace();
+                    if (typeof initializeMenusAndUI === 'function') initializeMenusAndUI();
+                    if (typeof activateMenu === 'function') activateMenu();
+
+                    const t = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+                    t.forEach(el => {
+                        try { new bootstrap.Tooltip(el); } catch (e) { }
+                    });
+                } catch (e) { console.warn('Menu partial post-init failed', e); }
+            } else {
+                location.reload();
+            }
+        } catch (err) {
+            console.error('reloadAdminMenuPartial error', err);
+            location.reload();
+        }
+    }
+
+    if (window.jQuery) {
+        $(document).ajaxSuccess(function (event, xhr, settings) {
+            try {
+                var url = (settings && settings.url) ? settings.url.toLowerCase() : '';
+                if (!url) return;
+                if (url.indexOf('/admin/master/toggle') !== -1) {
+                    setTimeout(reloadAdminMenuPartial, 250);
+                }
+            } catch (e) { }
+        });
+    }
+
+    document.addEventListener('change', function (evt) {
+        try {
+            var t = evt.target;
+            if (t && t.classList && t.classList.contains('toggle-status')) {
+                setTimeout(reloadAdminMenuPartial, 300);
+            }
+        } catch (e) { }
+    }, true);
+</script> *@

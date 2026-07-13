@@ -1,0 +1,64 @@
+﻿@model VerifyIndiaAdminPanel.Models.Master.WLMasterManagePathVM
+
+@{
+    ViewData["Title"] = string.IsNullOrEmpty(Model.ManagePath.UUID) ? "Add WL Path Permission" : "Edit WL Path Permission";
+}
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20">@ViewData["Title"]</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body pt-0">
+                <form id="bannerForm" asp-action="WLMasterAddManagePath" method="post">
+                    <input type="hidden" asp-for="ManagePath.UUID" />
+                    <input type="hidden" asp-for="ManagePath.IsActive" />
+
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="ManagePath.PathUUID"
+                                        label="Path"
+                                        type="Select"
+                                        asp-items="Model.PathList"
+                                        required="true"
+                                        placeholder="Select Path" />
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="ManagePath.PermissionUUID"
+                                        label="Permission"
+                                        type="Select"
+                                        asp-items="Model.PermissionList"
+                                        required="true"
+                                        placeholder="Select Permission" />
+                        </div>
+
+                        <div class="col-lg-6 col-md-4 col-sm-6 col-12 text-align-end pt-4">
+                            <form-button label="Cancel"
+                                         type="Cancel"
+                                         url="@Url.Action("WLMasterViewManagePath", "Master")" />
+                            <form-button label="Submit"
+                                         type="Submit" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<partial name="_Timer" />
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/validationanimation.js"></script>
+    <script src="~/assets/js/select2.min.js"></script>
+}

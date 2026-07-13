@@ -1,0 +1,22 @@
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using VerifyIndia.Application.Commands.Api;
+using VerifyIndia.Application.Commands.Master;
+
+namespace VerifyIndiaAdminPanel.Models
+{
+    public class ApiProviderMappingVM
+    {
+        public ApiProviderMappingCommand ApiProvider { get; set; } = new();
+        public IEnumerable<SelectListItem> Api { get; set; } = [];
+        public IEnumerable<SelectListItem> Provider { get; set; } = [];
+        // Holds the relationships between APIs and Providers so the client can filter provider dropdown
+        public IEnumerable<ApiProviderMapItem> ApiProviderMappings { get; set; } = [];
+        public Dictionary<string, bool> IsProviderSwitchable { get; set; } = new();
+    }
+    public class ApiProviderMapItem
+    {
+        public string ApiUUID { get; set; } = string.Empty;
+        public string ProviderUUID { get; set; } = string.Empty;
+    }
+}
+

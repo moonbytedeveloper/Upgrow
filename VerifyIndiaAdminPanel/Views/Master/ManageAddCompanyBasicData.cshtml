@@ -1,0 +1,109 @@
+﻿@model VerifyIndia.Application.Commands.Master.MasterCompanyBasicDataCommand
+
+@{
+    ViewData["Title"] = "Manage Company Basic Data";
+}
+
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row mt-2">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20 mt-3 mb-3 ms-2">@ViewData["Title"]</h3>
+                    </div><!--end col-->
+                    
+                </div> <!--end row-->
+            </div><!--end card-header-->
+            <div class="card-body pt-0">
+                <form id="bannerForm" asp-action="ManageCompanyBasicData" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="UUID" />
+                    <input type="hidden" asp-for="IsActive" />
+                    <input type="hidden" asp-for="WebsiteLogo" />
+                    <input type="hidden" asp-for="StickyLogo" />
+                    <input type="hidden" asp-for="FooterLogo" />
+
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="CompName"
+                                        label="Company name"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Phone"
+                                        label="Company contact no."
+                                        type="Text"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="EmailId"
+                                        label="Company email id"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="GoogleMapIframe"
+                                        label="Google iframe"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-6 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Address"
+                                        label="Company address"
+                                        type="TextArea"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="WebsiteLogoImage"
+                                        label="Upload website logo"
+                                        type="File"
+                                        required="string.IsNullOrEmpty(Model.WebsiteLogo)"
+                                        view-link-path="@Model.websiteUrlwithdomain" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="StickyLogoImage"
+                                        label="Upload sticky logo"
+                                        type="File"
+                                        required="string.IsNullOrEmpty(Model.StickyLogo)"
+                                        view-link-path="@Model.stickylogoUrlwithdomain" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="FooterLogoImage"
+                                        label="Upload footer logo"
+                                        type="File"
+                                        required="string.IsNullOrEmpty(Model.FooterLogo)"
+                                        view-link-path="@Model.footerUrlwithdomain" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 d-flex align-items-center pt-4">
+                            <form-field asp-for="IsIncremental"
+                                        label="Is Incremental"
+                                        type="Checkbox"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-6 col-md-4 col-sm-6 col-12 text-align-end pt-4">
+                            
+                            <form-button label="Update"
+                                         type="Submit" />
+                        </div>
+
+                    </div>
+                </form>
+
+            </div><!--end card-body-->
+        </div><!--end card-->
+
+    </div><!--end row-->
+
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/fileupload.js"></script>
+    <script src="~/assets/js/imagepreview.js"></script>
+    <script src="~/assets/js/validationanimation.js"></script>
+}

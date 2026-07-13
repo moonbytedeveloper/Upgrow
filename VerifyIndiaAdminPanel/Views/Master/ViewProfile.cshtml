@@ -1,0 +1,188 @@
+﻿@using VerifyIndia.Application.DTO.Master
+@using Microsoft.AspNetCore.Mvc.Rendering
+@section Styles {
+    <partial name="_ViewStyles" />
+}
+@{
+    ViewData["Title"] = "View Profile";
+}
+@model MasterEmployeeDto
+<div class="container-fluid">
+
+    <!-- Header -->
+    <div class="text-white py-4 rounded-top shadow-sm" style="background-color:#020202;">
+        <div class="row align-items-center">
+            <div class="col-md-8 d-flex align-items-center">
+                <img src="@(string.IsNullOrEmpty(Model.Profile_URL)
+                                                                              ? Url.Content("~/assets/images/user-image.png")
+                                                                              : Url.Content(Model.Profile_URL))"
+                     class="rounded-circle border border-3 border-white"
+                     style="width:90px; height:90px;" alt="User Image">
+
+                <div class="ms-3">
+                    <h4 class="text-white mb-1">
+                        @(string.IsNullOrWhiteSpace(Model.FirstName) && string.IsNullOrWhiteSpace(Model.LastName)
+                                                ? "NA"
+                                                : $"{Model.FirstName} {Model.LastName}")
+                    </h4>
+
+                    <p class="text-light mb-1">
+                        @(string.IsNullOrWhiteSpace(Model.EmailId) ? "NA" : Model.EmailId)
+                    </p>
+
+                    <br />
+
+                    <a asp-controller="Master"
+                       asp-action="EditProfile"
+                       asp-route-uuid="@Model.UUID"
+                       class="btn btn-light btn-sm me-2">
+                        <i class="mdi mdi-account-edit me-1"></i> Edit Profile
+                    </a>
+
+                    <a href="javascript:void(0);"
+                       class="btn btn-light btn-sm"
+                       onclick="openChangePassword('@Model.UUID')">
+                        <i class="mdi mdi-lock-reset me-1"></i> Change Password
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="tab-content pt-4 text-muted">
+        <div class="tab-pane active" id="overview-tab" role="tabpanel">
+            <div class="row">
+
+                <!-- Basic Info -->
+                <div class="col-md-4 col-sm-12">
+                    <div class="card" id="basicInfoCard">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3 bg-light p-2">Basic Info</h5>
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <tbody>
+                                        <tr>
+                                            <th>Full Name :</th>
+                                            <td class="text-muted">
+                                                @(string.IsNullOrWhiteSpace(Model.FirstName) && string.IsNullOrWhiteSpace(Model.LastName)
+                                                                                                ? "NA"
+                                                                                                : $"{Model.FirstName} {Model.LastName}")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Mobile :</th>
+                                            <td class="text-muted">
+                                                @(string.IsNullOrWhiteSpace(Model.MobileNumber) ? "NA" : Model.MobileNumber)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>E-mail :</th>
+                                            <td class="text-muted">
+                                                @(string.IsNullOrWhiteSpace(Model.EmailId) ? "NA" : Model.EmailId)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Date of Birth :</th>
+                                            <td class="text-muted">
+                                                @(Model.BirthDate.HasValue
+                                                                                                ? Model.BirthDate.Value.ToString("dd-MMM-yyyy")
+                                                                                                : "NA")
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Info -->
+                <div class="col-md-4 col-sm-12">
+                    <div class="card" id="companyInfoCard">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3 bg-light p-2">Company Contact Info</h5>
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <tbody>
+                                        <tr>
+                                            <th>Employee Code :</th>
+                                            <td class="text-muted">
+                                                @(string.IsNullOrWhiteSpace(Model.EmployeeCode) ? "NA" : Model.EmployeeCode)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Company Email :</th>
+                                            <td class="text-muted">
+                                                @(string.IsNullOrWhiteSpace(Model.CompanyEmailID) ? "NA" : Model.CompanyEmailID)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Company Mobile No :</th>
+                                            <td class="text-muted">
+                                                @(string.IsNullOrWhiteSpace(Model.CompanyMobileNumber) ? "NA" : Model.CompanyMobileNumber)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Employee Role :</th>
+                                            <td class="text-muted">
+                                                @(string.IsNullOrWhiteSpace(Model.RoleUUID) ? "NA" : Model.RoleUUID)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Employee Designation :</th>
+                                            <td class="text-muted">
+                                                @(string.IsNullOrWhiteSpace(Model.DesignationUUID) ? "NA" : Model.DesignationUUID)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Employee Department :</th>
+                                            <td class="text-muted">
+                                                @(string.IsNullOrWhiteSpace(Model.DepartmentUUID) ? "NA" : Model.DepartmentUUID)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Change Password Modal -->
+<div class="modal fade" id="changePasswordModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Change Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="changePasswordModalBody">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ViewScripts" />
+    <script src="~/assets/js/validationanimation.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/change-password-modal.js"></script>
+    <script>
+        $(function () {
+            ChangePasswordModal.init({
+                getUrl: '@Url.Action("ChangePassword", "Master")',
+                postUrl: '@Url.Action("ChangePassword", "Master")'
+            });
+        });
+
+        function openChangePassword(uuid) {
+            ChangePasswordModal.open(uuid);
+        }
+    </script>
+}

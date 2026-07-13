@@ -1,0 +1,83 @@
+﻿
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   
+<head>
+
+
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] || Authenticate India</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="~/assets/js/darktheme.js"></script>
+    <!-- App favicon -->
+    
+    <partial name="_Favicon" />
+
+    @await RenderSectionAsync("HighPriority", required: false)
+    <!-- App css -->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/custom.css" rel="stylesheet" type="text/css" />
+
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+
+<body id="body" class="enlarge-menu">
+
+    <partial name="_Loader" model="false" />
+
+    <partial name="_Header" />
+    <div class="page-wrapper">
+
+        <!-- Page Content-->
+        <div class="page-content-tab">
+    @RenderBody()
+
+
+    <partial name="_Notification" />
+    <partial name="_Footer" />
+        </div>
+        <!-- end page content -->
+    </div>
+    <!-- Scripts -->
+    <script src="~/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="~/assets/libs/feather-icons/feather.min.js"></script>
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/app.js"></script>
+    @* <script src="assets/js/inputtypecomponent.js"></script> *@
+    <script src="~/assets/js/common.js"> </script>
+    
+
+    <script>
+        window.addEventListener('load', function () {
+            var loader = document.getElementById('page-loader');
+            if (loader) loader.style.display = 'none';
+        });
+    </script>
+
+    <script>
+        (function () {
+            try {
+                const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                if (!tz) return;
+
+                const cookieName = "user_tz=";
+                const existing = document.cookie.split('; ').find(x => x.startsWith(cookieName));
+                const current = existing ? decodeURIComponent(existing.substring(cookieName.length)) : "";
+
+                if (current !== tz) {
+                    document.cookie = "user_tz=" + encodeURIComponent(tz) + "; path=/; max-age=31536000; samesite=lax";
+                }
+            } catch { }
+        })();
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+<!--end body-->
+
+</html>

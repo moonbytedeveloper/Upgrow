@@ -1,0 +1,110 @@
+﻿@model VerifyIndia.Application.Commands.Website.OurTeamCommand
+
+@{
+    var isEdit = Model != null && !string.IsNullOrEmpty(Model.UUID);
+    ViewData["Title"] = isEdit ? "Edit Team" : "Add Team";
+}
+
+<div class="container-fluid">
+
+    <div class="row mt-2">
+
+        <div class="card">
+
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20">@ViewData["Title"]</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body pt-0">
+
+                <form id="bannerForm" asp-action="AddOurTeam" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="UUID" />
+                    <input type="hidden" asp-for="IsActive" />
+                    <input type="hidden" asp-for="ImageFile" value="@(Model?.ImageFile ?? string.Empty)" />
+
+                    <div class="row">
+
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+
+                            @* Show existing image in Edit mode *@
+                            @if (isEdit && !string.IsNullOrEmpty(Model.ImageFile))
+                            {
+                                <div class="mt-3 text-center">
+                                    <img src="@Model.ImageUrlwithdomain"
+                                         alt="Profile"
+                                         style="height:80px;width:80px;object-fit:cover;border-radius:10px;border:1px solid #ddd;" />
+                                </div>
+                            }
+                            <form-field asp-for="Image"
+                                        label="Profile Image"
+                                        type="File"
+                                        accept=".jpg,.jpeg,.png"
+                                        required="@(string.IsNullOrEmpty(Model?.ImageFile))" />
+                        </div>
+                        <div class="col-lg-9">
+                         <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Name"
+                                        label="Name"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Designation"
+                                        label="Designation"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <form-field asp-for="IconURL"
+                                                label="Icon URL"
+                                                type="Text"
+                                                required="true" />
+                                </div>
+                        <div class="col-lg-8 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Description"
+                                        label="Description"
+                                        type="TextArea"
+                                        required="true" />
+                        </div>
+                                <div class="col-lg-3 text-align-end pt-5">
+
+                                    <form-button label="Cancel"
+                                                 type="Cancel"
+                                                 url="@Url.Action("ViewOurTeam", "Website")" />
+
+                                    <form-button label="Submit"
+                                                 type="Submit" />
+
+                                </div>
+                       </div>
+                          
+                      </div>
+                        
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<partial name="_Timer" />
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/notification.js"></script>
+    <script src="~/assets/js/fileupload.js"></script>
+    <script src="~/assets/js/imagepreview.js"></script>
+    <script src="~/assets/js/validationanimation.js"></script>
+}

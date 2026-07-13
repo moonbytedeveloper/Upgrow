@@ -1,0 +1,155 @@
+﻿@{
+    ViewData["Title"] = "View Agent";
+}
+@section Styles {
+    <partial name="_ViewStyles" />
+}
+
+
+<div class="container-fluid">
+    <!-- Page-Title -->
+
+    <div class="row mt-2">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <h3 class="card-title fs-20 mt-3 mb-3 ms-2">@ViewData["Title"]</h3>
+                    </div><!--end col-->
+                </div> <!--end row-->
+            </div><!--end card-header-->
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover datatableeditpopup" id="datatable_1">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Sr. No</th>
+                                <th style="display:none;">UUID</th>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Mobile</th>
+                                <th>City</th>
+                                <th>Industry</th>
+                                <th>Status</th>
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
+                    </table>
+
+                </div>
+
+
+            </div><!--end card-body-->
+        </div><!--end card-->
+
+    </div><!--end row-->
+
+    <div id="rowActionMenu" class="row-action-menu">
+        <ul>
+            <action-link id="userdetailslink" label="View Details" type="View"></action-link>
+        </ul>
+    </div>
+
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+
+@section Scripts {
+
+    <partial name="_ViewScripts" />
+
+    <script>
+        initMasterTable({
+            tableId: '#datatable_1',
+            ajaxUrl: '@Url.Action("GetAgent", "Master")',
+            columns: [
+                { data: 'srno', orderable: false },
+                { data: 'uuid', visible: false },
+                { data: 'fullname' },
+                { data: 'email' },
+                { data: 'mobile', orderable: false },
+                { data: 'city' },
+                { data: 'industry' },
+                { data: 'status', orderable: false },
+                { data: 'action', orderable: false }
+            ],
+      rowActions: [
+        {
+            selector: '#userdetailslink',
+            baseUrl: '@Url.Action("UserDetails", "Master")',
+            idProperty: 'uuid'
+        }
+        ]
+        });
+        $(document).on("click", ".convert-agenthead-btn", function () {
+
+            const uuid = $(this).data("id");
+
+            if (!uuid) {
+                Swal.fire('Error!', 'Invalid agent ID.', 'error');
+                return;
+            }
+
+            Swal.fire({
+                title: 'Convert to AgentHead?',
+                text: 'This will create an Agent record and mark as AgentHead.',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Convert'
+            }).then((result) => {
+
+                if (!result.isConfirmed) {
+                    return;
+                }
+
+                $.ajax({
+                    url: '/Master/ConvertToAgenthead',
+                    type: 'POST',
+                    data: { uuid: uuid },
+
+                    success: function (response) {
+
+                        if (response.success) {
+
+                            if (typeof statusModal !== 'undefined') {
+                                statusModal.hide();
+                            }
+
+                            $('#datatable_1').DataTable().ajax.reload(null, false);
+
+                            Swal.fire('Success!', response.message, 'success');
+
+                        } else {
+
+                            const message = response.message || 'Unable to update status.';
+
+                            if (message.toLowerCase().includes('remark')) {
+
+                                if (typeof statusValidator !== 'undefined') {
+                                    statusValidator.showErrors({
+                                        Remark: message
+                                    });
+                                }
+
+                                if (typeof setRemarkErrorUi === 'function') {
+                                    setRemarkErrorUi(true);
+                                }
+
+                                return;
+                            }
+
+                            Swal.fire('Error!', message, 'error');
+                        }
+                    },
+
+                    error: function () {
+                        Swal.fire('Error!', 'Unable to update status.', 'error');
+                    }
+                });
+
+            });
+        });
+    </script>
+}

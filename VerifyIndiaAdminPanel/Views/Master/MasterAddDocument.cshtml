@@ -1,0 +1,91 @@
+﻿@using VerifyIndiaAdminPanel.Models.Master
+@model MasterDocumentVM
+@{
+    var isEditMode = !string.IsNullOrEmpty(Model?.Command.UUID);
+    ViewData["Title"] = isEditMode ? "Edit Website Document" : "Add Website Document";
+}
+
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row mt-2">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20">@ViewData["Title"]</h3>
+                    </div><!--end col-->
+                </div> <!--end row-->
+            </div><!--end card-header-->
+
+            <div class="card-body pt-0">
+                <form id="bannerForm" asp-action="MasterAddDocument" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="Command.UUID" />
+                    <input type="hidden" asp-for="Command.Path" value="@Model?.Command.Path" />
+                    <input type="hidden" asp-for="Command.IsActive" />
+
+                    <div class="row align-items-center">
+                        <!-- Document Title -->
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Command.Title"
+                                        label="Document title"
+                                        type="Text"
+                                        required="true">
+                            </form-field>
+                        </div>
+
+                        <!-- File Type Dropdown -->
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Command.FileType"
+                                        label="Select file type"
+                                        type="Select"
+                                        asp-items="@Model.FileTypeList"
+                                        required="true">
+                            </form-field>
+                        </div>
+
+                        <!-- Document File Upload -->
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Command.Image"
+                                        label="Upload document"
+                                        view-link-path="@Model.Command.ImageUrlwithdomain"
+                                        type="File"
+                                        accept=".jpg,.jpeg,.png, .pdf, .docx"
+                                        required="@(string.IsNullOrEmpty(Model.Command.Path))">
+                            </form-field>
+                        </div>
+
+                        <!-- Submit Buttons -->
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 text-align-end pt-4">
+                            <form-button label="Cancel"
+                                         type="Cancel"
+                                         url="@Url.Action("MasterViewDocument", "Master")" />
+                            <form-button label="Submit"
+                                         type="Submit" />
+                        </div>
+                    </div>
+                </form>
+            </div><!--end card-body-->
+        </div><!--end card-->
+
+    </div><!--end row-->
+
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+
+@section Scripts
+{
+
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/fileupload.js"></script>
+    <script src="~/assets/js/imagepreview.js"></script>
+    <script src="~/assets/js/validationanimation.js"></script>
+    <script src="~/assets/js/select2.min.js"></script>
+    <script src="~/assets/js/select-clear.js"></script>
+    <script src="~/assets/js/notification.js"></script>
+}

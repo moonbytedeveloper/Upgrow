@@ -1,0 +1,87 @@
+﻿@model VerifyIndia.Application.Commands.Master.MasterIndustryCommand
+@{
+    var isEditMode = !string.IsNullOrWhiteSpace(Model?.UUID);
+    var pageTitle = isEditMode ? "Edit Industry" : "Add Industry";
+    ViewData["Title"] = pageTitle;
+}
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row mt-2">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20">@pageTitle</h3>
+                    </div><!--end col-->
+
+                </div> <!--end row-->
+            </div><!--end card-header-->
+            <div class="card-body pt-0">
+                <form id="bannerForm" asp-action="MasterAddIndustry" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="UUID" />
+                    <input type="hidden" asp-for="IsActive" />
+                    <input type="hidden" asp-for="Image" value="@Model.Image" />
+                    <input type="hidden" asp-for="Icon" value="@Model.Icon" />
+
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Title"
+                                        label="Industry Title"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+
+                            <form-field asp-for="IndustryImageFile" label="Industry Image" view-link-path="@Model.Image" type="File" required="string.IsNullOrEmpty(Model.Image)" accept=".jpg,.jpeg,.png">
+                            </form-field>
+
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+
+                            <form-field asp-for="IndustryIconFile" view-link-path="@Model.IconUrlwithdomain" label="Industry Icon" type="File"
+                                        accept=".jpg,.jpeg,.png" required="string.IsNullOrEmpty(Model.Icon)">
+                            </form-field>
+
+                        </div>
+
+                        <div class="col-lg-6 col-md-4 col-sm-6 col-12">
+
+                            <form-field asp-for="Description" label="Industry  Description" required="true" type="TextArea"></form-field>
+
+                        </div>
+
+
+                        <div class="col-lg-6 col-md-4 col-sm-6 col-12 text-align-end pt-4">
+                            <form-button label="Cancel"
+                                         type="Cancel"
+                                         url="@Url.Action("MasterViewIndustry", "Master")" />
+                            <form-button label="Submit"
+                                         type="Submit" />
+                        </div>
+
+                    </div>
+                </form>
+
+
+            </div><!--end card-body-->
+        </div><!--end card-->
+
+    </div><!--end row-->
+
+
+
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/fileupload.js"></script>
+    <script src="~/assets/js/imagepreview.js"></script>
+    <script src="~/assets/js/validationanimation.js"></script>
+    <script src="~/assets/js/notification.js"></script>
+}
+

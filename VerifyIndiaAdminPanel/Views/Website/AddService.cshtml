@@ -1,0 +1,76 @@
+﻿@model VerifyIndiaAdminPanel.Models.Website.ServiceVM
+
+@{
+    var isEditMode = !string.IsNullOrWhiteSpace(Model?.Service?.UUID);
+    var pageTitle = isEditMode ? "Edit Service" : "Add Service";
+    ViewData["Title"] = pageTitle;
+}
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row mt-2">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20">@pageTitle</h3>
+                    </div><!--end col-->
+
+                </div> <!--end row-->
+            </div><!--end card-header-->
+            <div class="card-body pt-0">
+                <form id="bannerForm" asp-action="AddService" method="post">
+                    <input type="hidden" asp-for="Service.UUID" />
+                    <input type="hidden" asp-for="Service.IsActive" />
+
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+                            <form-field asp-for="Service.ServiceCategoryUUID"
+                                        label="Category Title"
+                                        type="Select"
+                                        asp-items="@Model.ServiceCategoryList"
+                                        required="true"
+                                        placeholder="Select Category" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Service.Title"
+                                        label="Service Title"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+ 
+                        <div class="col-lg-6 col-md-4 col-sm-6 col-12 text-align-end pt-4">
+                            <form-button label="Cancel"
+                                         type="Cancel"
+                                         url="@Url.Action("ViewService", "Website")" />
+                            <form-button label="Submit"
+                                         type="Submit" />
+                        </div>
+
+                    </div>
+                </form>
+
+
+            </div><!--end card-body-->
+        </div><!--end card-->
+
+    </div><!--end row-->
+
+
+
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/validationanimation.js"></script>
+    <script src="~/assets/js/select2.min.js"></script>
+}
+

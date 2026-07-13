@@ -1,0 +1,205 @@
+﻿@model List<VerifyIndia.Application.DTO.Master.MasterMenuDto>
+
+@using System.Text.RegularExpressions
+
+<style>
+    /* Keep Bootstrap spacing EXACT */
+    .nav.flex-column .nav-link {
+        padding: 0.5rem 0rem;
+        line-height: 1.5;
+    }
+
+    /* Keep nesting indent same as static */
+    .nav.flex-column .nav.flex-column {
+        padding-left: 0.75rem;
+    }
+
+        /* 🔥 Add bullets WITHOUT affecting spacing */
+      /*   .nav.flex-column .nav.flex-column .nav-item {
+            position: relative;
+        } */
+
+            /* Bullet styling */
+            .nav.flex-column .nav.flex-column .nav-item > .nav-link::before {
+                content: "•";
+                color: #6c757d;
+                font-size: 10px;
+                margin-right: 8px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+        /* Align text properly */
+        /* .nav.flex-column .nav.flex-column .nav-link {
+            display: flex;
+            align-items: center;
+        } */
+
+    /* Arrow styles */
+    .menu-arrow {
+        font-size: 14px;
+        margin-left: auto;
+    }
+
+    .small-arrow {
+        font-size: 12px;
+        margin-left: auto;
+    }
+</style>
+
+@functions {
+    private static string MakeSafeId(string? uuid)
+    {
+        var raw = uuid ?? System.Guid.NewGuid().ToString("N");
+        return "m_" + Regex.Replace(raw, @"[^A-Za-z0-9_]", "_");
+    }
+
+    private string ResolveHref(string? url)
+    {
+        if (string.IsNullOrWhiteSpace(url)) return "#";
+        return Url.IsLocalUrl(url) ? Url.Content(url) : url!;
+    }
+}
+
+@if (Model != null && Model.Any())
+{
+    var topItems = Model.OrderBy(m => m.Sequence ?? 0).ToList();
+
+    for (int i = 0; i < topItems.Count; i++)
+    {
+        var main = topItems[i];
+        var paneId = "Menu_" + (main.UUID ?? Guid.NewGuid().ToString("N"));
+
+        <div id="@paneId" class="main-icon-menu-pane tab-pane" role="tabpanel">
+
+            <div class="title-box">
+                <h6 class="menu-title fw-bold fs-16">@main.MenuName</h6>
+            </div>
+
+            <div class="collapse navbar-collapse" id="sidebarCollapse_@MakeSafeId(main.UUID)">
+
+                <ul class="nav flex-column">
+
+                    @if (main.Children != null && main.Children.Any())
+                    {
+                        foreach (var child in main.Children.OrderBy(c => c.Sequence ?? 0))
+                        {
+                            var hasChild = child.Children != null && child.Children.Any();
+                            var childId = "collapse_" + MakeSafeId(child.UUID);
+
+                            if (hasChild)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link fw-600 d-flex justify-content-between align-items-center"
+                                       href="#@childId"
+                                       data-bs-toggle="collapse" style="height:30px">
+                                      
+
+                                        <span>@child.MenuName</span>
+                                        <i class="ti ti-chevron-right menu-arrow"></i>
+                                    </a>
+
+                                    <div class="collapse" id="@childId">
+                                        <ul class="nav flex-column">
+
+                                            @foreach (var sub in child.Children.OrderBy(s => s.Sequence ?? 0))
+                                            {
+                                                var hasSub = sub.Children != null && sub.Children.Any();
+                                                var subId = "collapse_" + MakeSafeId(sub.UUID);
+
+                                                if (hasSub)
+                                                {
+                                                    <li class="nav-item">
+                                                        <a class="nav-link d-flex justify-content-between align-items-center"
+                                                           href="#@subId"
+                                                           data-bs-toggle="collapse">
+
+                                                            <span>@sub.MenuName</span>
+                                                            <i class="ti ti-chevron-right menu-arrow small-arrow"></i>
+                                                        </a>
+
+                                                        <div class="collapse" id="@subId">
+                                                            <ul class="nav flex-column">
+
+                                                                @foreach (var sub2 in sub.Children.OrderBy(x => x.Sequence ?? 0))
+                                                                {
+                                                                    <li class="nav-item">
+                                                                        <a class="nav-link menu-text fs-12"
+                                                                           href="@ResolveHref(sub2.Url)">
+                                                                            @sub2.MenuName
+                                                                        </a>
+                                                                    </li>
+                                                                }
+
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li class="nav-item">
+                                                        <a class="nav-link menu-text fs-12"
+                                                           href="@ResolveHref(sub.Url)">
+                                                            @sub.MenuName
+                                                        </a>
+                                                    </li>
+                                                }
+                                            }
+
+                                        </ul>
+                                    </div>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link menu-text"
+                                       href="@ResolveHref(child.Url)" style="height:28px">
+                                        @child.MenuName
+                                    </a>
+                                </li>
+                            }
+                        }
+                    }
+
+                </ul>
+
+            </div>
+        </div>
+    }
+}
+
+<script>
+    (function () {
+
+        function syncCollapseIcon(collapseEl) {
+            var id = collapseEl.id;
+            var toggle = document.querySelector('a[href="#' + id + '"]');
+            if (!toggle) return;
+
+            var icon = toggle.querySelector('.menu-arrow');
+            if (!icon) return;
+
+            if (collapseEl.classList.contains('show')) {
+                icon.classList.remove('ti-chevron-right');
+                icon.classList.add('ti-chevron-down');
+            } else {
+                icon.classList.remove('ti-chevron-down');
+                icon.classList.add('ti-chevron-right');
+            }
+        }
+
+        document.querySelectorAll('.collapse').forEach(function (c) {
+            syncCollapseIcon(c);
+
+            c.addEventListener('shown.bs.collapse', function () {
+                syncCollapseIcon(c);
+            });
+
+            c.addEventListener('hidden.bs.collapse', function () {
+                syncCollapseIcon(c);
+            });
+        });
+
+    })();
+</script>

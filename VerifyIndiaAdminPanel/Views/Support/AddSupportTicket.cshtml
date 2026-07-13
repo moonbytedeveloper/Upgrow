@@ -1,0 +1,171 @@
+﻿@model VerifyIndiaAdminPanel.Models.Support.SupportTicketsVM
+
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+
+@{
+    ViewData["Title"] = "Add Support Ticket";
+}
+
+<div class="container-fluid">
+
+    <div class="row mt-2">
+        <div class="card">
+
+            <!-- HEADER -->
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20">@ViewData["Title"]</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BODY -->
+            <div class="card-body pt-0">
+
+                <form id="bannerForm" asp-action="AddSupportTicket" method="post" enctype="multipart/form-data">
+
+                    <input type="hidden" asp-for="SupportTicket.UUID" />
+                    <input type="hidden" asp-for="SupportTicket.IsActive" />
+                    <input type="hidden" asp-for="SupportTicketAttachment.URL" />
+
+                    <div class="row align-items-center">
+
+                        <!-- User Type -->
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="SupportTicket.UserType"
+                                        label="User Type"
+                                        type="Select"
+                                        asp-items="@Model.UserTypeList"
+                                        required="true" />
+                        </div>
+
+                        <!-- User (Customer/Agent/WhiteLabel) -->
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="SupportTicket.UserUUID"
+                                        label="User Name"
+                                        type="Select"
+                                        asp-items="@Model.UserList"
+                                        required="true" />
+                        </div>
+
+                        <!-- Category -->
+                      
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="SupportTicket.TicketCategoryUUID"
+                                        label="Ticket Category"
+                                        type="Select"
+                                        asp-items="@Model.CategoryList"
+                                        required="true" />
+                        </div>
+                        <!-- Subject -->
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="SupportTicket.Subject"
+                                        label="Subject"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+
+                        <!-- Message -->
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                            <form-field asp-for="SupportTicketLine.Message"
+                                        label="Message"
+                                        type="TextArea"
+                                        required="true" />
+                        </div>
+
+                        <!-- Attachments -->
+                        <div class="col-lg-3 col-md-12 col-sm-12 col-12">
+                            <form-field asp-for="SupportTicketAttachment.Image"
+                                        label="Attachment"
+                                        type="File"
+                                        accept=".jpg,.jpeg,.png"
+                                        multiple="true" />
+                        </div>
+
+                        <!-- BUTTONS -->
+                        <div class="col-lg-3 text-align-end pt-4">
+
+                            <form-button label="Cancel"
+                                         type="Cancel"
+                                         url="@Url.Action("ViewSupportTickets", "Support")" />
+
+                            <form-button label="Submit"
+                                         type="Submit" />
+
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<partial name="_Timer" />
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/fileupload.js"></script>
+    <script src="~/assets/js/imagepreview.js"></script>
+    <script src="~/assets/js/select-clear.js"></script>
+    <script src="~/assets/js/select2.min.js"></script>
+    <script src="~/assets/js/validationanimation.js"></script>
+    <script src="~/assets/js/notification.js"></script>
+    <script>
+               $(document).ready(function () {
+
+            $('#SupportTicket_UserType').on('change', function () {
+
+                var userType = $(this).val();
+
+                var userDropdown = $('#SupportTicket_UserUUID');
+                var categoryDropdown = $('#SupportTicket_TicketCategoryUUID');
+
+                userDropdown.empty();
+                categoryDropdown.empty();
+
+                $.ajax({
+                    url: '/Support/GetUsersAndCategories',
+                    type: 'GET',
+                    data: { userType: userType },
+                    success: function (res) {
+
+
+                        userDropdown.append('<option value=""> </option>');
+                        $.each(res.users, function (i, item) {
+                            userDropdown.append(
+                                $('<option>', {
+                                    value: item.value,
+                                    text: item.text
+                                })
+                            );      
+                        });
+
+
+                        categoryDropdown.append('<option value=""> </option>');
+                        $.each(res.categories, function (i, item) {
+                            categoryDropdown.append(
+                                $('<option>', {
+                                    value: item.value,
+                                    text: item.text
+                                })
+                            );
+                        });
+
+                    },
+                    error: function () {
+                        alert("Failed to load data");
+                    }
+                });
+
+            });
+
+        });
+    </script>
+}

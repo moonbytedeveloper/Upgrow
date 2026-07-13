@@ -1,0 +1,147 @@
+﻿@model VerifyIndia.Application.Commands.Master.MasterNomenclatureCommand
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+@{
+    var isEditMode = !string.IsNullOrWhiteSpace(Model?.UUID);
+    var pageTitle = isEditMode ? "Edit Nomenclature" : "Add Nomenclature";
+    ViewData["Title"] = pageTitle;
+}
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row mt-2">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20">@pageTitle</h3>
+                    </div><!--end col-->
+
+                </div> <!--end row-->
+            </div><!--end card-header-->
+            <div class="card-body pt-0">
+                <form id="bannerForm" asp-action="MasterAddNomenclature" method="post">
+                    <input type="hidden" asp-for="UUID" />
+                    <input type="hidden" asp-for="IsActive" />
+
+                    <div class="row align-items-center">
+
+                        @if (isEditMode)
+                        {
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                <form-field asp-for="ModuleKey"
+                                            label="Module key"
+                                            type="Text"
+                                            attr-readonly="true"
+                                            required="true" />
+                            </div>
+
+                            <input type="hidden" asp-for="ModuleKey" />
+                        }
+                        else
+                        {
+                            <!-- ➕ Add Mode -->
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                <form-field asp-for="ModuleKey"
+                                            label="Module key"
+                                            type="Select"
+                                            asp-items="@Model.ModuleKeyList"
+                                            required="true" />
+                            </div>
+                        }
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Prefix"
+                                        label="Prefix"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="NumberOfDigits"
+                                        label="No Of Digits"
+                                        type="Number"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="IsIncludeYear"
+                                        label="Is Include Year"
+                                        type="Checkbox"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12" id="yearDropdown">
+                            <form-field asp-for="FinancialYearUUID"
+                                        label="Select Year"
+                                        type="Select"
+                                        asp-items="@Model.YearList"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="StartNo"
+                                        label="Start No"
+                                        type="Number"
+                                        required="true" />
+                        </div>
+                        <div id="buttonContainer" class="col-lg-9 col-md-4 col-sm-6 col-12 text-align-end pt-4">
+                            <form-button label="Cancel"
+                                         type="Cancel"
+                                         url="@Url.Action("MasterViewNomenclature", "Master")" />
+                            <form-button label="Submit"
+                                         type="Submit" />
+                        </div>
+
+                    </div>
+                </form>
+
+
+            </div><!--end card-body-->
+        </div><!--end card-->
+
+    </div><!--end row-->
+
+
+
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/select-clear.js"></script>
+    <script src="~/assets/js/select2.min.js"></script>
+    <script src="~/assets/js/validationanimation.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            function toggleYearDropdown() {
+                if ($('#IsIncludeYear').is(':checked')) {
+                    $('#yearDropdown').show();
+                    $('#FinancialYearUUID').attr('required', 'required');
+
+                    // Change button container width
+                    $('#buttonContainer')
+                        .removeClass('col-lg-9')
+                        .addClass('col-lg-6');
+                } else {
+                    $('#yearDropdown').hide();
+                    $('#FinancialYearUUID').val('').removeAttr('required');
+
+                    // Restore button container width
+                    $('#buttonContainer')
+                        .removeClass('col-lg-6')
+                        .addClass('col-lg-9');
+                }
+            }
+
+            // Run on page load (Edit mode)
+            toggleYearDropdown();
+
+            // Run on checkbox change
+            $('#IsIncludeYear').change(function () {
+                toggleYearDropdown();
+            });
+        });
+    </script>
+}
+

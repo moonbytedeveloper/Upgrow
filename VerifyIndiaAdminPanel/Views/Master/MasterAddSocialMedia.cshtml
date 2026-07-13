@@ -1,0 +1,81 @@
+﻿@model VerifyIndia.Application.Commands.Master.MasterSocialMediaCommand
+
+@{
+    var isEditMode = !string.IsNullOrWhiteSpace(Model?.UUID);
+    var pageTitle = isEditMode ? "Edit Social Media" : "Add Social Media";
+    ViewData["Title"] = pageTitle;
+}
+
+
+        <div class="container-fluid">
+            <!-- Page-Title -->
+            <div class="row mt-2">
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="card-title fs-20">@pageTitle</h3>
+                            </div><!--end col-->
+
+                        </div> <!--end row-->
+                    </div><!--end card-header-->
+                    <div class="card-body pt-0">
+                        <form id="bannerForm" asp-action="MasterAddSocialMedia" method="post">
+                            <input type="hidden" asp-for="UUID" />
+                            <input type="hidden" asp-for="IsActive" />
+
+                            <div class="row align-items-center">
+                                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                    <form-field asp-for="PlatformName"
+                                                label="Platform Name"
+                                                type="Text"                                               
+                                                required="true" />
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                    <form-field asp-for="ProfileURL"
+                                                label="Profile URL"
+                                                type="Url"
+                                                required="true" />
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                    <form-field asp-for="IconURL"
+                                                label="Icon (fab fa-instagram)"
+                                                type="Text"                                               
+                                                required="true" />                                  
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                    <form-field asp-for="DisplayOrder"
+                                                label="Display Order"
+                                                type="Number"
+                                                required="true" />
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-align-end pt-4">
+                                    <form-button label="Cancel"
+                                                 type="Cancel"
+                                                 url="@Url.Action("MasterViewSocialMedia", "Master")" />
+                                    <form-button label="Submit"
+                                                 type="Submit" />
+                                </div>
+
+                            </div>
+                        </form>
+
+
+                    </div><!--end card-body-->
+                </div><!--end card-->
+
+            </div><!--end row-->
+
+
+
+        </div><!-- container -->
+        <!-- Timer -->
+        <partial name="_Timer" />
+
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/validationanimation.js"></script>
+}

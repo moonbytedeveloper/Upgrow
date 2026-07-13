@@ -1,0 +1,326 @@
+@model VerifyIndiaAdminPanel.Models.Support.SupportTicketsVM
+
+@{
+    ViewData["Title"] = "Support Tickets";
+    var userTypes = Model?.UserTypeList;
+}
+
+@section Styles {
+    <partial name="_ViewStyles" />
+
+   <link href="~/assets/css/select2.min.css" rel="stylesheet" />
+   <link href="~/assets/css/custom.css" rel="stylesheet" />
+    <style>
+        #assignTicketModal.show {
+            display: flex !important;
+            align-items: flex-start;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 1rem;
+            padding-top: 2rem;
+        }
+
+        #assignTicketModal .modal-dialog {
+            margin: 0 auto;
+        }
+
+       
+    </style>
+}
+
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="card">
+            <div class="card-header">
+             <div class="row align-items-center">
+             <div class="col-9">
+                <h3 class="card-title fs-20 mt-3 mb-3 ms-2">@ViewData["Title"]</h3>
+            </div>
+            <div class="col-3 text-align-end">
+                <form-button label="Add Support Ticket"
+                             type="Add"
+                             url="@Url.Action("AddSupportTicket", "Support")">
+                </form-button>
+
+            </div>
+            </div>
+            </div>
+           <!--end col-->
+            <div class="card-body pt-0">
+                <ul class="nav nav-pills nav-justified custom-tabs position-relative" id="userTypeTabs" role="tablist">
+                    @if (userTypes != null)
+                    {
+                        for (var i = 0; i < userTypes.Count; i++)
+                        {
+                            var item = userTypes[i];
+                            var key = (item.Value ?? string.Empty).Trim().ToLowerInvariant().Replace(" ", "-");
+                            var isActive = i == 0;
+
+                            <li class="nav-item waves-effect waves-light" role="presentation">
+                                <button class="nav-link @(isActive ? "active" : "")"
+                                        id="@($"{key}-tab")"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="@($"#{key}-pane")"
+                                        type="button"
+                                        role="tab"
+                                        aria-controls="@($"{key}-pane")"
+                                        aria-selected="@(isActive.ToString().ToLower())">
+                                    @item.Text
+                                </button>
+                            </li>
+                        }
+                    }
+
+                    <span class="tab-indicator"></span>
+                </ul>
+                
+                <div class="tab-content" id="userTypeTabsContent">
+                    @if (userTypes != null)
+                    {
+                        for (var i = 0; i < userTypes.Count; i++)
+                        {
+                            var item = userTypes[i];
+                            var key = (item.Value ?? string.Empty).Trim().ToLowerInvariant().Replace(" ", "-");
+                            var isActive = i == 0;
+
+                            <div class="tab-pane fade @(isActive ? "show active" : "")" id="@($"{key}-pane")" role="tabpanel">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover datatableeditpopup" id="@($"datatable_{key}")">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>Sr.</th>
+                                                <th style="display:none;">UUID</th>
+                                                <th>Ticket No</th>
+                                                <th>Raised By</th>
+                                                <th>Ticket Category</th>
+                                                <th>Subject</th>
+                                                <th>Message</th>
+                                                <th>Created At</th>
+                                                <th>Assignee</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="assignTicketModal" tabindex="-1" aria-labelledby="assignTicketLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg ">
+                <div class="modal-content">
+                    <form id="assignTicketForm" method="post" asp-action="AssignTicket" asp-controller="Support">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" id="assignTicketUuid" name="ticketUuid" />
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="assignTicketLabel">Assign Ticket</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Sr.</th>
+                                            <th>Employee ID</th>
+                                            <th>Employee Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="assignEmployeeRows"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-round theme-cancel-button" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary btn-round theme-submit-button">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="rowActionMenu" class="row-action-menu">
+        <ul>
+            <action-link id="assignTicketLink" label="Assign Ticket" type="Edit"></action-link>
+        </ul>
+    </div>
+</div>
+
+<partial name="_Timer" />
+
+@section Scripts {
+    <partial name="_ViewScripts" />
+    <script>
+        const columns = [
+            { data: 'srno', orderable: false },
+            { data: 'uuid', visible: false },
+            { data: 'ticketnumber' },
+            { data: 'raisedby' },
+            { data: 'category' },
+            { data: 'subject' },
+            { data: 'message', width: '18%' },
+            { data: 'createdat' },
+            { data: 'assignee' },
+            { data: 'status' }
+        ];
+
+        function openAssignModal(ticketUuid, ticketNo) {
+            const $assignModal = $('#assignTicketModal');
+
+            if (!$assignModal.data('moved-to-body')) {
+                $assignModal.appendTo('body');
+                $assignModal.data('moved-to-body', true);
+            }
+
+            $('#assignTicketUuid').val(ticketUuid);
+            $('#assignTicketLabel').text('Assign Ticket #' + ticketNo);
+            $('#assignEmployeeRows').html('<tr><td colspan="4" class="text-center">Loading...</td></tr>');
+
+            $.get('@Url.Action("GetAssignableEmployees", "Support")', { ticketUuid: ticketUuid }, function (res) {
+                if (!res.success) {
+                    $('#assignEmployeeRows').html('<tr><td colspan="4" class="text-danger text-center">' + (res.message || 'Error') + '</td></tr>');
+                    return;
+                }
+
+                if (!res.data || res.data.length === 0) {
+                    $('#assignEmployeeRows').html('<tr><td colspan="4" class="text-center">No employees found for selected category/department.</td></tr>');
+                    return;
+                }
+
+                const selectedAssigneeUuid = (res.selectedAssigneeUuid || '').toString().trim().toLowerCase();
+
+                let rows = '';
+                for (let i = 0; i < res.data.length; i++) {
+                    const e = res.data[i];
+                    const employeeUuid = (e.uuid || '').toString().trim();
+                    const employeeCode = (e.employeeCode || '').toString().trim();
+                    const isChecked = employeeUuid.toLowerCase() === selectedAssigneeUuid ? 'checked' : '';
+
+                    rows += `<tr>
+                                <td>${i + 1}</td>
+                                <td>${employeeCode || '-'}</td>
+                                <td>${e.employeeName}</td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="assigneeUuid" value="${employeeUuid}" ${isChecked} required />
+                                        <label class="form-check-label">Assign</label>
+                                    </div>
+                                </td>
+                             </tr>`;
+                }
+
+                $('#assignEmployeeRows').html(rows);
+            });
+
+            $assignModal.modal('show');
+        }
+
+        function initTicketTable(tableId, userType) {
+            return initMasterTable({
+                tableId: tableId,
+                ajaxUrl: '@Url.Action("GetSupportTickets", "Support")' + '?userType=' + encodeURIComponent(userType),
+                columns: columns,
+                rowActions: [
+                    {
+                        selector: '#assignTicketLink',
+                        idProperty: 'uuid',
+                        handler: function (rowData) {
+                            openAssignModal(rowData.uuid, rowData.ticketnumber);
+                        }
+                    }
+                ]
+            });
+        }
+
+        const tableConfig = {
+            @if (userTypes != null)
+            {
+                        for (var i = 0; i < userTypes.Count; i++)
+                        {
+                                    var item = userTypes[i];
+                                    var key = (item.Value ?? string.Empty).Trim().ToLowerInvariant().Replace(" ", "-");
+                    <text>
+                            '@($"{key}-tab")': { tableId: '#@($"datatable_{key}")', userType: '@item.Value' }@(i < userTypes.Count - 1 ? "," : "")
+                    </text>
+                        }
+            }
+        };
+
+        const tableInstances = {};
+
+        function ensureTableInitialized(tabId) {
+            if (!tableInstances[tabId]) {
+                const cfg = tableConfig[tabId];
+                if (cfg) {
+                    tableInstances[tabId] = initTicketTable(cfg.tableId, cfg.userType);
+                }
+            }
+            return tableInstances[tabId];
+        }
+
+        const firstTabId = $('#userTypeTabs button.nav-link').first().attr('id');
+        if (firstTabId) {
+            ensureTableInitialized(firstTabId);
+        }
+
+        $('#assignTicketForm').on('submit', function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: '@Url.Action("AssignTicket", "Support")',
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function (res) {
+                    if (res.success) {
+                        $('#assignTicketModal').modal('hide');
+                        Object.values(tableInstances).forEach(t => t.ajax.reload(null, false));
+                        Swal.fire({ icon: 'success', title: 'Success', text: res.message, timer: 1800, showConfirmButton: false });
+                    } else {
+                        Swal.fire({ icon: 'error', title: 'Error', text: res.message || 'Failed to assign ticket.' });
+                    }
+                },
+                error: function () {
+                    Swal.fire({ icon: 'error', title: 'Error', text: 'Request failed.' });
+                }
+            });
+        });
+
+        $('button[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+            const tabId = e.target.id;
+            const table = ensureTableInitialized(tabId);
+
+            if (table) {
+                table.columns.adjust();
+            }
+        });
+    </script>
+    <script>
+        const tabs = document.querySelectorAll('.custom-tabs .nav-link');
+        const indicator = document.querySelector('.tab-indicator');
+
+        function moveIndicator(element) {
+            const rect = element.getBoundingClientRect();
+            const parentRect = element.closest('.custom-tabs').getBoundingClientRect();
+
+            indicator.style.width = rect.width + "px";
+            indicator.style.left = (rect.left - parentRect.left) + "px";
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('shown.bs.tab', function (e) {
+                moveIndicator(e.target);
+            });
+        });
+
+        // Set initial position
+        window.addEventListener('load', () => {
+            const active = document.querySelector('.custom-tabs .nav-link.active');
+            if (active) moveIndicator(active);
+        });
+    </script>
+}

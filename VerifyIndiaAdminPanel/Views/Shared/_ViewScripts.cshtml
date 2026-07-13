@@ -1,0 +1,57 @@
+﻿<script src="~/assets/js/jquery.datatables.min.js"></script>
+
+<!-- mark.js -->
+<script src="~/assets/js/jquery.mark.min.js"></script>
+
+<!-- DataTables mark.js integration -->
+<script src="~/assets/js/datatable.mark.js"></script>
+
+<script src="~/assets/js/datatable-helper.js"></script>
+<script src="~/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+<script src="~/assets/js/confirmation-helper.js"></script>
+<script src="~/assets/js/master-toggle.js"></script>
+<script src="~/assets/js/action-logs.js"></script>
+<script src="~/assets/js/activity-log-helper.js"></script>
+<!-- 
+    Change by : Krishna
+    Date : 16-02-2026
+    Fix bug for close edit popup
+-->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menu = document.getElementById("rowActionMenu");
+        if (!menu) return;
+
+        document.addEventListener("click", function (e) {
+            const isInMenu = !!e.target.closest("#rowActionMenu");
+            if (isInMenu) return;
+
+            const row = e.target.closest("table.datatableeditpopup tbody tr");
+            if (!row) {
+                menu.style.display = "none";
+                return;
+            }
+
+            const table = row.closest("table.datatableeditpopup");
+            if (!table) {
+                menu.style.display = "none";
+                return;
+            }
+
+            const clickedCell = e.target.closest("td");
+            if (clickedCell) {
+                const columnIndex = Array.from(clickedCell.parentElement.children).indexOf(clickedCell);
+                const headerCell = table.querySelector(`thead th:nth-child(${columnIndex + 1})`);
+
+                if (headerCell && headerCell.getAttribute("data-action-column") === "true") {
+                    return;
+                }
+            }
+
+            menu.style.display = "block";
+            menu.style.top = e.clientY + "px";
+            menu.style.left = e.clientX + "px";
+        });
+    });
+</script>
+

@@ -1,0 +1,249 @@
+﻿@model VerifyIndiaAdminPanel.Models.Master.MasterEmployeeVM
+@{
+    var isEdit = Model?.Employee != null && !string.IsNullOrEmpty(Model.Employee.UUID);
+    ViewData["Title"] = isEdit ? "Edit Employee" : "Add Employee";
+}
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+@section Styles {
+    <link href="~/assets/css/datepicker.css" rel="stylesheet" type="text/css" />
+    <style>
+        #profileDesc {
+            color: #ffffff00 !important;
+        }
+
+        .dark-mode #profileDesc {
+            color: #ffffff00 !important;
+        }
+    </style>
+    
+}
+        <div class="container-fluid">
+            <!-- Page-Title -->
+            <div class="row mt-2">
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="card-title fs-20"> @ViewData["Title"]</h3>
+                            </div><!--end col-->
+
+                        </div> <!--end row-->
+                    </div><!--end card-header-->
+                    <div class="card-body pt-0">
+                        <form autocomplete="off" id="bannerForm"
+                              asp-action="MasterAddEmployee"
+                              method="post"
+                              enctype="multipart/form-data">
+
+                            <input type="hidden" asp-for="Employee.UUID" />
+                            <input type="hidden" asp-for="Employee.IsActive" />
+                            <input type="hidden" asp-for="Employee.Profile_URL" value="@Model.Employee.Profile_URL" />
+                   
+
+
+                    <div class="row align-items-end">
+
+                                <!-- Profile Pic -->
+                                <div class="col-lg-3">
+                            <input type="text"
+                                   autocomplete="username"
+                                   style="display:none">
+
+                            <input type="password"
+                                   autocomplete="current-password"
+                                   style="display:none">
+                                    @* Show existing image in Edit mode *@
+                                    @if (isEdit && !string.IsNullOrEmpty(Model.Employee.Profile_URL))
+                                    {
+                                        <div class="mt-3 text-center">
+                                            <img src="@Model.Employee.ProfileUrlwithdomain"
+                                                 alt="Profile"
+                                                 style="height:120px;width:120px;object-fit:cover;border-radius:10px;border:1px solid #ddd;" />
+                                        </div>
+                                    }
+                                    <form-field asp-for="Employee.Profile"
+                                                label="Profile Pic"
+                                                type="File"
+                                                accept=".jpg,.jpeg,.png"
+                                        required="@(string.IsNullOrEmpty(Model.Employee.Profile_URL))" />
+                                 @if (!isEdit)
+                                  {
+                                <small id="profileDesc" class="text-muted d-block mt-1">
+                                    @Model.PasswordPolicyDescription
+                                   </small>
+                                  }
+                                </div>
+
+                                <div class="col-lg-9">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <form-field asp-for="Employee.HonorificUUID"
+                                                        label="Honorific"
+                                                        type="Select"
+                                                        asp-items="@Model.Honorific"
+                                                        placeholder="-- Honorific --"
+                                                        required="true" />
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <form-field asp-for="Employee.FirstName"
+                                                        label="First Name"
+                                                        type="Text"
+                                                        required="true" />
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <form-field asp-for="Employee.LastName"
+                                                        label="Last Name"
+                                                        type="Text"
+                                                        required="true" />
+                                        </div>
+                                @if (isEdit)
+                                {
+                                    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                        <form-field asp-for="Employee.EmployeeCode"
+                                                    label="Employee Id"
+                                                    type="Text"
+                                                    attr-readonly="true" />
+                                    </div>
+                                }
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <form-field asp-for="Employee.MobileNumber"
+                                                        label="Mobile No."
+                                                        type="Number"
+                                                        required="true" />
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <form-field asp-for="Employee.EmailId"
+                                                        label="Email Id"
+                                                        type="Text"
+                                                        required="true" />
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <form-field asp-for="Employee.GenderUUID"
+                                                        label="Gender"
+                                                        type="Select"
+                                                        asp-items="@Model.Gender"
+                                                        placeholder="-- Gender --"
+                                                        required="true" />
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <form-field asp-for="Employee.DepartmentUUID"
+                                                        label="Department"
+                                                        type="Select"
+                                                        asp-items="@Model.Department"
+                                                        placeholder="-- Department --"
+                                                        required="true" />
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <form-field asp-for="Employee.DesignationUUID"
+                                                        label="Designation"
+                                                        type="Select"
+                                                        asp-items="@Model.Designation"
+                                                        placeholder="-- Designation --"
+                                                        required="true" />
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <form-field asp-for="Employee.RoleUUID"
+                                                        label="Role"
+                                                        type="Select"
+                                                        asp-items="@Model.Role"
+                                                        placeholder="-- Role --"
+                                                        required="true" />
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <form-field asp-for="Employee.BirthDate"
+                                                        label="Birth Date"
+                                                        required="true"
+                                                        type="Date" />
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <form-field asp-for="Employee.CompanyEmailID"
+                                                        label="Company Email Id"
+                                                        type="Text"
+                                                        required="true" />
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <form-field asp-for="Employee.CompanyMobileNumber"
+                                                        label="Company Mobile No."
+                                                        type="Number"
+                                                        required="true" />
+                                        </div>
+                                       @if (!isEdit)
+                                       {
+                                       <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                        <form-field asp-for="Employee.UserName"
+                                                    label="User Name"
+                                                    type="Text"
+                                                    required="true" />
+                                        </div>
+                                        }
+                                        else
+                                        {
+                                           <input type="hidden" asp-for="Employee.UserName" />
+                                        }
+                                        @if (!isEdit) 
+                                       {
+                                         
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <form-field asp-for="Employee.Password"
+                                                        label="Password"
+                                                        type="Password"
+                                                        required="true"/>
+                                           <small class="text-muted d-block mt-1">
+                                            @Model.PasswordPolicyDescription
+                                            </small>
+                                        </div>
+                                   
+                                        }
+                                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 pt-4">
+                                            <form-field asp-for="Employee.IsLoginAllowed"
+                                                        label="Is Login Allowed"
+                                                        type="Checkbox"
+                                                        required="true" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Buttons -->
+                                <div class="col-12 text-align-end pt-4">
+                                    <form-button label="Cancel"
+                                                 type="Cancel"
+                                                 url="@Url.Action("MasterViewEmployee", "Master")" />
+
+                                    <form-button label="Submit"
+                                                 type="Submit" />
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div><!--end card-body-->
+                </div><!--end card-->
+            </div><!--end row-->
+        </div><!-- container -->
+        <!-- Timer -->
+        <partial name="_Timer" />
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/fileupload.js"></script>
+    <script src="~/assets/js/select-clear.js"></script>
+    <script src="~/assets/js/select2.min.js"></script>
+    <script src="~/assets/js/validationanimation.js"></script>
+    <script src="~/assets/js/customdate.js"></script>
+    <script src="~/assets/js/custom.js"></script>
+    <script src="~/assets/js/moment.js"></script>
+    <script src="~/assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/assets/js/notification.js"></script>
+}

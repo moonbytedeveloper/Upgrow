@@ -1,0 +1,132 @@
+﻿@{
+    ViewData["Title"] = "View Careers";
+}
+@section Styles {
+    <partial name="_ViewStyles" />
+}
+
+
+
+<div class="container-fluid">
+    <!-- Page-Title -->
+
+    <div class="row mt-2">
+        <div class="card">
+
+        <div class="card-header">
+            <div class="row align-items-center">
+                <div class="col-9">
+                    <h3 class="card-title fs-20 mt-3 mb-3 ms-2">@ViewData["Title"]</h3>
+                </div><!--end col-->
+                <div class="col-3 text-end">
+                    <form-button label="Add Career"
+                                 type="Add"
+                                 url="@Url.Action("MasterAddCareer", "Master")">
+                    </form-button>
+                   
+                </div>
+            </div> <!--end row-->
+        </div><!--end card-header-->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover datatableeditpopup" id="datatable_1">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Sr. No</th>
+                            <th style="display:none;">UUID</th>
+                            <th>Position Name</th>
+                            <th>Department Name</th>
+                            <th>No Of Position</th>
+                            <th>Experience</th>
+                            <th>Short Description</th>
+                            <th data-action-column="true">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+        </div><!--end card-body-->
+        </div><!--end card-->
+
+    </div><!--end row-->
+
+    <div id="rowActionMenu" class="row-action-menu">
+        <ul>            
+            <action-link id="editCareerLink" label="Edit Career Details" type="Edit"></action-link>
+            <action-link id="viewHistoryLink" label="View History" type="ViewHistory"></action-link>
+        </ul>
+    </div>
+
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+
+
+@section Scripts {
+
+    <partial name="_ViewScripts" />
+
+    <script>
+            initMasterTable({
+            tableId: '#datatable_1',
+            ajaxUrl: '@Url.Action("GetCareers", "Master")',
+            columns: [
+                { data: 'srno', orderable: false },
+                { data: 'uuid', visible: false },
+                { data: 'name' },
+                { data: 'department' },
+                { data: 'noofposition' },
+                { data: 'experiense' },
+                { data: 'shortdescription', orderable: false },
+                { data: 'action', orderable: false }
+            ],
+            rowActions: [
+                {
+                    selector: '#editCareerLink',
+                    baseUrl: '@Url.Action("MasterEditCareer", "Master")',
+                    idProperty: 'uuid',
+                    paramName: 'uuid'
+                },
+                {
+                    selector: '#viewHistoryLink',
+                    baseUrl: 'javascript:void(0)',
+                    idProperty: 'uuid',
+                    handler: function (rowData) {
+                        AuditLogsUI.openLogs("Master_Career", rowData.uuid, false, "");
+                    }
+                }
+            ]
+        });
+        AuditLogsUI.init(
+            AuditLogsUI.common.mergeConfig({
+            foreignKeyMap: {
+                "DepartmentUUID": "/Common/GetDepartmentName",
+                "CountryUUID": "/Common/GetCountryName",
+                "StateUUID": "/Common/GetStateName",
+                "CityUUID": "/Common/GetCityName"
+            },
+            friendlyFieldMap: {
+                "Name": "Position Name",
+                "DepartmentUUID": "Department",
+                "CountryUUID": "Country",
+                "StateUUID": "State",
+                "CityUUID": "City",
+                "Experience": "Experience",
+                "NumberOfPosition": "Number Of Position",
+                "ShortDescription": "Short Description",
+                "LongDescription": "Long Description"
+            },
+            hiddenFields: [
+                "IconImage"
+            ]
+        })
+        );
+    </script>
+    <script>
+        initActivityLogTable({ menuName: 'Master_Career' });
+    </script>
+}

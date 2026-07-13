@@ -1,0 +1,194 @@
+﻿@model VerifyIndiaAdminPanel.Models.Website.NewsVM
+@{
+    var isEditMode = !string.IsNullOrWhiteSpace(Model?.News.UUID);
+    var pageTitle = isEditMode ? "Edit News" : "Add News";
+    ViewData["Title"] = pageTitle;
+}
+@section HighPriority{
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+@section Styles {
+    <link href="~/assets/css/datepicker.css" rel="stylesheet" type="text/css" />
+   
+}
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row mt-2">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20">@pageTitle</h3>
+                    </div><!--end col-->
+
+                </div> <!--end row-->
+            </div><!--end card-header-->
+            <div class="card-body pt-0">
+                <form id="bannerForm" asp-action="AddNews" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="News.UUID" />
+                    <input type="hidden" asp-for="News.IsActive" />
+                    <input type="hidden" asp-for="News.Image" value="@(Model?.News.Image ?? string.Empty)" />
+                    <input type="hidden" asp-for="News.CardImage" value="@(Model?.News.CardImage ?? string.Empty)" />
+
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="News.NewsCategoryUUID"
+                                        label="News Category"
+                                        type="Select"
+                                        asp-items="@Model.CategoryList"
+                                        required="true"
+                                        placeholder="Select News Category" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="News.Title"
+                                        label="News title"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="News.Location"
+                                        label="Location"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="News.Source"
+                                        label="News Source"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="News.PublishDate"
+                                        label="Publish Date"
+                                        required="true"
+                                        type="Date" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+
+                            <form-field asp-for="News.ImageFile" label="News image" accept=".jpg,.jpeg,.png" view-link-path="@Model.News.ImageUrlwithdomain" type="File" required="string.IsNullOrEmpty(Model.News.Image)">
+                            </form-field>
+
+                        </div>
+                       
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+
+                            <form-field asp-for="News.CardImageFile" label="News Card Image" accept=".jpg,.jpeg,.png" view-link-path="@Model.News.CardImageUrlwithdomain" type="File" required="string.IsNullOrEmpty(Model.News.CardImage)">
+                            </form-field>
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="News.IsTopStory"
+                                        label="Is Top Story"
+                                        type="Checkbox"
+                                        required="true" />
+                        </div>
+
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+
+                            <form-field asp-for="News.ShortDescription" label="Short  Description" required="true" type="TextArea"></form-field>
+
+                        </div>
+                        <div class="col-lg-12 col-sm-6 col-xs-12 pt-3">
+                            <form-field asp-for="News.FullDescription"
+                                        label="News  Description"
+                                        type="CKEditor"
+                                        required="true" />
+                        </div>
+
+                        <div class="col-lg-12 col-md-4 col-sm-6 col-12 text-align-end pt-4">
+                            <form-button label="Cancel"
+                                         type="Cancel"
+                                         url="@Url.Action("ViewNews", "Website")" />
+                            <form-button label="Submit"
+                                         type="Submit" />
+                        </div>
+
+                    </div>
+                </form>
+
+
+            </div><!--end card-body-->
+        </div><!--end card-->
+
+    </div><!--end row-->
+
+
+
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+
+
+@section Scripts
+{
+    <script src="~/ckeditor/ckeditor/ckeditor.js"></script>
+    
+    <script>
+        // Keep your existing initialization script (unchanged)
+               function initializeForm() {
+            if (typeof jQuery === 'undefined') {
+                setTimeout(initializeForm, 100);
+                return;
+            }
+            if (typeof CKEDITOR !== 'undefined') {
+                document.querySelectorAll('.ckeditor-textarea').forEach(function (textarea) {
+                    if (!CKEDITOR.instances[textarea.id]) {
+                        var editor = CKEDITOR.replace(textarea.id, {
+                            extraAllowedContent: 'div(*)[*]{*}; span(*)[*]{*}; p(*)[*]{*};',
+                            allowedContent: true,
+                            height: 300,
+                            toolbar: [
+                                { name: 'document', items: ['Source', '-', 'Save', 'NewPage', 'Preview'] },
+                                { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'] },
+                                { name: 'editing', items: ['Find', 'Replace', '-', 'SelectAll'] },
+                                '/',
+                                { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'] },
+                                { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote'] },
+                                { name: 'links', items: ['Link', 'Unlink'] },
+                                { name: 'insert', items: ['Image', 'Table', 'HorizontalRule'] },
+                                '/',
+                                { name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize'] },
+                                { name: 'colors', items: ['TextColor', 'BGColor'] }
+                            ]
+                        });
+
+                        editor.on('change', function () {
+                            editor.updateElement();
+                        });
+                    }
+                });
+            }
+        }
+
+                document.addEventListener('DOMContentLoaded', initializeForm);
+                if (typeof jQuery !== 'undefined') {
+                    jQuery(document).ready(function () {
+                        initializeForm();
+
+                        // Tell jQuery Validate to ignore nothing, so it can see the hidden textarea
+                        if ($.validator) {
+                            $.validator.setDefaults({
+                                ignore: []
+                            });
+                        }
+                    });
+                }
+    </script>
+
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/fileupload.js"></script>
+    <script src="~/assets/js/imagepreview.js"></script>
+    <script src="~/assets/js/select-clear.js"></script>
+    <script src="~/assets/js/select2.min.js"></script>
+    <script src="~/assets/js/validationanimation.js"></script>
+    <script src="~/assets/js/customdate.js"></script>
+    <script src="~/assets/js/custom.js"></script>
+    <script src="~/assets/js/moment.js"></script>
+    <script src="~/assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/assets/js/notification.js"></script>
+}
+

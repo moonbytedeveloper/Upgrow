@@ -1,0 +1,282 @@
+﻿@using VerifyIndiaAdminPanel.Models.Master
+@model WLMasterMenuVM
+
+@{
+    ViewData["Title"] = string.IsNullOrEmpty(Model.MasterMenu.UUID) ? "Add Menu Master" : "Edit Menu Master";
+}
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+<div class="container-fluid">
+    <!-- Page-Title -->
+
+    <div class="row mt-2">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20">@ViewData["Title"]</h3>
+                    </div><!--end col-->
+
+                </div> <!--end row-->
+            </div><!--end card-header-->
+            <div class="card-body pt-0">
+                <form id="bannerForm" asp-action="WLMasterAddMenu" method="post">
+                    <input type="hidden" asp-for="MasterMenu.UUID" />
+                    <input type="hidden" asp-for="MasterMenu.IsActive" />
+
+                    <div class="row align-items-center">
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="MasterMenu.MenuName"
+                                        label="Menu title"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+
+                            <form-field asp-for="MasterMenu.MenuLevel"
+                                        label="Menu level"
+                                        type="Select"
+                                        asp-items="Model.MenuLevelList"
+                                        required="true" />
+                        </div>
+
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-12 pt-3" id="isparentcheckbox">
+
+                            <form-field asp-for="MasterMenu.IsParent" label="Is Parent" type="Checkbox" required="true">
+                            </form-field>
+
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-12" id="mainparent">
+
+                            <form-field asp-for="MasterMenu.MainParentUUID"
+                                        label="Main parent"
+                                        type="Select"
+                                        asp-items="Model.ParentMenuList"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-12" id="subparent">
+
+                            <form-field asp-for="MasterMenu.SubParentUUID"
+                                        label="Sub parent"
+                                        type="Select"
+                                        asp-items="Model.SubMenuList"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="MasterMenu.Sequence" label="Sequence" required="true" type="Number">
+                            </form-field>
+                        </div>
+
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-12" id="urlDiv">
+                            <form-field asp-for="MasterMenu.Url" label="Url" type="Text" required="true">
+                            </form-field>
+                        </div>
+
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-12" id="permissionDiv">
+                            <form-field asp-for="MasterMenu.PermissionUUID"
+                                        label="Permission"
+                                        type="Select"
+                                        asp-items="Model.PermissionList"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-12" id="menuicon">
+                            <form-field asp-for="MasterMenu.MenuIcon" label="Menu Icon" type="Text" required="true">
+                            </form-field>
+                        </div>
+                        <div class="col-lg-10 col-md-4 col-sm-6 col-12 text-align-end pt-4" id="btn">
+
+                            <form-button label="Cancel"
+                                         type="Cancel"
+                                         url="@Url.Action("WLMasterViewMenu", "Master", new { area = "Admin" })" />
+                            <form-button label="Submit"
+                                         type="Submit" />
+                        </div>
+
+                    </div>
+                </form>
+
+
+            </div><!--end card-body-->
+        </div><!--end card-->
+
+    </div><!--end row-->
+
+
+
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+
+@section Scripts {
+    <script src="~/assets/js/validationanimation.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            function toggleParentAndIsParent() {
+
+                var level = $('#MasterMenu_MenuLevel').val();
+
+                var mainDiv = $('#mainparent');
+                var subDiv = $('#subparent');
+                var isParentDiv = $('#isparentcheckbox');
+                var menuicon = $('#menuicon');
+
+                var mainSelect = $('#MasterMenu_MainParentUUID');
+                var subSelect = $('#MasterMenu_SubParentUUID');
+                var permissionSelect = $('#MasterMenu_PermissionUUID');
+
+                var isParentChecked = $('#MasterMenu_IsParent').is(':checked');
+                var form = $('#bannerForm');
+                // ---------------- LEVEL LOGIC ----------------
+                if (level === "1") {
+
+                    mainDiv.hide();
+                    subDiv.hide();
+                    isParentDiv.show();
+                    menuicon.show();
+
+                    mainSelect.prop('required', false);
+                    subSelect.prop('required', false);
+
+                }
+                else if (level === "2") {
+
+                    mainDiv.show();
+                    subDiv.hide();
+                    isParentDiv.show();
+                    menuicon.hide();
+
+                    mainSelect.prop('required', true);
+                    subSelect.prop('required', false);
+
+                }
+                else if (level === "3") {
+
+                    mainDiv.show();
+                    subDiv.show();
+                    isParentDiv.hide();
+                    menuicon.hide();
+
+                    mainSelect.prop('required', true);
+                    subSelect.prop('required', true);
+
+                }
+                else {
+
+                    mainDiv.hide();
+                    subDiv.hide();
+                    isParentDiv.show();
+
+                    mainSelect.prop('required', false);
+                    subSelect.prop('required', false);
+                }
+
+                // ---------------- PERMISSION LOGIC ----------------
+                isParentChecked = $('#MasterMenu_IsParent').prop('checked');
+                permissionSelect = $('#MasterMenu_PermissionUUID');
+                var urlField = $('#MasterMenu_Url');
+                var permissionDiv = $('#permissionDiv');
+                var urlDiv = $('#urlDiv');
+
+                if (level === "3") {
+                    // Level 3 (sub-menu) must always show and enable Url & Permission
+                    permissionDiv.show();
+                    urlDiv.show();
+
+                    permissionSelect.prop('disabled', false).prop('required', true);
+                    urlField.prop('disabled', false).prop('required', true);
+
+                    // ensure client validation is active
+                    if (typeof $.validator !== 'undefined' && $.validator.unobtrusive) {
+                        $.validator.unobtrusive.parse($('#bannerForm'));
+                    }
+                } else {
+                    // For other levels respect the IsParent checkbox
+                    if (isParentChecked) {
+                        // hide but preserve values
+                        permissionDiv.hide();
+                        urlDiv.hide();
+
+                        permissionSelect.prop('disabled', true).prop('required', false);
+                        urlField.prop('disabled', true).prop('required', false);
+
+                        permissionSelect.removeClass('input-validation-error');
+                        urlField.removeClass('input-validation-error');
+                        $('span[data-valmsg-for="MasterMenu.PermissionUUID"]').text('');
+                        $('span[data-valmsg-for="MasterMenu.Url"]').text('');
+                    } else {
+                        // show and enable when not a parent
+                        permissionDiv.show();
+                        urlDiv.show();
+
+                        permissionSelect.prop('disabled', false).prop('required', true);
+                        urlField.prop('disabled', false).prop('required', true);
+
+                        if (typeof $.validator !== 'undefined' && $.validator.unobtrusive) {
+                            $.validator.unobtrusive.parse($('#bannerForm'));
+                        }
+                    }
+                }
+            }
+
+            // Initial load
+            toggleParentAndIsParent();
+
+            // Menu level change
+            $('#MasterMenu_MenuLevel').change(toggleParentAndIsParent);
+
+            // IsParent checkbox change
+            $('#MasterMenu_IsParent').change(toggleParentAndIsParent);
+
+
+            // ---------------- SUB PARENT LOAD ----------------
+            function loadSubParents(mainUUID, selectedSubUUID) {
+
+                var subDropdown = $('#MasterMenu_SubParentUUID');
+
+                if (!mainUUID) {
+                    subDropdown.html('<option value=""></option>');
+                    return;
+                }
+
+                $.ajax({
+                    url: '@Url.Action("WLGetSubParents")',
+                    type: 'GET',
+                    data: { mainUUID: mainUUID },
+                    success: function (data) {
+
+                        var options = '<option value=""></option>';
+
+                        $.each(data, function (i, item) {
+                            var isSelected = selectedSubUUID === item.value ? 'selected' : '';
+                            options += '<option value="' + item.value + '" ' + isSelected + '>' + item.text + '</option>';
+                        });
+
+                        subDropdown.html(options);
+                    },
+                    error: function () {
+                        alert('Failed to load sub-parents!');
+                    }
+                });
+            }
+
+            // Load Sub Parents on edit
+            var initialMain = $('#MasterMenu_MainParentUUID').val();
+            var initialSub = '@Model.MasterMenu.SubParentUUID';
+
+            if (initialMain) {
+                loadSubParents(initialMain, initialSub);
+            }
+
+            // On Main Parent change
+            $('#MasterMenu_MainParentUUID').change(function () {
+                loadSubParents($(this).val(), null);
+            });
+
+        });
+    </script>
+}

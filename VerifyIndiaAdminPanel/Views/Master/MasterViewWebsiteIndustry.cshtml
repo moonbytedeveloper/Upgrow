@@ -1,0 +1,122 @@
+﻿@section Styles {
+    <partial name="_ViewStyles" />
+
+}
+@{
+    ViewData["Title"] = "View Website Industry";
+}
+
+
+        <div class="container-fluid">
+            <!-- Page-Title -->
+
+            <div class="row mt-2">
+        <div class="card">
+
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <h3 class="card-title fs-20 mt-3 mb-3 ms-2">@ViewData["Title"]</h3>
+                        </div><!--end col-->
+                        <div class="col-6 text-align-end">
+                            <form-button label="Add Website Industry"
+                                         type="Add"
+                                 url="@Url.Action("MasterAddWebsiteIndustry", "Master")">
+                            </form-button>
+                   
+                        </div><!--end col-->
+                    </div> <!--end row-->
+                </div><!--end card-header-->
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover datatableeditpopup" id="datatable_1">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Sr.</th>
+                                    <th style="display:none;">UUID</th>
+                                    <th>Industry Title</th>
+                                    <th>Industry Image</th>
+                                    <th>Description</th>
+                                    <th>Sequence</th>
+                                    <th data-action-column="true">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+
+                </div><!--end card-body-->
+        </div><!--end card-->
+
+            </div><!--end row-->
+
+            <div id="rowActionMenu" class="row-action-menu">
+                <ul>                    
+            <action-link id="editIndustryLink" label="Edit Industry Details" type="Edit"></action-link>
+            <action-link id="viewHistoryLink" label="View History" type="ViewHistory"></action-link>
+        </ul>
+            </div>
+
+        </div><!-- container -->
+        <!-- Timer -->
+        <partial name="_Timer" />
+
+   
+<!-- end page-wrapper -->
+@section Scripts {
+
+    <partial name="_ViewScripts" />
+
+    <script>
+        initMasterTable({
+            tableId: '#datatable_1',
+            ajaxUrl: '@Url.Action("GetWebsiteIndustry", "Master")',
+            columns: [
+                { data: 'srno', orderable: false },
+                { data: 'uuid', visible: false },
+                { data: 'title' },
+                { data: 'image', orderable: false },
+                { data: 'description' },
+                { data: 'sequence' },
+                { data: 'action', orderable: false }
+            ],
+            rowActions: [
+                {
+                    selector: '#editIndustryLink',
+                    baseUrl: '@Url.Action("MasterEditWebsiteIndustry", "Master")',
+                    idProperty: 'uuid',
+                    paramName: 'uuid'
+                   
+                },
+                        {
+            selector: '#viewHistoryLink',
+            baseUrl: 'javascript:void(0)',
+            idProperty: 'uuid',
+            handler: function (rowData) {
+                AuditLogsUI.openLogs("Website_MasterIndustry", rowData.uuid, false, "");
+            }
+        }
+            ]
+        });
+                        AuditLogsUI.init(
+            AuditLogsUI.common.mergeConfig({
+            foreignKeyMap: {
+
+
+            },
+            friendlyFieldMap: {
+
+                },
+            hiddenFields: [
+
+            ]
+        })
+        );
+    </script>
+    <script>
+        initActivityLogTable({ menuName: 'Website_MasterIndustry' });
+    </script>
+}

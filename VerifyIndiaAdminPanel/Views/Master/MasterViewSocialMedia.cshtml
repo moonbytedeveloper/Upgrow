@@ -1,0 +1,126 @@
+﻿@{
+    ViewData["Title"] = "View Social Media";
+}
+@section Styles {
+    <partial name="_ViewStyles" />
+}
+
+
+<div class="container-fluid">
+    <!-- Page-Title -->
+
+    <div class="row mt-2">
+
+        <div class="card">
+        <div class="card-header">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h3 class="card-title fs-20 mt-3 mb-3 ms-2">View Social Media</h3>
+                </div><!--end col-->
+                <div class="col-6 text-align-end">
+                    <form-button label="Add Social Media"
+                                 type="Add"
+                                 url="@Url.Action("MasterAddSocialMedia", "Master")">
+                    </form-button>
+                   
+                </div><!--end col-->
+            </div> <!--end row-->
+        </div><!--end card-header-->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover datatableeditpopup" id="datatable_1">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Sr. No</th>
+                            <th style="display:none;">UUID</th>
+                            <th>Platform Name</th>
+                            <th>Profile URL</th>
+                            <th>Icon</th>
+                            <th>Display Order</th>
+                            <th data-action-column="true">Action</th>
+                        </tr>
+                    </thead>
+                </table>
+
+            </div>
+
+
+        </div><!--end card-body-->
+        </div><!--end card-->
+
+    </div><!--end row-->
+
+    <div id="rowActionMenu" class="row-action-menu">
+        <ul>           
+            <action-link id="editSocialMediaLink" label="Edit Social Media Details" type="Edit"></action-link>
+            <action-link id="viewHistoryLink" label="View History" type="ViewHistory"></action-link>
+        </ul>
+    </div>
+
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+
+@section Scripts {
+
+    <partial name="_ViewScripts" />
+
+    <script>
+        initMasterTable({
+            tableId: '#datatable_1',
+            ajaxUrl: '@Url.Action("GetSocialMedia", "Master")',
+            columns: [
+                { data: 'srno', orderable: false },
+                { data: 'uuid', visible: false },
+                { data: 'platformName' },
+                { data: 'profileURL' },
+                {
+                    data: 'iconURL',
+                    orderable: false,
+                    render: function (data, type, row) {
+                        if (type === 'display' && data) {
+                            // Render Font Awesome icon
+                            return '<i class="' + data + '" style="font-size: 20px; color: #3498db;"></i>';
+                        }
+                        return data;
+                    }
+                },
+                { data: 'sequenceno' },
+                { data: 'action', orderable: false }
+            ],
+            rowActions: [
+                {
+                    selector: '#editSocialMediaLink',
+                    baseUrl: '@Url.Action("MasterEditSocialMedia", "Master")',
+                    idProperty: 'uuid',
+                    paramName: 'uuid'
+                },
+                {
+                    selector: '#viewHistoryLink',
+                    baseUrl: 'javascript:void(0)',
+                    idProperty: 'uuid',
+                    handler: function (rowData) {
+                        AuditLogsUI.openLogs("Master_SocialMedia", rowData.uuid, false, "");
+                    }
+                }
+            ]
+        });
+         AuditLogsUI.init(
+            AuditLogsUI.common.mergeConfig({
+            foreignKeyMap: {
+            },
+            friendlyFieldMap: {
+                "PlatformName": "Platform Name",
+                "ProfileURL": "Profile URL",
+                "IconURL": "Icon",
+                "DisplayOrder": "Display Order"
+            },
+            hiddenFields: [
+            ]
+        })
+        );
+    </script>
+    <script>
+        initActivityLogTable({ menuName: 'Master_SocialMedia' });
+    </script>
+}

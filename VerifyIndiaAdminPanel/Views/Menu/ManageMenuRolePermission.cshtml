@@ -1,0 +1,382 @@
+﻿@model VerifyIndiaAdminPanel.Models.Menu.MenuRolePermissionVM
+
+@{
+    ViewData["Title"] = "Manage Roles & Responsibilities";
+}
+
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+
+
+
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20">Manage Roles & Responsibilities</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Role Selection Section -->
+            <div class="card-body pt-0">
+                <form id="bannerForm">
+                    <div class="row align-items-center">
+                        <!-- Role Dropdown - Using form-field like MasterAddCMS -->
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="RolePermission.RoleUUID"
+                                        asp-items="@Model.RoleList"
+                                        label="Select Role"
+                                        type="Select"
+                                        required="true"
+                                        searchable="true">
+                            </form-field>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Permissions Section -->
+            <div class="card-body pt-0">
+                <div id="permissionsContainer">
+                    <!-- Permissions will be loaded dynamically here -->
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="card-body pt-3 text-align-end">
+                <form-button label="Cancel"
+                             type="Cancel"
+                             url="@Url.Action("ManageMenuRolePermission", "Menu")" />
+                <form-button label="Save Changes"
+                             type="Submit"
+                             class="savePermissionsBtn" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Timer -->
+<partial name="_Timer" />
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/custom.js"></script>
+    <script src="~/assets/js/select2.min.js"></script>
+    <script src="~/assets/js/select-clear.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            let selectedRole = '';
+            let hasChanges = false;
+
+            // Initialize Select2
+            const roleSelect = $('#RolePermission_RoleUUID');
+            if (roleSelect.length) {
+                roleSelect.select2({
+                    minimumResultsForSearch: 0,
+                    width: '100%'
+                });
+            }
+
+            updateSaveButton();
+
+            // NOTE: Removed sessionStorage/back-button message logic.
+            // TempData is server-side and only works with full page loads. For AJAX we show the popup immediately.
+
+            // Load permissions when role is selected
+            $(document).on('change', '#RolePermission_RoleUUID', function () {
+                selectedRole = $(this).val();
+                console.log('=== Role Changed ===');
+                console.log('Role selected:', selectedRole);
+
+                if (selectedRole) {
+                    loadPermissions(selectedRole);
+                    hasChanges = false;
+                    updateSaveButton();
+                } else {
+                    $('#permissionsContainer').html('');
+                    hasChanges = false;
+                    updateSaveButton();
+                }
+            });
+
+            function loadPermissions(roleUUID) {
+                console.log('Loading permissions for role:', roleUUID);
+
+                $.ajax({
+                    url: '@Url.Action("GetPermissionsByRole", "Menu")',
+                    type: 'POST',
+                    data: { roleUUID: roleUUID },
+                    success: function (data) {
+                        console.log('=== Permissions Loaded ===');
+                        console.log('Response:', data);
+
+                        if (data.success) {
+                            console.log('Permission Groups:', data.permissionGroups);
+                            renderPermissions(data.permissionGroups);
+                        } else {
+                            showNotification('Error loading permissions: ' + (data.message || 'Unknown error'), 'danger');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error loading permissions:', error);
+                        console.log('Response:', xhr.responseText);
+                        showNotification('Error loading permissions. Please try again.', 'danger');
+                    }
+                });
+            }
+
+            function renderPermissions(permissionGroups) {
+                let html = '';
+                let accordionId = 'permissionAccordion';
+
+                html += `<div class="accordion" id="${accordionId}">`;
+
+                permissionGroups.forEach((group, index) => {
+                    const collapseId = `collapse_${index}`;
+                    const headingId = `heading_${index}`;
+
+                    html += `
+                        <div class="accordion-item">
+                            <h5 class="accordion-header" id="${headingId}">
+                                <button class="accordion-button fw-semibold fs-18 collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#${collapseId}"
+                                    aria-expanded="false" aria-controls="${collapseId}"
+                                    style="padding: 10px; font-size: 16px !important;">
+                                    <label class="CheckBoxcontainer" style="color: var(--theme-primary); margin-right: 10px;">
+                                        <input class="group-checkbox" type="checkbox"
+                                            id="groupCheck_${index}" data-group-index="${index}" data-group-id="${group.groupUUID}">
+                                        <svg viewBox="0 0 64 64" height="1em" width="1em">
+                                            <path d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16" pathLength="575.0541381835938" class="path"></path>
+                                        </svg>
+                                        <span>${group.groupTitle}</span>
+                                    </label>
+                                </button>
+                            </h5>
+                            <div id="${collapseId}" class="accordion-collapse collapse"
+                                aria-labelledby="${headingId}" data-bs-parent="#${accordionId}">
+                                <div class="accordion-body">
+                                    <div class="row">
+                    `;
+
+                    group.permissions.forEach((permission) => {
+                        console.log(`Rendering permission: ${permission.permissionName} (${permission.permissionUUID}), IsAssigned: ${permission.isAssigned}`);
+
+                        html += `
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-12 mt-2">
+                                <label class="CheckBoxcontainer">
+                                    <input class="permission-checkbox" type="checkbox"
+                                        id="perm_${permission.permissionUUID}"
+                                        data-permission-uuid="${permission.permissionUUID}"
+                                        data-group-index="${index}"
+                                        data-group-id="${group.groupUUID}"
+                                        ${permission.isAssigned ? 'checked' : ''}>
+                                    <svg viewBox="0 0 64 64" height="1em" width="1em">
+                                        <path d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16" pathLength="575.0541381835938" class="path"></path>
+                                    </svg>
+                                    <span>${permission.permissionName}</span>
+                                </label>
+                            </div>
+                        `;
+                    });
+
+                    html += `
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                html += '</div>';
+
+                $('#permissionsContainer').html(html);
+                updateAllGroupCheckboxes();
+
+                $(document).on('change', '.permission-checkbox', function () {
+                    hasChanges = true;
+                    updateSaveButton();
+                    updateGroupCheckbox($(this).data('group-index'));
+                });
+
+                $(document).on('change', '.group-checkbox', function () {
+                    const groupIndex = $(this).data('group-index');
+                    const isChecked = $(this).is(':checked');
+                    $(`.permission-checkbox[data-group-index="${groupIndex}"]`).prop('checked', isChecked);
+                    hasChanges = true;
+                    updateSaveButton();
+                });
+            }
+
+            function updateAllGroupCheckboxes() {
+                const allGroups = $('.group-checkbox');
+                allGroups.each(function () {
+                    const groupIndex = $(this).data('group-index');
+                    updateGroupCheckbox(groupIndex);
+                });
+            }
+
+            function updateGroupCheckbox(groupIndex) {
+                const groupPermissions = $(`.permission-checkbox[data-group-index="${groupIndex}"]`);
+                const checkedCount = groupPermissions.filter(':checked').length;
+                const totalCount = groupPermissions.length;
+
+                if (checkedCount > 0) {
+                    $(`.group-checkbox[data-group-index="${groupIndex}"]`).prop('checked', true);
+                } else {
+                    $(`.group-checkbox[data-group-index="${groupIndex}"]`).prop('checked', false);
+                }
+            }
+
+            function updateSaveButton() {
+                $('.savePermissionsBtn').prop('disabled', !hasChanges || !selectedRole);
+            }
+
+            $(document).on('click', 'button', function (e) {
+                const buttonText = $(this).text().trim();
+
+                if (buttonText !== 'Save Changes') {
+                    return;
+                }
+
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+
+                console.log('=== SAVE BUTTON CLICKED ===');
+
+                if (!selectedRole) {
+                    showNotification('Please select a role first.', 'warning');
+                    return false;
+                }
+
+                if (!hasChanges) {
+                    showNotification('No changes to save.', 'info');
+                    return false;
+                }
+
+                const permissions = [];
+                $('.permission-checkbox').each(function () {
+                    permissions.push({
+                        permissionUUID: $(this).data('permission-uuid'),
+                        isActive: $(this).is(':checked')
+                    });
+                });
+
+                const formData = new FormData();
+                formData.append('roleUUID', selectedRole);
+
+                permissions.forEach((perm, index) => {
+                    formData.append(`permissions[${index}].permissionUUID`, perm.permissionUUID);
+                    formData.append(`permissions[${index}].isActive`, perm.isActive);
+                });
+
+                $.ajax({
+                    url: '@Url.Action("SaveMenuRolePermissions", "Menu")',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        console.log('=== SAVE SUCCESS ===');
+
+                        if (data.success) {
+                            // show popup immediately on the same page
+                            showNotification(data.message || 'Permissions saved successfully!', 'success');
+                            hasChanges = false;
+                            updateSaveButton();
+                        } else {
+                            showNotification('Error saving permissions: ' + (data.message || 'Unknown error'), 'danger');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('=== SAVE ERROR ===', error);
+                        showNotification('Error saving permissions: ' + error, 'danger');
+                    }
+                });
+
+                return false;
+            });
+
+            // showNotification uses SweetAlert2 for a consistent popup.
+           function showNotification(message, type) {
+                const typeMap = {
+                    'success': 'Success',
+                    'danger': 'Something went wrong',
+                    'warning': 'Attention required',
+                    'info': 'Information'
+                };
+
+                const colorMap = {
+                    'success': '#28a745',
+                    'danger': '#dc3545',
+                    'warning': '#ffc107',
+                    'info': '#17a2b8'
+                };
+
+                const bgColorMap = {
+                    'success': 'rgba(40, 167, 69, 0.2)',
+                    'danger': 'rgba(220, 53, 69, 0.2)',
+                    'warning': 'rgba(255, 193, 7, 0.2)',
+                    'info': 'rgba(23, 162, 184, 0.2)'
+                };
+
+                const displayType = typeMap[type] || 'Notification';
+                const color = colorMap[type] || '#6c757d';
+                const bgColor = bgColorMap[type] || 'rgba(108, 117, 125, 0.2)';
+
+                let iconSvg = '';
+                if (type === 'success') {
+                    iconSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon"><path fill="' + color + '" d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z"></path></svg>';
+                } else if (type === 'danger') {
+                    iconSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon"><path fill="' + color + '" d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z"></path></svg>';
+                } else if (type === 'warning') {
+                    iconSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon"><path fill="' + color + '" d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"></path></svg>';
+                } else {
+                    iconSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon"><path fill="' + color + '" d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8V248c0-13.3-10.7-24-24-24H216c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v64H216zm40-144a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"></path></svg>';
+                }
+
+                const notificationHtml = `
+                    <div class="notificatoncard top-right" data-type="${type}" style="border-left: 5px solid ${color};">
+                        <svg class="wave" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0,256L11.4,240C22.9,224,46,192,69,192C91.4,192,114,224,137,234.7C160,245,183,235,206,213.3C228.6,192,251,160,274,149.3C297.1,139,320,149,343,181.3C365.7,213,389,267,411,282.7C434.3,299,457,277,480,250.7C502.9,224,526,192,549,181.3C571.4,171,594,181,617,208C640,235,663,277,686,256C708.6,235,731,149,754,122.7C777.1,96,800,128,823,165.3C845.7,203,869,245,891,224C914.3,203,937,117,960,112C982.9,107,1006,181,1029,197.3C1051.4,213,1074,171,1097,144C1120,117,1143,107,1166,133.3C1188.6,160,1211,224,1234,218.7C1257.1,213,1280,139,1303,133.3C1325.7,128,1349,192,1371,192C1394.3,192,1417,128,1429,96L1440,64L1440,320L1428.6,320C1417.1,320,1394,320,1371,320C1348.6,320,1326,320,1303,320C1280,320,1257,320,1234,320C1211.4,320,1189,320,1166,320C1142.9,320,1120,320,1097,320C1074.3,320,1051,320,1029,320C1005.7,320,983,320,960,320C937.1,320,914,320,891,320C868.6,320,846,320,823,320C800,320,777,320,754,320C731.4,320,709,320,686,320C662.9,320,640,320,617,320C594.3,320,571,320,549,320C525.7,320,503,320,480,320C457.1,320,434,320,411,320C388.6,320,366,320,343,320C320,320,297,320,274,320C251.4,320,229,320,206,320C182.9,320,160,320,137,320C114.3,320,91,320,69,320C45.7,320,23,320,11,320L0,320Z" fill="${color}" fill-opacity="1"></path>
+                        </svg>
+                        <div class="icon-container" style="background-color: ${bgColor};">
+                            ${iconSvg}
+                        </div>
+                        <div class="message-text-container">
+                            <p class="message-text" style="color: ${color};">${displayType}</p>
+                            <p class="sub-text">${message}</p>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15" class="cross-icon" style="cursor: pointer;">
+                            <path fill="${color}" d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z" />
+                        </svg>
+                    </div>
+                `;
+
+                $('body').append(notificationHtml);
+
+                // Auto-remove notification after 3 seconds
+                setTimeout(() => {
+                    $('.notificatoncard').fadeOut(function () {
+                        $(this).remove();
+                    });
+                }, 3000);
+
+                // Close on X click
+                $(document).on('click', '.notificatoncard .cross-icon', function () {
+                    $(this).closest('.notificatoncard').fadeOut(function () {
+                        $(this).remove();
+                    });
+                });
+            }
+
+            console.log('Script initialized');
+        });
+    </script>
+}

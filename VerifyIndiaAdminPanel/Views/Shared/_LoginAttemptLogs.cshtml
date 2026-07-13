@@ -1,0 +1,126 @@
+﻿@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
+@{
+    var antiForgeryToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+}
+
+<style>
+    #loginAttemptsSidebar {
+        width: min(860px, 100vw);
+        z-index: 1055;
+    }
+</style>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="loginAttemptsSidebar" aria-labelledby="loginAttemptsSidebarLabel">
+    <div class="offcanvas-header text-white" style="background: linear-gradient(90deg, #111827 0%, #0f172a 100%);">
+        <h5 class="offcanvas-title" id="loginAttemptsSidebarLabel" style="color: white;">
+            <i class="fa fa-user-shield me-2"></i>Login Attempts
+        </h5>
+        <button type="button" class="btn-close btn-close-white opacity-75" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+ 
+
+        <!-- Hidden form fields for anti-forgery + userUuid -->
+        <form id="loginAttemptsForm">
+            <input type="hidden" name="__RequestVerificationToken" value="@antiForgeryToken" />
+            <input type="hidden" id="loginAttemptsUserUuid" name="userUuid" value="" />
+        </form>
+
+        <div class="table-responsive">
+            <table id="loginAttemptsTable" class="table table-sm table-bordered align-middle mb-0 w-100">
+                <thead class="table-light">
+                    <tr>
+                        @*  <th style="width: 5%">Sr</th> *@
+                        <th style="width: 24%">Date</th>
+                        <th style="width: 14%">User</th>
+                        <th style="width: 10%">Status</th>
+                        <th style="width: 32%">Reason</th>
+                        <th style="width: 15%">IP</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div id="loginAttemptsLoader" class="text-center py-3 d-none">
+            <div class="spinner-border text-primary"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.LoginAttemptLogsUI = (function () {
+        let sidebar;
+        let table;
+        let currentUserUuid = null;
+
+        function initDataTable() {
+            if ($.fn.DataTable.isDataTable('#loginAttemptsTable')) {
+                table = $('#loginAttemptsTable').DataTable();
+                return;
+            }
+
+            table = $('#loginAttemptsTable').DataTable({
+                processing: true,
+                serverSide: true,
+                paging: true,
+                searching: true, // we'll use our own search box
+                lengthChange: true,
+                pageLength: 10,
+                order: [[0, 'desc']], // default: date desc
+                ajax: {
+                    url: '@Url.Action("GetLoginAttemptLogs", "Auth")',
+                    type: 'POST',
+                    data: function (d) {
+                        // d is the DataTables payload; add our extra fields
+                        d.userUuid = $('#loginAttemptsUserUuid').val();
+                        
+                        d.__RequestVerificationToken = $('input[name="__RequestVerificationToken"]', '#loginAttemptsForm').val();
+                    }
+                },
+                columns: [
+                    
+                    { data: 'date', name: 'date' },
+                    { data: 'user', name: 'user' },
+                    {
+                        data: 'status',
+                        name: 'status',
+                        render: function (data) {
+                            if (data === 'Success') {
+                                return "<span class='badge bg-success'>Success</span>";
+                            }
+                            return "<span class='badge bg-danger'>Failed</span>";
+                        }
+                    },
+                    { data: 'reason', name: 'reason' },
+                    { data: 'ip', name: 'ip' }
+                ]
+            });
+
+            $('#btnRefreshLoginAttempts').on('click', function () {
+                table.ajax.reload(null, false);
+            });
+
+             
+        }
+
+        function open(userUuid) {
+            if (!sidebar) {
+                const el = document.getElementById('loginAttemptsSidebar');
+                sidebar = bootstrap.Offcanvas.getOrCreateInstance(el);
+            }
+
+            currentUserUuid = userUuid || '';
+            $('#loginAttemptsUserUuid').val(currentUserUuid);
+
+            initDataTable();
+
+            sidebar.show();
+            table.ajax.reload();
+        }
+
+        return { open };
+    })();
+</script>

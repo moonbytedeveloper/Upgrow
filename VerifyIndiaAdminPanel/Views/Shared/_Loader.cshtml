@@ -1,0 +1,10 @@
+﻿@model bool
+@{
+    var isTable = Model;
+    var id = isTable ? "table-loader" : "page-loader";
+    var cssClass = isTable ? "loading table-loader" : "loading";
+}
+
+<div id="@id" class="@cssClass" aria-label="Loading" role="status">
+    <span></span><span></span><span></span><span></span><span></span>
+</div>

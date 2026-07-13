@@ -1,0 +1,83 @@
+﻿@model VerifyIndia.Application.Commands.Website.CertificationsCommand
+
+@{
+    var isEdit = Model != null && !string.IsNullOrEmpty(Model.UUID);
+    ViewData["Title"] = isEdit ? "Edit Certification" : "Add Certification";
+}
+
+<div class="container-fluid">
+
+    <div class="row mt-2">
+
+        <div class="card">
+
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20">@ViewData["Title"]</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body pt-0">
+
+                <form id="bannerForm" asp-action="AddCertification" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="UUID" />
+                    <input type="hidden" asp-for="IsActive" />
+                    <input type="hidden" asp-for="FilePath" value="@(Model?.FilePath ?? string.Empty)" />
+
+                    <div class="row align-items-center">
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Name"
+                                        label="Certification Name"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Image"
+                                        label="Certification Image"
+                                        type="File"
+                                        accept=".jpg,.jpeg,.png"
+                                        required="@(string.IsNullOrEmpty(Model?.FilePath))"
+                                        view-link-path="@Model?.ImageUrlwithdomain" />
+                        </div>
+
+
+                        <div class="col-lg-6 text-align-end pt-4">
+
+                            <form-button label="Cancel"
+                                         type="Cancel"
+                                         url="@Url.Action("ViewCertifications", "Website")" />
+
+                            <form-button label="Submit"
+                                         type="Submit" />
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<partial name="_Timer" />
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+
+    <script src="~/assets/js/notification.js"></script>
+    <script src="~/assets/js/fileupload.js"></script>
+    <script src="~/assets/js/imagepreview.js"></script>
+    <script src="~/assets/js/validationanimation.js"></script>
+}
+
+ 

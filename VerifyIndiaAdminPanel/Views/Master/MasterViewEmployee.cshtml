@@ -1,0 +1,211 @@
+﻿@{
+    ViewData["Title"] = "View Employee";
+}
+@section Styles {
+    <partial name="_ViewStyles" />
+}
+
+<div class="container-fluid">
+    <!-- Page-Title -->
+
+    <div class="row mt-2">
+        <div class="card">
+
+        <div class="card-header">
+            <div class="row align-items-center">
+                <div class="col-9">
+                    <h3 class="card-title fs-20 mt-3 mb-3 ms-2">@ViewData["Title"]</h3>
+                </div><!--end col-->
+                <div class="col-3 text-align-end">
+                    <form-button label="Add Employee"
+                                 type="Add"
+                                 url="@Url.Action("MasterAddEmployee", "Master")">
+                    </form-button>
+                  
+                </div><!--end col-->
+            </div> <!--end row-->
+        </div><!--end card-header-->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover datatableeditpopup" id="datatable_1">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Sr.</th>
+                            <th style="display:none;">UUID</th>
+                            <th>Employee Id</th>
+                            <th>Employee Name</th>
+                            <th>Role</th>
+                            <th>Department</th>
+                            <th>Designation</th>
+                            <th>Is Login Allowed</th>
+                            <th data-action-column="true">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+        </div><!--end card-body-->
+        </div><!--end card-->
+
+    </div><!--end row-->
+
+    <div id="rowActionMenu" class="row-action-menu">
+        <ul>            
+            <action-link id="editEmployeeLink" label="Edit Employee Details" type="Edit"></action-link>
+            <action-link id="viewHistoryLink" label="View History" type="ViewHistory"></action-link>
+            <li>
+                <a href="javascript:void(0)" id="changePasswordLink">
+                    Change Password
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" id="loginAttemptsLink">
+                    View Login Attempts
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" id="loginLogoutLink">
+                    View Login Logs
+                </a>
+            </li>
+             
+        </ul>
+    </div>
+    <!-- Change Password Modal -->
+    <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="changePasswordLabel">Change Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="changePasswordModalBody">
+                    <!-- Form content will be loaded here via AJAX -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+<partial name="_LoginAttemptLogs" />
+<partial name="_LoginLogoutLogs" />
+@section Scripts {
+
+    <partial name="_ViewScripts" />
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/validationanimation.js"></script>
+    <script src="~/assets/js/change-password-modal.js"></script>
+
+    <script>
+        ChangePasswordModal.init({
+            getUrl: '@Url.Action("ChangePassword", "Master")',
+            postUrl: '@Url.Action("ChangePassword", "Master")'
+        });
+
+        initMasterTable({
+            tableId: '#datatable_1',
+            ajaxUrl: '@Url.Action("GetEmployee", "Master")',
+            columns: [
+                { data: 'srno', orderable: false },
+                { data: 'uuid', visible: false },
+                { data: 'employeeid' },
+                { data: 'fullname' },
+                { data: 'role' },
+                { data: 'department' },
+                { data: 'designation' },
+                { data: 'loginallowed', orderable: false },
+
+                { data: 'action', orderable: false }
+            ],
+            rowActions: [
+                {
+                    selector: '#editEmployeeLink',
+                    baseUrl: '@Url.Action("MasterEditEmployee", "Master")',
+                    idProperty: 'uuid',
+                    paramName: 'uuid'
+                    // No handler = default navigation
+                },
+            {
+                    selector: '#viewHistoryLink',
+                    baseUrl: 'javascript:void(0)',
+                    idProperty: 'uuid',
+                    handler: function (rowData) {
+                    AuditLogsUI.openLogs("Master_Employee", rowData.uuid, false, "");
+            }
+        },
+                {
+                    selector: '#changePasswordLink',
+                    baseUrl: 'javascript:void(0)',
+                    idProperty: 'uuid',
+                    handler: function (rowData) {
+                        $('#rowActionMenu').hide();
+                        ChangePasswordModal.open(rowData.uuid);
+                    }
+                },
+             {
+                selector: '#loginAttemptsLink',
+                baseUrl: 'javascript:void(0)',
+                idProperty: 'uuid',
+                handler: function (rowData) {
+                    $('#rowActionMenu').hide();
+
+                    // This must match the JS object name you added in `_LoginAttemptLogs.cshtml`
+                    // If your sidebar JS is `LoginAttemptLogsUI`, use that instead.
+                    LoginAttemptLogsUI.open(rowData.uuid);
+                }
+            },
+                    {
+            selector: '#loginLogoutLink',
+            baseUrl: 'javascript:void(0)',
+            idProperty: 'uuid',
+            handler: function (rowData) {
+                $('#rowActionMenu').hide();
+                LoginLogoutLogsUI.open(rowData.uuid);  // Changed from LoginAttemptLogsUI
+            }
+        }
+
+            ]
+        });
+                AuditLogsUI.init(
+            AuditLogsUI.common.mergeConfig({
+            foreignKeyMap: {
+                "GenderUUID": "/Common/GetGenderName",
+                "DepartmentUUID": "/Common/GetDepartmentName",
+                "RoleUUID": "/Common/GetRoleName",
+                "DesignationUUID": "/Common/GetDesignationName",
+                "HonorificUUID": "/Common/GetHonorificName"
+            },
+            friendlyFieldMap: {
+                "FirstName": "First Name",
+                "LastName": "Last Name",
+                "EmailId": "Email",
+                "MobileNumber": "Mobile Number",
+                "GenderUUID": "Gender",
+                "DepartmentUUID": "Department",
+                "RoleUUID": "Role",
+                "DesignationUUID": "Designation",
+                "HonorificUUID": "Honorific",
+                "BirthDate": "Birth Date",
+                "CompanyEmailID": "Company Email",
+                "CompanyMobileNumber": "Company Mobile",
+                "UserName": "Username",
+                "IsLoginAllowed": "Login Allowed",
+                "PasswordChangeReason": "Password Change Reason"
+            },
+            hiddenFields: [
+                "Password",
+                "Profile_URL",
+                "EmployeeCode"
+            ]
+        })
+        );
+    </script>
+    <script>
+        initActivityLogTable({ menuName: 'Master_Employee' });
+    </script>
+}

@@ -1,0 +1,93 @@
+﻿@using VerifyIndia.Application.Common.Dropdowns
+@model VerifyIndiaAdminPanel.Models.Master.MasterCityVM
+
+@{
+    var isEditMode = !string.IsNullOrWhiteSpace(Model?.City?.UUID);
+    var pageTitle = isEditMode ? "Edit City" : "Add City";
+    ViewData["Title"] = pageTitle;
+}
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row mt-2">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20">@pageTitle</h3>
+                    </div><!--end col-->
+
+                </div> <!--end row-->
+            </div><!--end card-header-->
+            <div class="card-body pt-0">
+                <form id="bannerForm" asp-action="MasterAddCity" method="post">
+                    <input type="hidden" asp-for="City.UUID" />
+                    <input type="hidden" asp-for="City.IsActive" />
+
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+                           
+                            <dependent-dropdown asp-for="City.CountryUUID"
+                                                label="Country Title"
+                                                key="@DropdownKey.Country"
+                                                required="true"
+                                                placeholder="- Select Country -" />
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+                            <dependent-dropdown asp-for="City.StateUUID"
+                                                label="State Title"
+                                                key="@DropdownKey.State"
+                                                parent="@DropdownKey.Country"
+                                                required="true"
+                                                placeholder="- Select State -" />
+                           
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="City.Title"
+                                        label="City Title"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="City.ShortTitle"
+                                        label="City Short Title"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-12 col-md-4 col-sm-6 col-12 text-align-end pt-4">
+                            <form-button label="Cancel"
+                                         type="Cancel"
+                                         url="@Url.Action("MasterViewCity", "Master")" />
+                            <form-button label="Submit"
+                                         type="Submit" />
+                        </div>
+
+                    </div>
+                </form>
+
+
+            </div><!--end card-body-->
+        </div><!--end card-->
+
+    </div><!--end row-->
+
+
+
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/dp-dropdown.js"></script>
+   
+    <script src="~/assets/js/validationanimation.js"></script>
+    <script src="~/assets/js/select2.min.js"></script>
+}
+

@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "View Provider APIs";
+}
+@section Styles {
+    <partial name="_ViewStyles" />
+}
+
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row mt-2">
+        <div class="card">
+        <div class="card-header">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h3 class="card-title fs-20 mt-3 mb-3 ms-2">@ViewData["Title"]</h3>
+                </div><!--end col-->
+                <div class="col-6 text-align-end">
+                    <form-button label="Add Provider API"
+                                 type="Add"
+                                 url="@Url.Action("MasterAddProviderApis", "Master")">
+                    </form-button>
+                   
+                </div><!--end col-->
+            </div> <!--end row-->
+        </div><!--end card-header-->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover datatableeditpopup" id="datatable_1">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Sr.</th>
+                            <th style="display:none;">UUID</th>
+                            <th>Provider </th>
+                            <th>API </th>
+                            <th data-action-column="true">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div><!--end card-body-->
+        </div><!--end card-->
+    </div><!--end row-->
+
+    <div id="rowActionMenu" class="row-action-menu">
+        <ul>            
+            <action-link id="editProviderApisLink" label="Edit Provider API Details" type="Edit"></action-link>
+            <action-link id="viewHistoryLink" label="View History" type="ViewHistory"></action-link>
+        </ul>
+    </div>
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+
+@section Scripts {
+    <partial name="_ViewScripts" />
+
+    <script>
+        initMasterTable({
+            tableId: '#datatable_1',
+            ajaxUrl: '@Url.Action("GetProviderApis", "Master")',
+            columns: [
+                { data: 'srno', orderable: false },
+                { data: 'uuid', visible: false },
+                { data: 'provider' },
+                { data: 'api' },
+                { data: 'action', orderable: false }
+            ],
+            rowActions: [
+                {
+                    selector: '#editProviderApisLink',
+                    baseUrl: '@Url.Action("MasterEditProviderApis", "Master")',
+                    idProperty: 'uuid',
+                    paramName: 'uuid'
+                },
+                {
+                            selector: '#viewHistoryLink',
+                            baseUrl: 'javascript:void(0)',
+                            idProperty: 'uuid',
+                            handler: function (rowData) {
+                            AuditLogsUI.openLogs("Provider_Apis", rowData.uuid, false, "");
+                            }
+                }
+            ]
+        });
+        AuditLogsUI.init(
+            AuditLogsUI.common.mergeConfig({
+            foreignKeyMap: {
+                "ApiUUID": "/Common/GetApiName",
+                "ProviderUUID": "/Common/GetProviderName"
+            },
+            friendlyFieldMap: {
+                "ApiUUID": "API",
+                "ProviderUUID": "Provider"
+            },
+            hiddenFields: [
+            ]
+        })
+        );
+    </script>
+    <script>
+        initActivityLogTable({ menuName: 'Provider_Apis' });
+    </script>
+}

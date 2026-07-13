@@ -1,0 +1,71 @@
+﻿@model VerifyIndiaAdminPanel.Models.Master.MasterPermissionVM
+
+@{
+    ViewData["Title"] = string.IsNullOrEmpty(Model?.Permission?.UUID) ? "Add Permission" : "Edit Permission";
+}
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row mt-2">
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20">@ViewData["Title"]</h3>
+                    </div><!--end col-->
+                </div> <!--end row-->
+            </div><!--end card-header-->
+            <div class="card-body pt-0">
+                <form id="bannerForm" asp-action="MasterAddPermission" method="post">
+                    <input type="hidden" asp-for="Permission.UUID" />
+                    <input type="hidden" asp-for="Permission.IsActive" />
+
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Permission.PermissionGroupUUID"
+                                        label="Permission Group"
+                                        type="Select"
+                                        required="true"
+                                        asp-items="Model?.PermissionGroupList">
+                                <option value="">-- Select Permission Group --</option>
+                            </form-field>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Permission.Name"
+                                        label="Name"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+
+                        <div class="col-lg-6 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Permission.Description"
+                                        label="Description"
+                                        type="TextArea"
+                                        required="true" />
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-align-end pt-4">
+                            <form-button label="Cancel"
+                                         type="Cancel"
+                                         url="@Url.Action("MasterViewPermission", "Master")" />
+                            <form-button label="Submit"
+                                         type="Submit" />
+                        </div>
+                    </div>
+                </form>
+            </div><!--end card-body-->
+        </div><!--end card-->
+    </div><!--end row-->
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/select-clear.js"></script>
+    <script src="~/assets/js/select2.min.js"></script>
+    <script src="~/assets/js/validationanimation.js"></script>
+}

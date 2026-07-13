@@ -1,0 +1,148 @@
+﻿@model VerifyIndiaAdminPanel.Models.Master.UserDetailsVM
+
+@{
+    ViewData["Title"] = Model.PageTitle;
+}
+
+@section Styles {
+    <partial name="_ViewStyles" />
+}
+
+<div class="container-fluid">
+
+    <div class="row mt-2">
+
+        <div class="card">
+
+            <div class="card-header">
+                <div class="row align-items-center">
+
+                    <div class="col">
+                        <h3 class="card-title fs-20">
+                            @ViewData["Title"]
+                        </h3>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card-body">
+
+                <div class="row">
+
+                    <!-- First Name -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <form-field asp-for="User.FName"
+                                    label="First Name"
+                                    type="Text"
+                                    attr-readonly="true" />
+                    </div>
+
+                    <!-- Middle Name -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <form-field asp-for="User.MName"
+                                    label="Middle Name"
+                                    type="Text"
+                                    attr-readonly="true" />
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <form-field asp-for="User.LName"
+                                    label="Last Name"
+                                    type="Text"
+                                    attr-readonly="true" />
+                    </div>
+
+                    <!-- Mobile -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <form-field asp-for="User.Mobile"
+                                    label="Mobile"
+                                    type="Text"
+                                    attr-readonly="true" />
+                    </div>
+
+                    <!-- Email -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <form-field asp-for="User.Email"
+                                    label="Email"
+                                    type="Text"
+                                    attr-readonly="true" />
+                    </div>
+
+                    <!-- Account Type -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <form-field asp-for="User.ACType"
+                                    label="Account Type"
+                                    type="Text"
+                                    attr-readonly="true" />
+                    </div>
+
+                    <!-- Referral Code -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <form-field asp-for="User.ReferralCode"
+                                    label="Referral Code"
+                                    type="Text"
+                                    attr-readonly="true" />
+                    </div>
+
+                    <!-- City -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <form-field asp-for="User.CityUUID"
+                                    label="City"
+                                    type="Text"
+                                    attr-readonly="true" />
+                    </div>
+
+                    <!-- Industry -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <form-field asp-for="User.IndustryUUID"
+                                    label="Industry"
+                                    type="Text"
+                                    attr-readonly="true" />
+                    </div>
+
+                    <!-- Registered -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 pt-4">
+                        <form-field asp-for="User.IsRegistered"
+                                    label="Is Registered"
+                                    type="Checkbox"
+                                    attr-disabled="true" />
+                    </div>
+
+                    <!-- Access Allowed -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 pt-4">
+                        <form-field asp-for="User.IsAccessAllowed"
+                                    label="Access Allowed"
+                                    type="Checkbox"
+                                    attr-disabled="true" />
+                    </div>
+
+                    <!-- Active -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 pt-4">
+                        <form-field asp-for="User.IsActive"
+                                    label="Is Active"
+                                    type="Checkbox"
+                                    attr-disabled="true" />
+                    </div>
+
+                </div>
+
+                <!-- Buttons -->
+                <div class="col-12 text-end pt-4">
+
+                    <form-button label="Back"
+                                 type="Cancel"
+                                 url="@Model.BackUrl" />
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<partial name="_Timer" />

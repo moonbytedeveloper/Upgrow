@@ -1,0 +1,51 @@
+﻿@model VerifyIndia.Application.Commands.WL.Master.WLMasterPermissionGroupCommand
+
+@{
+    var isEditMode = !string.IsNullOrWhiteSpace(Model?.UUID);
+    var pageTitle = isEditMode ? "Edit Permission Group" : "Add Permission Group";
+    ViewData["Title"] = pageTitle;
+}
+
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20">@pageTitle</h3>
+                    </div><!--end col-->
+                </div> <!--end row-->
+            </div><!--end card-header-->
+            <div class="card-body pt-0">
+                <form id="bannerForm" asp-action="AddPermissionGroup" method="post">
+                    <input type="hidden" asp-for="UUID" />
+                    <input type="hidden" asp-for="IsActive" />
+
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+                            <form-field asp-for="Title"
+                                        label="Title"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-12 text-align-end pt-4">
+                            <form-button label="Cancel"
+                                         type="Cancel"
+                                         url="@Url.Action("ViewPermissionGroup", "Tenant")" />
+                            <form-button label="Submit"
+                                         type="Submit" />
+                        </div>
+                    </div>
+                </form>
+            </div><!--end card-body-->
+        </div><!--end card-->
+    </div><!--end row-->
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/validationanimation.js"></script>
+}

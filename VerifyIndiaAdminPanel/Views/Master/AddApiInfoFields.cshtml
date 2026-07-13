@@ -1,0 +1,93 @@
+﻿@model VerifyIndiaAdminPanel.Models.Api.ApiInfoFieldsVM
+@{
+    var isEdit = Model?.ApiInfoFields?.UUID != null && !string.IsNullOrEmpty(Model.ApiInfoFields.UUID);
+    ViewData["Title"] = isEdit ? "Edit Api Info Fields" : "Add Api Info Fields";
+}
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row mt-2">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20"> @ViewData["Title"]</h3>
+                    </div><!--end col-->
+
+                </div> <!--end row-->
+            </div><!--end card-header-->
+            <div class="card-body pt-0">
+                <form id="bannerForm"
+                      asp-action="AddApiInfoFields"
+                      method="post">
+
+                    <input type="hidden" asp-for="ApiInfoFields.UUID" />
+                    <input type="hidden" asp-for="ApiInfoFields.IsActive" />
+
+
+                    <div class="row align-items-end">
+
+                        <div class="row">
+
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                <form-field asp-for="ApiInfoFields.InfoSectionUUID"
+                                            label="Info Section"
+                                            type="Select"
+                                            asp-items="@Model.Section"
+                                            placeholder="-- Section --"
+                                            required="true" />
+                            </div>
+
+                           @*  <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                <form-field asp-for="ApiInfoFields.ApiUUID"
+                                            label="Api"
+                                            type="Select"
+                                            asp-items="@Model.Api"
+                                            placeholder="-- Api --"
+                                            required="true" />
+                            </div> *@
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                <form-field asp-for="ApiInfoFields.Title"
+                                            label="Title"
+                                            type="Text"
+                                            required="true" />
+                            </div>
+                            
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                <form-field asp-for="ApiInfoFields.Sequence"
+                                            label="Sequence"
+                                            type="Number"
+                                            required="true" />
+                            </div>
+                            
+                            <div class="col-lg-12 text-align-end pt-4" id="submit">
+                                <form-button label="Cancel"
+                                             type="Cancel"
+                                             url="@Url.Action("ViewApiInfoFields", "Master")" />
+                                <form-button label="Submit"
+                                             type="Submit" />
+                            </div>
+                        </div>
+                       
+
+                    </div>
+
+                </form>
+            </div><!--end card-body-->
+        </div><!--end card-->
+    </div><!--end row-->
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/fileupload.js"></script>
+    <script src="~/assets/js/select-clear.js"></script>
+    <script src="~/assets/js/select2.min.js"></script>
+    <script src="~/assets/js/validationanimation.js"></script>
+    <script src="~/assets/js/customdate.js"></script>
+    <script src="~/assets/js/dependent-dropdowns.js"></script>
+}

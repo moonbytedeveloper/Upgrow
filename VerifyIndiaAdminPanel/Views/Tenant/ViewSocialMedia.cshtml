@@ -1,0 +1,164 @@
+﻿@model VerifyIndiaAdminPanel.Models.WL.SocialMediaVM
+@using Microsoft.AspNetCore.Mvc.Rendering
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+@section Styles {
+    <partial name="_ViewStyles" />
+}
+@{
+    ViewData["Title"] = "View Social Media";
+    var tenants = (Model?.Tenants as IEnumerable<SelectListItem> ?? Enumerable.Empty<SelectListItem>())
+      .ToList();
+
+   
+}
+
+
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col-9">
+                        <h3 class="card-title fs-20 mt-3 mb-3 ms-2">@ViewData["Title"]</h3>
+                    </div><!--end col-->
+
+                </div> <!--end row-->
+            </div><!--end card-header-->
+
+            <div class="row align-items-center mb-3">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                    <form-field asp-for="SelectedTenantValue"
+                                label="Tenant"
+                                type="Select"
+                                asp-items="@tenants">
+                    </form-field>
+                </div>
+                <div class="col-9 text-align-end">
+                    <form-button label="Add Social Media"
+                                 type="Add"
+                                 url="@Url.Action("AddSocialMedia", "Tenant")">
+                    </form-button>
+                    
+                </div>
+            </div>
+            <div class="card-body">
+                
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover datatableeditpopup" id="datatable_1">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Sr. No</th>
+                                <th style="display:none;">UUID</th>
+                                <th>Tenant Name</th>
+                                <th>Platform Name</th>
+                                <th>Profile URL</th>
+                                <th>Icon</th>
+                                <th>Display Order</th>
+                                <th data-action-column="true">Action</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="rowActionMenu" class="row-action-menu">
+        <ul>
+
+                <action-link id="editSocialMediaLink" label="Edit Social Media Details" type="Edit"></action-link>
+                <action-link id="viewHistoryLink" label="View History" type="ViewHistory"></action-link>
+
+        </ul>
+    </div>
+</div>
+
+<partial name="_Timer" />
+
+@section Scripts {
+    <partial name="_ViewScripts" />
+    <script src="~/assets/js/select-clear.js"></script>
+    <script src="~/assets/js/select2.min.js"></script>
+    <script>
+        const baseUrl = '@Url.Action("GetSocialMedia", "Tenant")';
+        const getAjaxUrl = () => `${baseUrl}?tenantUuid=${encodeURIComponent($('#SelectedTenantValue').val() || '')}`;
+
+        initMasterTable({
+            tableId: '#datatable_1',
+            ajaxUrl: getAjaxUrl(),
+            columns: [
+                { data: 'srno', orderable: false },
+                { data: 'uuid', visible: false },
+                { data: 'tenantName' },
+                { data: 'platformName' },
+                { data: 'profileURL' },
+                {
+                    data: 'iconURL',
+                    orderable: false,
+                    render: function (data, type, row) {
+                        if (type === 'display' && data) {
+                            return '<i class="' + data + '" style="font-size: 20px; color: #3498db;"></i>';
+                        }
+                        return data;
+                    }
+                },
+                { data: 'sequenceno' },
+                { data: 'action', orderable: false }
+            ],
+            rowActions: [
+                {
+                    selector: '#editSocialMediaLink',
+                    baseUrl: '@Url.Action("EditSocialMedia", "Tenant")',
+                    idProperty: 'uuid',
+                    paramName: 'uuid'
+                },
+                {
+                    selector: '#viewHistoryLink',
+                    baseUrl: 'javascript:void(0)',
+                    idProperty: 'uuid',
+                    handler: function (rowData) {
+                        AuditLogsUI.openLogs("WL_MasterSocialMedia", rowData.uuid, false, "");
+                    }
+                }
+            ]
+        });
+
+         $(function () {
+            $('.js-single-select').select2({
+                width: '80%',
+                allowClear: false,
+                minimumResultsForSearch: 0
+            });
+        });
+        $('#SelectedTenantValue').on('change', function () {
+            const table = $('#datatable_1').DataTable();
+            table.ajax.url(getAjaxUrl()).load();
+        });
+
+       
+        AuditLogsUI.init(
+            AuditLogsUI.common.mergeConfig({
+                foreignKeyMap: {
+                    "TenantId": "/Common/GetTenantName"
+                },
+                friendlyFieldMap: {
+                    "PlatformName": "Platform Name",
+                    "ProfileURL": "Profile URL",
+                    "IconURL": "Icon URL",
+                    "DisplayOrder": "Display Order",
+                    "TenantId": "Tenant Name",
+                    "IsActive": "Status"
+                },
+                hiddenFields: [
+                    "IconURL"
+                ]
+            })
+        );
+    </script>
+    <script>
+        initActivityLogTable({ menuName: 'WL_MasterSocialMedia' });
+    </script>
+}

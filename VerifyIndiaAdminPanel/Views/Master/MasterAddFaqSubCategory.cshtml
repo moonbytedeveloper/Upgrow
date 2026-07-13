@@ -1,0 +1,88 @@
+﻿@model VerifyIndia.Application.Commands.Master.MasterFaqSubCategoryCommand
+
+
+@{
+    var isEditMode = !string.IsNullOrWhiteSpace(Model?.UUID);
+    var pageTitle = isEditMode ? "Edit FAQ Sub Category" : "Add FAQ Sub Category";
+    ViewData["Title"] = pageTitle;
+}
+@section HighPriority {
+    <link href="~/assets/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row mt-2">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title fs-20">@pageTitle</h3>
+                    </div><!--end col-->
+
+                </div> <!--end row-->
+            </div><!--end card-header-->
+            <div class="card-body pt-0">
+                <form id="bannerForm" asp-action="MasterAddFaqSubCategory" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="@Model.UUID" />
+                    <input type="hidden" asp-for="@Model.IsActive" />
+
+                    
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+                            <form-field asp-for="FAQCategoryUUID"
+                                        label="FAQ Category"
+                                        type="Select"
+                                        required="true"
+                                        asp-items="Model?.FaqCategoryList">
+                                <option value="">-- Select FAQ Category --</option>
+                            </form-field>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="Title"
+                                        label="FAQ Sub Category"
+                                        type="Text"
+                                        required="true" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <form-field asp-for="ImageFile"
+                                        label="SubCategory Image"
+                                        view-link-path="@Model.Image"
+                                        type="File"
+                                        accept=".jpg,.jpeg,.png"
+                                        required="@string.IsNullOrEmpty(Model.Image)" />
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 text-align-end pt-4">
+                            <form-button label="Cancel"
+                                         type="Cancel"
+                                         url="@Url.Action("MasterViewFaqSubCategory", "Master")" />
+                            <form-button label="Submit"
+                                         type="Submit" />
+                        </div>
+
+                    </div>
+                </form>
+
+
+            </div><!--end card-body-->
+        </div><!--end card-->
+
+    </div><!--end row-->
+
+
+
+</div><!-- container -->
+<!-- Timer -->
+<partial name="_Timer" />
+
+<!-- end page-wrapper -->
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/js/fileupload.js"></script>
+    <script src="~/assets/js/imagepreview.js"></script>
+    <script src="~/assets/js/validationanimation.js"></script>
+    <script src="~/assets/js/select2.min.js"></script>
+    <script src="~/assets/js/notification.js"></script>
+
+}
