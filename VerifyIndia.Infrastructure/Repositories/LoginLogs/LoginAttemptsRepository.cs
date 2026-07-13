@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
-using VerifyIndia.Infrastructure.Extensions;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
+using Upgrow.Infrastructure.Extensions;
 
-namespace VerifyIndia.Infrastructure.Repositories.LoginLogs
+namespace Upgrow.Infrastructure.Repositories.LoginLogs
 {
     public sealed class LoginAttemptsRepository : ILoginAttemptRepository
     {

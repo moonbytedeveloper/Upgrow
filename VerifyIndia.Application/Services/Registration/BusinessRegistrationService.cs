@@ -5,17 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Registration;
-using VerifyIndia.Application.DTO.Registration.Business;
-using VerifyIndia.Application.Interfaces.Registration;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.IServices.Payment;
-using VerifyIndia.Application.IServices.Registration;
-using VerifyIndia.Domain.Entities.Registration;
-using VerifyIndia.Domain.IRepositories.Registration;
+using Upgrow.Application.DTO.Registration;
+using Upgrow.Application.DTO.Registration.Business;
+using Upgrow.Application.Interfaces.Registration;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.IServices.Payment;
+using Upgrow.Application.IServices.Registration;
+using Upgrow.Domain.Entities.Registration;
+using Upgrow.Domain.IRepositories.Registration;
 
-namespace VerifyIndia.Application.Services.Registration
+namespace Upgrow.Application.Services.Registration
 {
     public class BusinessRegistrationService : IBusinessRegistrationService
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Registration
+namespace Upgrow.Application.DTO.Registration
 {
     public class AadhaarSendOtpApiResponse
     {

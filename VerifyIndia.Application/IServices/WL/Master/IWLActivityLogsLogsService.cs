@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.WL;
-using VerifyIndia.Domain.Entities.WL.Master;
+using Upgrow.Application.DTO.WL;
+using Upgrow.Domain.Entities.WL.Master;
 
-namespace VerifyIndia.Application.IServices.WL.Master
+namespace Upgrow.Application.IServices.WL.Master
 {
     public interface IWLActivityLogsLogsService
     {

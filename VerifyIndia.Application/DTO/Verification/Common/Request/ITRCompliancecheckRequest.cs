@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Verification.Common.Request
+namespace Upgrow.Application.DTO.Verification.Common.Request
 {
     public class ITRCompliancecheckRequest :BaseDto
     {

@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Verification.Common.Request;
-using VerifyIndia.Application.DTO.Verification.Common.Response;
-using VerifyIndia.Application.DTO.Verification.SprintVerify;
-using VerifyIndia.Application.DTO.Verification.SprintVerify.Response;
-using VerifyIndia.Application.Helper;
-using VerifyIndia.Application.Verification;
-using VerifyIndia.Application.Verification.Interfaces;
-using static VerifyIndia.Application.Constants;
+using Upgrow.Application.DTO.Verification.Common.Request;
+using Upgrow.Application.DTO.Verification.Common.Response;
+using Upgrow.Application.DTO.Verification.SprintVerify;
+using Upgrow.Application.DTO.Verification.SprintVerify.Response;
+using Upgrow.Application.Helper;
+using Upgrow.Application.Verification;
+using Upgrow.Application.Verification.Interfaces;
+using static Upgrow.Application.Constants;
 
-namespace VerifyIndia.Infrastructure.Verification.Providers.SprintVerify
+namespace Upgrow.Infrastructure.Verification.Providers.SprintVerify
 {
     public static class SprintDefinitions
     {

@@ -1,17 +1,17 @@
 ﻿using AutoMapper;
 using System.Linq.Expressions;
-using VerifyIndia.Application.Commands.Website;
-using VerifyIndia.Application.DTO.DropDown;
-using VerifyIndia.Application.DTO.Website;
-using VerifyIndia.Application.DTOs;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.IServices.Website;
-using VerifyIndia.Application.Services.Master;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.Website;
+using Upgrow.Application.DTO.DropDown;
+using Upgrow.Application.DTO.Website;
+using Upgrow.Application.DTOs;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.IServices.Website;
+using Upgrow.Application.Services.Master;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.Website
+namespace Upgrow.Application.Services.Website
 {
     public class WebsiteIndustryPointsService : MasterServiceBase<Website_IndustryPoints, Website_IndustryPointsDto, Website_IndustryPointsCommand>, IWebsiteIndustryPointsService 
     {

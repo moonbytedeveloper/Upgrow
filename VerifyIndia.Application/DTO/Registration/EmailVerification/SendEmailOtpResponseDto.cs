@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Registration.EmailVerification
+namespace Upgrow.Application.DTO.Registration.EmailVerification
 {
     public sealed class SendEmailOtpResponseDto
     {

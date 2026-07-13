@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using VerifyIndia.Application.Commands.Menu;
+using Upgrow.Application.Commands.Menu;
 
 namespace UpgrowAdminPanel.Models.Menu
 {

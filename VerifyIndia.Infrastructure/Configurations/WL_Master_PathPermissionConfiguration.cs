@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Infrastructure.Configurations
+namespace Upgrow.Infrastructure.Configurations
 {
     public class WL_Master_PathPermissionConfiguration : IEntityTypeConfiguration<WL_Master_PathPermission>
     {

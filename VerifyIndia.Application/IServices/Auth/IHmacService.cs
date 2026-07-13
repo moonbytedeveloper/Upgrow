@@ -1,4 +1,4 @@
-namespace VerifyIndia.Application.IServices.Auth
+namespace Upgrow.Application.IServices.Auth
 {
     public interface IHmacService
     {

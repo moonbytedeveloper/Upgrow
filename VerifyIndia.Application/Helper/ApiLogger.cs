@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.Text.Json;
 
-namespace VerifyIndia.Application.Helper
+namespace Upgrow.Application.Helper
 {
     public class ApiLogger
     {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Verification.Common.Request;
+using Upgrow.Application.DTO.Verification.Common.Request;
 
-namespace VerifyIndia.Application.DTO.Verification.SprintVerify.Response
+namespace Upgrow.Application.DTO.Verification.SprintVerify.Response
 {
     public class PS_ItrCreateClientResponse
     {

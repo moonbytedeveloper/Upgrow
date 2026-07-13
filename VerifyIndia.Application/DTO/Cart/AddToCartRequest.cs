@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Cart
+namespace Upgrow.Application.DTO.Cart
 {
     public class AddToCartRequest
     {

@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories.TransactionDocument;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories.TransactionDocument;
 
-namespace VerifyIndia.Infrastructure.Repositories.CustomerPanel.TransactionDocuments
+namespace Upgrow.Infrastructure.Repositories.CustomerPanel.TransactionDocuments
 {
     public class TransactionBridgeLogRepository
         : ITransactionBridgeLogRepository

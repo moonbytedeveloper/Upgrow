@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Infrastructure.MultiTenancy
+namespace Upgrow.Infrastructure.MultiTenancy
 {
     public class TenantStore : IMultiTenantStore<AppTenantInfo>
     {

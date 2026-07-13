@@ -4,16 +4,16 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Text.Json;
 using System.Threading.Tasks;
-using VerifyIndia.Application;
-using VerifyIndia.Application.DTO;
-using VerifyIndia.Application.Helper;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories.Master;
-using VerifyIndia.Infrastructure;
-using static VerifyIndia.Application.Constants;
+using Upgrow.Application;
+using Upgrow.Application.DTO;
+using Upgrow.Application.Helper;
+using Upgrow.Application.IServices;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories.Master;
+using Upgrow.Infrastructure;
+using static Upgrow.Application.Constants;
 
-namespace VerifyIndia.Infrastructure.Filters
+namespace Upgrow.Infrastructure.Filters
 {
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class, AllowMultiple = false)]
     public sealed class ActivityLogAttribute : ActionFilterAttribute

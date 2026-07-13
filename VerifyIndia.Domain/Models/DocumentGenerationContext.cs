@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Domain.Models
+namespace Upgrow.Domain.Models
 {
     public sealed class DocumentGenerationContext
     {

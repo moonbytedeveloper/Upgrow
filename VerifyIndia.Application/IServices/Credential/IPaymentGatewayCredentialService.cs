@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Credential;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.DTO.Credential;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.IServices.Master;
+using Upgrow.Application.Commands.Credential;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.DTO.Credential;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.IServices.Master;
 
-namespace VerifyIndia.Application.IServices.Credential
+namespace Upgrow.Application.IServices.Credential
 {
     public interface IPaymentGatewayCredentialService : IMasterService<PaymentGatewayCredentialDto, PaymentGatewayCredentialCommand>
     {

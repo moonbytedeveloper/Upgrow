@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Common;
+using Upgrow.Domain.Common;
 
-namespace VerifyIndia.Infrastructure.Common
+namespace Upgrow.Infrastructure.Common
 {
     public class CommonRepository : ICommonRepository
     {

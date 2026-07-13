@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using VerifyIndia.Application.Commands.Credential;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.DTO.Credential;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.Credential;
-using VerifyIndia.Infrastructure.Filters;
+using Upgrow.Application.Commands.Credential;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.DTO.Credential;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.Credential;
+using Upgrow.Infrastructure.Filters;
 
 namespace UpgrowAdminPanel.Controllers
 {

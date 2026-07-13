@@ -1,8 +1,8 @@
-using VerifyIndia.Application.DTO.Customer;
-using VerifyIndia.Application.DTO.DropDown;
-using VerifyIndia.Application.DTO.Master;
+using Upgrow.Application.DTO.Customer;
+using Upgrow.Application.DTO.DropDown;
+using Upgrow.Application.DTO.Master;
 
-namespace VerifyIndia.Application.DTO.Auth
+namespace Upgrow.Application.DTO.Auth
 {
     public class RegistrationModel
     {

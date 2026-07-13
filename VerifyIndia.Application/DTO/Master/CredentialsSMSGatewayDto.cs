@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Master
+namespace Upgrow.Application.DTO.Master
 {
     public class CredentialsSMSGatewayDto
     {

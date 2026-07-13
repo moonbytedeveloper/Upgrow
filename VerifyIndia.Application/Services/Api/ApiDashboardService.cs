@@ -1,8 +1,8 @@
-/*using VerifyIndia.Application.DTO.AIX;
-using VerifyIndia.Application.IServices.Api;
-using VerifyIndia.Application.IServices.Master;
+/*using Upgrow.Application.DTO.AIX;
+using Upgrow.Application.IServices.Api;
+using Upgrow.Application.IServices.Master;
 
-namespace VerifyIndia.Application.Services.Api
+namespace Upgrow.Application.Services.Api
 {
     public class ApiDashboardService : IApiDashboardService
     {
@@ -206,12 +206,12 @@ namespace VerifyIndia.Application.Services.Api
     }
 }*/
 
-using VerifyIndia.Application.DTO.AIX;
-using VerifyIndia.Application.IServices.AIX;
-using VerifyIndia.Application.IServices.Api;
-using VerifyIndia.Application.IServices.Master;
+using Upgrow.Application.DTO.AIX;
+using Upgrow.Application.IServices.AIX;
+using Upgrow.Application.IServices.Api;
+using Upgrow.Application.IServices.Master;
 
-namespace VerifyIndia.Application.Services.Api
+namespace Upgrow.Application.Services.Api
 {
     public class ApiDashboardService : IApiDashboardService
     {

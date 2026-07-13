@@ -6,14 +6,14 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.DTO.DropDown;
-using VerifyIndia.Application.DTOs;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.DTO.DropDown;
+using Upgrow.Application.DTOs;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.Master
+namespace Upgrow.Application.Services.Master
 {
     public abstract class MasterServiceBase<TEntity, TDto, TCommand> : IMasterService<TDto, TCommand>
      where TEntity : class, IMasterEntity, new()

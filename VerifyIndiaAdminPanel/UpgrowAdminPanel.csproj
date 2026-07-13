@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Moonbyte.UI\Moonbyte.UI.csproj" />
-    <ProjectReference Include="..\VerifyIndia.Application\VerifyIndia.Application.csproj" />
+    <ProjectReference Include="..\VerifyIndia.Application\Upgrow.Application.csproj" />
     <ProjectReference Include="..\VerifyIndia.Infrastructure\VerifyIndia.Infrastructure.csproj" />
   </ItemGroup>
 

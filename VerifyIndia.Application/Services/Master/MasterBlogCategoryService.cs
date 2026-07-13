@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.DTOs.Master;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.DTOs.Master;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 using System.Linq.Expressions;
 
-namespace VerifyIndia.Application.Services.Master
+namespace Upgrow.Application.Services.Master
 {
     public class MasterBlogCategoryService : MasterServiceBase<Master_BlogCategory, MasterBlogCategoryDto, MasterBlogCategoryCommand>, IMasterBlogCategoryService
     {

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Verification.Common.Request;
-using VerifyIndia.Application.Verification.Interfaces;
-using static VerifyIndia.Application.Constants;
+using Upgrow.Application.DTO.Verification.Common.Request;
+using Upgrow.Application.Verification.Interfaces;
+using static Upgrow.Application.Constants;
 
-namespace VerifyIndia.Application.Verification
+namespace Upgrow.Application.Verification
 {
     public sealed class VerificationRequestFactory
         : IVerificationRequestFactory

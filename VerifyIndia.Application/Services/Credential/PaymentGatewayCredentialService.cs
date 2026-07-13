@@ -6,17 +6,17 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Credential;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.DTO.Credential;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.IServices.Credential;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.Services.Master;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.Credential;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.DTO.Credential;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.IServices.Credential;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.Services.Master;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.Credential
+namespace Upgrow.Application.Services.Credential
 {
     public class PaymentGatewayCredentialService : MasterServiceBase<PaymentGatewayCredential, PaymentGatewayCredentialDto, PaymentGatewayCredentialCommand>, IPaymentGatewayCredentialService
     {

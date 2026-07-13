@@ -5,15 +5,15 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Menu;
-using VerifyIndia.Application.DTO.Menu;
-using VerifyIndia.Application.IServices.Menu;
-using VerifyIndia.Application.Services.Master;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.Menu;
+using Upgrow.Application.DTO.Menu;
+using Upgrow.Application.IServices.Menu;
+using Upgrow.Application.Services.Master;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.Menu
+namespace Upgrow.Application.Services.Menu
 {
     public class MenuRolePermissionService : MasterServiceBase<Menu_RolePermission, MenuRolePermissionDto, MenuRolePermissionCommand>, IMenuRolePermissionService
     {

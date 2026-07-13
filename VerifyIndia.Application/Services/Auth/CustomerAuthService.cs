@@ -2,13 +2,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Caching.Memory;
 using System.Security.Cryptography;
 using System.Text.Json;
-using VerifyIndia.Application.DTO.Auth;
-using VerifyIndia.Application.IServices.Auth;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
-using VerifyIndia.Domain.IRepositories.Master;
+using Upgrow.Application.DTO.Auth;
+using Upgrow.Application.IServices.Auth;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
+using Upgrow.Domain.IRepositories.Master;
 
-namespace VerifyIndia.Application.Services.Auth
+namespace Upgrow.Application.Services.Auth
 {
     public class CustomerAuthService : ICustomerAuthService
     {

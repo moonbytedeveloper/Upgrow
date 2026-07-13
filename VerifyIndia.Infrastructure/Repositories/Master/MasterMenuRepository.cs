@@ -5,11 +5,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.IRepositories.Master;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.IRepositories.Master;
 
-namespace VerifyIndia.Infrastructure.Repositories.Master
+namespace Upgrow.Infrastructure.Repositories.Master
 {
     public class MasterMenuRepository : MasterRepositoryBase<Master_Menu>, IMasterMenuRepository
     {

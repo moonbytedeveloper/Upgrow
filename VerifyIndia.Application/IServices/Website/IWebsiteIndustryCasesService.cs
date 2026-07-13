@@ -1,8 +1,8 @@
-﻿using VerifyIndia.Application.Commands.Website;
- using VerifyIndia.Application.DTO.Website;
-using VerifyIndia.Application.IServices.Master;
+﻿using Upgrow.Application.Commands.Website;
+ using Upgrow.Application.DTO.Website;
+using Upgrow.Application.IServices.Master;
 
-namespace VerifyIndia.Application.IServices.Website
+namespace Upgrow.Application.IServices.Website
 {
     public interface IWebsiteIndustryCasesService : IMasterService<Website_IndustryCasesDto, Website_IndustryCasesCommand>
     {

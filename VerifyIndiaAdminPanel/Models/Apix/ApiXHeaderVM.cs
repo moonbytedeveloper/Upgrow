@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Entities;
 
 namespace UpgrowAdminPanel.Models.Apix
 {

@@ -5,13 +5,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.WL.Master;
-using VerifyIndia.Domain.IRepositories.Master;
+using Upgrow.Application;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.WL.Master;
+using Upgrow.Domain.IRepositories.Master;
 
-namespace VerifyIndia.Infrastructure.Repositories.Master.WL
+namespace Upgrow.Infrastructure.Repositories.Master.WL
 {
     public class WLMasterNomenClatureRepository : MasterRepositoryBase<WL_MasterNomenClature>, IWLMasterNomenClatureRepository
     {

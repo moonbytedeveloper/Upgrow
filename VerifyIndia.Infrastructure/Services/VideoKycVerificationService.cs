@@ -8,14 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Registration.VideoKyc;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.Common;
-using VerifyIndia.Application.IServices.Registration;
-using VerifyIndia.Domain.Entities.Registration;
+using Upgrow.Application.DTO.Registration.VideoKyc;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.Common;
+using Upgrow.Application.IServices.Registration;
+using Upgrow.Domain.Entities.Registration;
 using Whisper.net;
 
-namespace VerifyIndia.Infrastructure.Services
+namespace Upgrow.Infrastructure.Services
 {
     public class VideoKycVerificationService
         : IVideoKycVerificationService

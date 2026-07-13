@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Verification.Documents;
+using Upgrow.Application.Verification.Documents;
 
-namespace VerifyIndia.Infrastructure.Services
+namespace Upgrow.Infrastructure.Services
 {
     public sealed class PlaywrightHtmlToPdfConverter
         : IHtmlToPdfConverter

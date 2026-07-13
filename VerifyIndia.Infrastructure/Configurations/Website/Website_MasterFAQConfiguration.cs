@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.Website;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.Website;
 
-namespace VerifyIndia.Infrastructure.Configurations.Website
+namespace Upgrow.Infrastructure.Configurations.Website
 {
     public class Website_MasterFAQConfiguration : IEntityTypeConfiguration<Website_MasterFAQ>
     {

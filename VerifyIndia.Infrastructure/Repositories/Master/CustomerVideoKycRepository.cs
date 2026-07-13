@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories.Master;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories.Master;
 
-namespace VerifyIndia.Infrastructure.Repositories.Master
+namespace Upgrow.Infrastructure.Repositories.Master
 {
     public class CustomerVideoKycRepository : MasterRepositoryBase<CustomerVideoKYC>,ICustomerVideoKycRepository
     {

@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Globalization;
-using VerifyIndia.Application.DTO.Pricing;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.Api;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.IServices.Pricing;
-using VerifyIndia.Application.Services;
-using VerifyIndia.Application.Services.WL;
+using Upgrow.Application.DTO.Pricing;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.Api;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.IServices.Pricing;
+using Upgrow.Application.Services;
+using Upgrow.Application.Services.WL;
 
 namespace UpgrowAdminPanel.Controllers
 {

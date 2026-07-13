@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.Verification.Documents
+namespace Upgrow.Application.Verification.Documents
 {
     public interface ITemplateRepository
     {

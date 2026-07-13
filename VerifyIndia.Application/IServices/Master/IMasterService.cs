@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.DropDown;
-using VerifyIndia.Application.DTOs;
-using VerifyIndia.Domain.Common;
+using Upgrow.Application.DTO.DropDown;
+using Upgrow.Application.DTOs;
+using Upgrow.Domain.Common;
 
-namespace VerifyIndia.Application.IServices.Master
+namespace Upgrow.Application.IServices.Master
 {
     public interface IMasterService<TDto, TCommand>
         where TDto : class

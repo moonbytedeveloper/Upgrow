@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Api;
-using VerifyIndia.Application.DTO.Api;
-using VerifyIndia.Application.IServices.Master;
+using Upgrow.Application.Commands.Api;
+using Upgrow.Application.DTO.Api;
+using Upgrow.Application.IServices.Master;
 
-namespace VerifyIndia.Application.IServices.Api
+namespace Upgrow.Application.IServices.Api
 {
     public interface IApiEndpointService : IMasterService<ApiEndpointDto, ApiEndpointCommand>
     {

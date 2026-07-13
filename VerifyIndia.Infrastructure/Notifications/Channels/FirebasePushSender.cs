@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Constant;
-using VerifyIndia.Application.DTO.Notification;
-using VerifyIndia.Application.Interfaces.Notification;
-using VerifyIndia.Domain.Enums;
+using Upgrow.Application.Constant;
+using Upgrow.Application.DTO.Notification;
+using Upgrow.Application.Interfaces.Notification;
+using Upgrow.Domain.Enums;
 
-namespace VerifyIndia.Infrastructure.Notifications.Channels;
+namespace Upgrow.Infrastructure.Notifications.Channels;
 
 public sealed class FirebasePushSender
     : INotificationChannelSender

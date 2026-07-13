@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Entities;
  
 
-namespace VerifyIndia.Infrastructure.Configurations.Website
+namespace Upgrow.Infrastructure.Configurations.Website
 {
     public class Website_VerificationServiceCategoryConfiguration : IEntityTypeConfiguration<Website_VerificationServiceCategory>
     {

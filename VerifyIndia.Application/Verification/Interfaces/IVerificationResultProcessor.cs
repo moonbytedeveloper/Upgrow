@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Models;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Models;
 
-namespace VerifyIndia.Application.Verification.Interfaces
+namespace Upgrow.Application.Verification.Interfaces
 {
     public interface IVerificationResultProcessor
     {

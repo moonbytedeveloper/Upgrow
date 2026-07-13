@@ -6,15 +6,15 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Api;
-using VerifyIndia.Application.DTO.Api;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.IServices.Api;
-using VerifyIndia.Application.Services.Master;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.Api;
+using Upgrow.Application.DTO.Api;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.IServices.Api;
+using Upgrow.Application.Services.Master;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.Api
+namespace Upgrow.Application.Services.Api
 {
     public class ApiProviderMappingService : MasterServiceBase<Api_ProviderMapping, ApiProviderMappingDto, ApiProviderMappingCommand>, IApiProviderMappingService
     {

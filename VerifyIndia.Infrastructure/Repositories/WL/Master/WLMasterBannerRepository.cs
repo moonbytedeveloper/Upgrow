@@ -5,11 +5,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Infrastructure.Repositories.WL.Master
+namespace Upgrow.Infrastructure.Repositories.WL.Master
 {
     public class WLMasterBannerRepository : MasterRepositoryBase<WL_MasterBanner>
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json.Serialization;
 
-namespace VerifyIndia.Application.DTO.Verification.Common
+namespace Upgrow.Application.DTO.Verification.Common
 {
     public class BaseDto
     {

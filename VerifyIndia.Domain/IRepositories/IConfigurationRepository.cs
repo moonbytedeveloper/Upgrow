@@ -1,4 +1,4 @@
-namespace VerifyIndia.Domain.IRepositories
+namespace Upgrow.Domain.IRepositories
 {
     public interface IConfigurationRepository
     {

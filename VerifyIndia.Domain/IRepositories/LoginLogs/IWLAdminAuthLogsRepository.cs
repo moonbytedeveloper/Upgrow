@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities.WL;
+using Upgrow.Domain.Entities.WL;
 
-namespace VerifyIndia.Domain.IRepositories.LoginLogs
+namespace Upgrow.Domain.IRepositories.LoginLogs
 {
     public interface IWLAdminAuthLogsRepository
     {

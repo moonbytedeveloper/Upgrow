@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using VerifyIndia.Application.Common.Dropdowns;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.Api;
-using VerifyIndia.Application.IServices.Common;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.IServices.WL;
-using VerifyIndia.Application.IServices.Website;
-using VerifyIndia.Application.Services;
-using VerifyIndia.Application.Services.Api;
-using VerifyIndia.Application.Services.Master;
-using VerifyIndia.Application.Services.Website;
-using VerifyIndia.Infrastructure.Filters;
+using Upgrow.Application.Common.Dropdowns;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.Api;
+using Upgrow.Application.IServices.Common;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.IServices.WL;
+using Upgrow.Application.IServices.Website;
+using Upgrow.Application.Services;
+using Upgrow.Application.Services.Api;
+using Upgrow.Application.Services.Master;
+using Upgrow.Application.Services.Website;
+using Upgrow.Infrastructure.Filters;
 
 namespace UpgrowAdminPanel.Controllers
 {

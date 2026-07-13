@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.WL
+namespace Upgrow.Application.DTO.WL
 {
     public class WLMasterCompanyBasicDataDto
     {

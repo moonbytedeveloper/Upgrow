@@ -8,15 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.WL;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.WL.Master;
-using VerifyIndia.Application.Utilities;
-using VerifyIndia.Domain.Entities.WL.Master;
-using VerifyIndia.Domain.IRepositories;
-using VerifyIndia.Domain.IRepositories.WL;
+using Upgrow.Application.DTO.WL;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.WL.Master;
+using Upgrow.Application.Utilities;
+using Upgrow.Domain.Entities.WL.Master;
+using Upgrow.Domain.IRepositories;
+using Upgrow.Domain.IRepositories.WL;
 
-namespace VerifyIndia.Application.Services.WL.Master
+namespace Upgrow.Application.Services.WL.Master
 {
     public class WLActivityLogsLogsService : IWLActivityLogsLogsService
     {

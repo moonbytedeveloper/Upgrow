@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Verification.SprintVerify.Response
+namespace Upgrow.Application.DTO.Verification.SprintVerify.Response
 {
     public class PS_VoterValidateResponse
     {

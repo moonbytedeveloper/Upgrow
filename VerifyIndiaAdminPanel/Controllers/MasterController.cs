@@ -12,36 +12,36 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
-using VerifyIndia.Application;
-using VerifyIndia.Application.Commands.Api;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.Commands.Website;
-using VerifyIndia.Application.Commands.WL.Master;
-using VerifyIndia.Application.DTO.Api;
-using VerifyIndia.Application.DTO.Customer;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.DTO.Website;
-using VerifyIndia.Application.DTO.WL.Master;
-using VerifyIndia.Application.DTOs.Master;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.Api;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.IServices.Verification;
-using VerifyIndia.Application.IServices.Website;
-using VerifyIndia.Application.IServices.WL.Master;
-using VerifyIndia.Application.Services.Api;
-using VerifyIndia.Application.Services.Master;
-using VerifyIndia.Application.Services.Verification;
-using VerifyIndia.Application.Services.Website;
-using VerifyIndia.Application.Services.WL;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Infrastructure.Filters;
+using Upgrow.Application;
+using Upgrow.Application.Commands.Api;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.Commands.Website;
+using Upgrow.Application.Commands.WL.Master;
+using Upgrow.Application.DTO.Api;
+using Upgrow.Application.DTO.Customer;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.DTO.Website;
+using Upgrow.Application.DTO.WL.Master;
+using Upgrow.Application.DTOs.Master;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.Api;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.IServices.Verification;
+using Upgrow.Application.IServices.Website;
+using Upgrow.Application.IServices.WL.Master;
+using Upgrow.Application.Services.Api;
+using Upgrow.Application.Services.Master;
+using Upgrow.Application.Services.Verification;
+using Upgrow.Application.Services.Website;
+using Upgrow.Application.Services.WL;
+using Upgrow.Domain.Entities;
+using Upgrow.Infrastructure.Filters;
 using UpgrowAdminPanel.Models;
 using UpgrowAdminPanel.Models.Api;
 using UpgrowAdminPanel.Models.Master;
 using UpgrowAdminPanel.Models.Website;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
-using static VerifyIndia.Application.Constants;
+using static Upgrow.Application.Constants;
 
 namespace UpgrowAdminPanel.Controllers
 {
@@ -5666,7 +5666,7 @@ namespace UpgrowAdminPanel.Controllers
             try
             {
                 var policies = await _masterPolicyService.GetPolicyListForRegistrationAsync();
-                VerifyIndia.Application.DTO.Master.PolicyListDto? dto = null;
+                Upgrow.Application.DTO.Master.PolicyListDto? dto = null;
 
                 if (!string.IsNullOrWhiteSpace(uuid))
                 {
@@ -5709,7 +5709,7 @@ namespace UpgrowAdminPanel.Controllers
             {
                 var policies = await _masterPolicyService.GetPolicyListForRegistrationAsync();
 
-                var activePolicies = (policies ?? Enumerable.Empty<VerifyIndia.Application.DTO.Master.PolicyListDto>())
+                var activePolicies = (policies ?? Enumerable.Empty<Upgrow.Application.DTO.Master.PolicyListDto>())
                     .Where(p => p.IsActive == true)
                     .OrderBy(p => p.Title)
                     .ToList();

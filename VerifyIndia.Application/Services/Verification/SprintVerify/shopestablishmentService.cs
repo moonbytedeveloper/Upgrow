@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Verification.SprintVerify;
-using VerifyIndia.Application.Helper;
-using VerifyIndia.Application.IServices.Verification.SprintVerify;
-using VerifyIndia.Application.Services.Mapper;
+using Upgrow.Application.DTO.Verification.SprintVerify;
+using Upgrow.Application.Helper;
+using Upgrow.Application.IServices.Verification.SprintVerify;
+using Upgrow.Application.Services.Mapper;
 
-namespace VerifyIndia.Application.Services.Verification.SprintVerify
+namespace Upgrow.Application.Services.Verification.SprintVerify
 {
     public class shopestablishmentService :IshopEstablishmentService
     {

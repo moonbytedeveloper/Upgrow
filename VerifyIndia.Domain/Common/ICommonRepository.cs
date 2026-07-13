@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Domain.Common
+namespace Upgrow.Domain.Common
 {
     public interface ICommonRepository
     {

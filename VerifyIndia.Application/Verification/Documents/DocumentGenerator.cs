@@ -4,10 +4,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Interfaces.Notification;
-using VerifyIndia.Domain.Models;
+using Upgrow.Application.Interfaces.Notification;
+using Upgrow.Domain.Models;
 
-namespace VerifyIndia.Application.Verification.Documents
+namespace Upgrow.Application.Verification.Documents
 {
     public class DocumentGenerator
         : IDocumentGenerator

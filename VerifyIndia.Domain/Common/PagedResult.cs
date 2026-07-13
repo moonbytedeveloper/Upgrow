@@ -1,4 +1,4 @@
-namespace VerifyIndia.Domain.Common;
+namespace Upgrow.Domain.Common;
 
 public class PagedResult<T>
 {

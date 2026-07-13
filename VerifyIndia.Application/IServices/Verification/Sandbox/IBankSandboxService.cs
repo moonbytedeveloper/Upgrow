@@ -1,8 +1,8 @@
 using System.Text.Json;
-using VerifyIndia.Application.DTO.Verification.Sandbox;
-using VerifyIndia.Application.Helper;
+using Upgrow.Application.DTO.Verification.Sandbox;
+using Upgrow.Application.Helper;
 
-namespace VerifyIndia.Application.IServices.Verification.Sandbox
+namespace Upgrow.Application.IServices.Verification.Sandbox
 {
     public interface IBankSandboxService
     {

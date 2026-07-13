@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Domain.Entities.WL.Master
+namespace Upgrow.Domain.Entities.WL.Master
 {
     public class WL_MenuRolePermission : TenantEntity
     {

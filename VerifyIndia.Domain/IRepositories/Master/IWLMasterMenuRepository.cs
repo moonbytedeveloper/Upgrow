@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Domain.IRepositories.Master
+namespace Upgrow.Domain.IRepositories.Master
 {
     public interface IWLMasterMenuRepository : IMasterRepository<WL_MasterMenu>
     {

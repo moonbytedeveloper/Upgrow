@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Verification.Common.Response
+namespace Upgrow.Application.DTO.Verification.Common.Response
 {
     public class CreditReportFetchEQResponse
     {

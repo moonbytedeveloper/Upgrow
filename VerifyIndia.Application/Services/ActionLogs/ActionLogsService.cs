@@ -2,14 +2,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using System.Linq.Expressions;
 using System.Text.Json;
-using VerifyIndia.Application.DTO.ActionLogs;
-using VerifyIndia.Application.IServices.ActionLogs;
-using VerifyIndia.Application.Utilities;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories.ActionLogs;
+using Upgrow.Application.DTO.ActionLogs;
+using Upgrow.Application.IServices.ActionLogs;
+using Upgrow.Application.Utilities;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories.ActionLogs;
 
-namespace VerifyIndia.Application.Services.ActionLogs
+namespace Upgrow.Application.Services.ActionLogs
 {
     public class ActionLogsService : IActionLogsService
     {

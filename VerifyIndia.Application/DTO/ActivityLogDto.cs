@@ -1,4 +1,4 @@
-﻿namespace VerifyIndia.Application.DTO
+﻿namespace Upgrow.Application.DTO
 {
     /// <summary>
     /// DTO for activity logs with employee information

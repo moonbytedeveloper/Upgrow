@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Common;
+using Upgrow.Application.Common;
 
-namespace VerifyIndia.Application.DTO.Registration
+namespace Upgrow.Application.DTO.Registration
 {
     public sealed class VerifyAadhaarOtpResponseDto
     {

@@ -1,4 +1,4 @@
-﻿namespace VerifyIndia.Domain.Entities.Registration
+﻿namespace Upgrow.Domain.Entities.Registration
 {
     public class CustomerAadhaarSession
     {

@@ -1,15 +1,15 @@
 using AutoMapper;
 using System.Linq.Expressions;
-using VerifyIndia.Application.Commands.Support;
-using VerifyIndia.Application.DTO.Support;
-using VerifyIndia.Application.DTOs;
-using VerifyIndia.Application.IServices.Support;
-using VerifyIndia.Application.Services.Master;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.Support;
+using Upgrow.Application.DTO.Support;
+using Upgrow.Application.DTOs;
+using Upgrow.Application.IServices.Support;
+using Upgrow.Application.Services.Master;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.Support
+namespace Upgrow.Application.Services.Support
 {
     public class SupportTicketHeaderService
         : MasterServiceBase<Support_TicketHeader, SupportTicketDto, SupportTicketHeaderCommand>,

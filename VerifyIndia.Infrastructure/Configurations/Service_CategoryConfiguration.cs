@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.Auth;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.Auth;
 
-namespace VerifyIndia.Infrastructure.Configurations
+namespace Upgrow.Infrastructure.Configurations
 {
     public class Service_CategoryConfiguration : IEntityTypeConfiguration<Service_Category>
     {

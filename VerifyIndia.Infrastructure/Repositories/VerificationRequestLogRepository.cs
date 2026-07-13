@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
-using VerifyIndia.Infrastructure;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
+using Upgrow.Infrastructure;
 
 public class VerificationRequestLogRepository : IVerificationRequestLogRepository
 {

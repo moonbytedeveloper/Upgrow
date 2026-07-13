@@ -1,4 +1,4 @@
-namespace VerifyIndia.Application.DTO.Support
+namespace Upgrow.Application.DTO.Support
 {
     public class SupportTicketAssignableEmployeeDto
     {

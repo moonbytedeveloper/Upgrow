@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Menu;
-using VerifyIndia.Application.DTO.Menu;
-using VerifyIndia.Application.IServices.Master;
+using Upgrow.Application.Commands.Menu;
+using Upgrow.Application.DTO.Menu;
+using Upgrow.Application.IServices.Master;
 
-namespace VerifyIndia.Application.IServices.Menu
+namespace Upgrow.Application.IServices.Menu
 {
     public interface IMenuRolePermissionService : IMasterService<MenuRolePermissionDto, MenuRolePermissionCommand>
     {

@@ -1,6 +1,6 @@
 ﻿ using System.ComponentModel.DataAnnotations;
  
-namespace VerifyIndia.Application.Commands.Master
+namespace Upgrow.Application.Commands.Master
 {
     public class MasterMenuCommand : IMasterCommand
     {

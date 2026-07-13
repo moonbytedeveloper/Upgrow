@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.DTOs.Master;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.DTOs.Master;
 
-namespace VerifyIndia.Application.IServices.Master
+namespace Upgrow.Application.IServices.Master
 {
     public interface IMasterMenuService : IMasterService<MasterMenuDto, MasterMenuCommand>
     {

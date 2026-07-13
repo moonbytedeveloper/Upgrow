@@ -6,14 +6,14 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Verification.Sandbox;
-using VerifyIndia.Application.Helper;
-using VerifyIndia.Application.IServices.Verification.Sandbox;
-using VerifyIndia.Application.Services.Mapper;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.DTO.Verification.Sandbox;
+using Upgrow.Application.Helper;
+using Upgrow.Application.IServices.Verification.Sandbox;
+using Upgrow.Application.Services.Mapper;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.Verification.Sandbox
+namespace Upgrow.Application.Services.Verification.Sandbox
 {
     public class AadhaarSandboxService : IAadhaarSandboxService
     {

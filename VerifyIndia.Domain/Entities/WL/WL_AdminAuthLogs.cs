@@ -1,9 +1,9 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using VerifyIndia.Domain.Common;
+using Upgrow.Domain.Common;
 
-namespace VerifyIndia.Domain.Entities.WL
+namespace Upgrow.Domain.Entities.WL
 {
     public class WL_AdminAuthLogs : ITenantEntity // Implementing this auto-handles TenantId via your AppDbContext
     {

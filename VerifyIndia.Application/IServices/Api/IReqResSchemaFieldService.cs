@@ -1,7 +1,7 @@
-using VerifyIndia.Application.DTO.AIX;
-using VerifyIndia.Application.DTO.Api;
+using Upgrow.Application.DTO.AIX;
+using Upgrow.Application.DTO.Api;
 
-namespace VerifyIndia.Application.IServices.Api
+namespace Upgrow.Application.IServices.Api
 {
     public interface IReqResSchemaFieldService
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.Common.Results
+namespace Upgrow.Application.Common.Results
 {
     public enum ErrorType
     {

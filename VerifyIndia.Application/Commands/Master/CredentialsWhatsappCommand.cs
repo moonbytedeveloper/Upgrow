@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace VerifyIndia.Application.Commands.Master
+namespace Upgrow.Application.Commands.Master
 {
     public class CredentialsWhatsappCommand : IMasterCommand, IEncryptable
     {

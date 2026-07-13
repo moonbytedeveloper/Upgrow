@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities.WL;
+using Upgrow.Domain.Entities.WL;
 
-namespace VerifyIndia.Infrastructure.Configurations.WL
+namespace Upgrow.Infrastructure.Configurations.WL
 {
     public class WL_MasterEmailTemplateConfiguration : IEntityTypeConfiguration<WL_MasterEmailTemplate>
     {

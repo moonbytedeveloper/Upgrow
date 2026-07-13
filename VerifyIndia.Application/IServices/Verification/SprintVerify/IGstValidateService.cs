@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Verification.SprintVerify;
-using VerifyIndia.Application.Helper;
+using Upgrow.Application.DTO.Verification.SprintVerify;
+using Upgrow.Application.Helper;
 
-namespace VerifyIndia.Application.IServices.Verification.SprintVerify
+namespace Upgrow.Application.IServices.Verification.SprintVerify
 {
     public interface IGstValidateService
     {

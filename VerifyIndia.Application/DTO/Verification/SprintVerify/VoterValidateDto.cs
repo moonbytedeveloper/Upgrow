@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 
-namespace VerifyIndia.Application.DTO.Verification.SprintVerify
+namespace Upgrow.Application.DTO.Verification.SprintVerify
 {
     public class VoterValidateDto
     {

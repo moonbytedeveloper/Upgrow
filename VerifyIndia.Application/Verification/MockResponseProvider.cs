@@ -4,10 +4,10 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Verification.SprintVerify.Response;
-using VerifyIndia.Application.Helper;
+using Upgrow.Application.DTO.Verification.SprintVerify.Response;
+using Upgrow.Application.Helper;
 
-namespace VerifyIndia.Application.Verification
+namespace Upgrow.Application.Verification
 {
     public static class MockResponseProvider
     {

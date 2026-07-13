@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Website
+namespace Upgrow.Application.DTO.Website
 {
     public class WebsiteFaqCategoryDto
     {

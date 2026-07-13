@@ -5,11 +5,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities.WL;
-using VerifyIndia.Domain.IRepositories.WL;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities.WL;
+using Upgrow.Domain.IRepositories.WL;
 
-namespace VerifyIndia.Infrastructure.Repositories.WL.Master
+namespace Upgrow.Infrastructure.Repositories.WL.Master
 {
     public class WLMasterEmailTemplateRepository : MasterRepositoryBase<WL_MasterEmailTemplate>, IWLMasterEmailTemplateRepository
     {

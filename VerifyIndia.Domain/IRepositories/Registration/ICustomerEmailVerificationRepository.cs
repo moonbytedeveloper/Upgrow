@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities.Registration;
+using Upgrow.Domain.Entities.Registration;
 
-namespace VerifyIndia.Domain.IRepositories.Registration
+namespace Upgrow.Domain.IRepositories.Registration
 {
     public interface ICustomerEmailVerificationRepository
     {

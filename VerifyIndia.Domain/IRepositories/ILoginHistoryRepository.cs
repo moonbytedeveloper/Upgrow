@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Domain.IRepositories
+namespace Upgrow.Domain.IRepositories
 {
     public interface ILoginHistoryRepository
     {

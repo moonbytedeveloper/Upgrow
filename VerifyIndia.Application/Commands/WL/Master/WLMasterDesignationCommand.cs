@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
+using Upgrow.Application.Commands.Master;
 
-namespace VerifyIndia.Application.Commands.WL.Master
+namespace Upgrow.Application.Commands.WL.Master
 {
     public class WLMasterDesignationCommand :IMasterCommand
     {

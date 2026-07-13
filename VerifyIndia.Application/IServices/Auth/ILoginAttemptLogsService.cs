@@ -1,7 +1,7 @@
-using VerifyIndia.Application.DTO.Auth;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Application.DTO.Auth;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Application.IServices.Auth
+namespace Upgrow.Application.IServices.Auth
 {
     public interface ILoginAttemptLogsService
     {

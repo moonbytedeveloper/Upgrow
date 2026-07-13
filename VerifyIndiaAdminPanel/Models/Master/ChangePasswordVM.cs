@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using VerifyIndia.Application.DTO.Master;
+using Upgrow.Application.DTO.Master;
 
 namespace UpgrowAdminPanel.Models.Master
 {

@@ -1,8 +1,8 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using VerifyIndia.Application.Commands.Master;
+using Upgrow.Application.Commands.Master;
 
-namespace VerifyIndia.Application.Commands.Support
+namespace Upgrow.Application.Commands.Support
 {
     public class SupportTicketHeaderCommand : IMasterCommand
     {

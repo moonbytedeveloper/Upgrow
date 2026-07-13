@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace VerifyIndia.Application.DTO.AIX
+namespace Upgrow.Application.DTO.AIX
 {
    
     public class HeaderInfoSectionDto

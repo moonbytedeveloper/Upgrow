@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using VerifyIndia.Application.IServices.ActionLogs;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Infrastructure;
+using Upgrow.Application.IServices.ActionLogs;
+using Upgrow.Domain.Common;
+using Upgrow.Infrastructure;
 
 namespace UpgrowAdminPanel.Controllers
 {

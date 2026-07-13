@@ -1,5 +1,5 @@
  
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Entities;
 
 public interface IVerificationRequestLogRepository
 {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
 
-namespace VerifyIndia.Infrastructure.Repositories
+namespace Upgrow.Infrastructure.Repositories
 {
     public class AdminAuthLogsRepository : IAdminAuthLogsRepository
     {

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace VerifyIndia.Application.Common
+namespace Upgrow.Application.Common
 {
     public static class ValidationError
     {

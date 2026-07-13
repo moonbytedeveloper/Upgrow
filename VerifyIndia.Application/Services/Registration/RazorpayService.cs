@@ -6,10 +6,10 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Payment;
-using VerifyIndia.Application.IServices.Payment;
+using Upgrow.Application.DTO.Payment;
+using Upgrow.Application.IServices.Payment;
 
-namespace VerifyIndia.Application.Services.Registration
+namespace Upgrow.Application.Services.Registration
 {
     public sealed class RazorpayService
         : IRazorpayService

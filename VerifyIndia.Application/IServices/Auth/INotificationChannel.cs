@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.IServices.Auth
+namespace Upgrow.Application.IServices.Auth
 {
     public interface INotificationChannel
     {

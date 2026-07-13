@@ -6,24 +6,24 @@ using System;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using VerifyIndia.Application.DTO.ActionLogs;
-using VerifyIndia.Application.DTO.CustomerPanel;
-using VerifyIndia.Application.DTO.CustomerPanel.QueryResults;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.Utilities;
-using VerifyIndia.Domain;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.Auth;
-using VerifyIndia.Domain.Entities.Inquiry;
-using VerifyIndia.Domain.Entities.Registration;
-using VerifyIndia.Domain.Entities.Website;
-using VerifyIndia.Domain.Entities.WL;
-using VerifyIndia.Domain.Entities.WL.Master;
-using static VerifyIndia.Application.Constants;
+using Upgrow.Application.DTO.ActionLogs;
+using Upgrow.Application.DTO.CustomerPanel;
+using Upgrow.Application.DTO.CustomerPanel.QueryResults;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.Utilities;
+using Upgrow.Domain;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.Auth;
+using Upgrow.Domain.Entities.Inquiry;
+using Upgrow.Domain.Entities.Registration;
+using Upgrow.Domain.Entities.Website;
+using Upgrow.Domain.Entities.WL;
+using Upgrow.Domain.Entities.WL.Master;
+using static Upgrow.Application.Constants;
 
-namespace VerifyIndia.Infrastructure
+namespace Upgrow.Infrastructure
 {
     public class AppDbContext : DbContext
     {

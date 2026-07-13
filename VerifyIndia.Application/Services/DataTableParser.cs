@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTOs;
-using VerifyIndia.Application.IServices;
+using Upgrow.Application.DTOs;
+using Upgrow.Application.IServices;
 
-namespace VerifyIndia.Application.Services
+namespace Upgrow.Application.Services
 {
     public class DataTableParser : IDataTableParser
     {

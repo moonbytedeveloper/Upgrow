@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using VerifyIndia.Application.Commands.Master;
+using Upgrow.Application.Commands.Master;
 
 namespace UpgrowAdminPanel.Models.Master
 {

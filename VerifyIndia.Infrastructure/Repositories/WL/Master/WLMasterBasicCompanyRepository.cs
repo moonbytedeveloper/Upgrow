@@ -5,10 +5,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Infrastructure.Repositories.WL.Master
+namespace Upgrow.Infrastructure.Repositories.WL.Master
 {
     public class WLMasterBasicCompanyRepository : MasterRepositoryBase<WL_MasterCompanyBasicData>
     {

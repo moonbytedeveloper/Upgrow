@@ -6,9 +6,9 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Infrastructure.Configurations.Pricing
+namespace Upgrow.Infrastructure.Configurations.Pricing
 {
     public class Master_PricingConfiguration : IEntityTypeConfiguration<Master_Pricing>
     {

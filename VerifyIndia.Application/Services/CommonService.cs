@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Domain.Common;
+using Upgrow.Application.IServices;
+using Upgrow.Domain.Common;
 
-namespace VerifyIndia.Application.Services
+namespace Upgrow.Application.Services
 {
     public class CommonService : ICommonService
     {

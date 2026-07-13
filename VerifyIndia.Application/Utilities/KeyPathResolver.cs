@@ -1,10 +1,10 @@
 using System.IO;
 
-namespace VerifyIndia.Application.Utilities
+namespace Upgrow.Application.Utilities
 {
     public static class KeyPathResolver
     {
-        private const string ApplicationProjectFolderName = "VerifyIndia.Application";
+        private const string ApplicationProjectFolderName = "Upgrow.Application";
         private const string KeysFolderName = "Keys";
 
         public static string GetPrivateKeyPath() => ResolveKeyPath("private.pem");

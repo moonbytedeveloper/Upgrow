@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Notification;
-using VerifyIndia.Application.DTO.Notification;
+using Upgrow.Application.Commands.Notification;
+using Upgrow.Application.DTO.Notification;
 
-namespace VerifyIndia.Application.IServices.Notification
+namespace Upgrow.Application.IServices.Notification
 {
     public interface ICustomerNotificationPreferenceService
     {

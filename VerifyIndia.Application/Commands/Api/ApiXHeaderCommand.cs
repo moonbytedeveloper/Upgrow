@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
+using Upgrow.Application.Commands.Master;
 
-namespace VerifyIndia.Application.Commands.Api
+namespace Upgrow.Application.Commands.Api
 {
     public class ApiXHeaderCommand : IMasterCommand
     {

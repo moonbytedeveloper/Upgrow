@@ -1,6 +1,6 @@
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Application.IServices
+namespace Upgrow.Application.IServices
 {
     public interface IActivityLogsLogsService
     {

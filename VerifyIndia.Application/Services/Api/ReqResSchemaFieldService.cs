@@ -1,11 +1,11 @@
 using AutoMapper;
-using VerifyIndia.Application.DTO.AIX;
-using VerifyIndia.Application.DTO.Api;
-using VerifyIndia.Application.IServices.Api;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.DTO.AIX;
+using Upgrow.Application.DTO.Api;
+using Upgrow.Application.IServices.Api;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.Api
+namespace Upgrow.Application.Services.Api
 {
     public class ReqResSchemaFieldService : IReqResSchemaFieldService
     {

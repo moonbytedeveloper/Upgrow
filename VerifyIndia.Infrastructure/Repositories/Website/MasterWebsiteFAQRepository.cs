@@ -4,11 +4,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.Website;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.Website;
 
-namespace VerifyIndia.Infrastructure.Repositories.Website
+namespace Upgrow.Infrastructure.Repositories.Website
 {
     public class MasterWebsiteFAQRepository : MasterRepositoryBase<Website_MasterFAQ>
     {

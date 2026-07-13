@@ -1,10 +1,10 @@
 ﻿using System.Linq.Expressions;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 
-namespace VerifyIndia.Infrastructure.Repositories.WL.Master
+namespace Upgrow.Infrastructure.Repositories.WL.Master
 {
     public class WLTenantDomainRepository : MasterRepositoryBase<TenantDomain>
     {

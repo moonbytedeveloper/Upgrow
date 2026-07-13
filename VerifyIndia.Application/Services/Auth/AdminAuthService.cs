@@ -6,16 +6,16 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Auth;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.IServices.Auth;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.Auth;
-using VerifyIndia.Domain.IRepositories;
-using VerifyIndia.Domain.IRepositories.Master;
+using Upgrow.Application.DTO.Auth;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.IServices.Auth;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.Auth;
+using Upgrow.Domain.IRepositories;
+using Upgrow.Domain.IRepositories.Master;
 
-namespace VerifyIndia.Application.Services.Auth
+namespace Upgrow.Application.Services.Auth
 {
     public class AdminAuthService : IAdminAuthService
     {

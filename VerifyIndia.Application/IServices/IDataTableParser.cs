@@ -1,6 +1,6 @@
-﻿using VerifyIndia.Application.DTOs;
+﻿using Upgrow.Application.DTOs;
 
-namespace VerifyIndia.Application.IServices;
+namespace Upgrow.Application.IServices;
 
 public interface IDataTableParser
 {

@@ -5,9 +5,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities.WL.Master;
+using Upgrow.Domain.Entities.WL.Master;
 
-namespace VerifyIndia.Application.Utilities
+namespace Upgrow.Application.Utilities
 {
     public static class WLActivityLogHashUtility
     {

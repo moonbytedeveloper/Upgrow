@@ -1,6 +1,6 @@
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Domain.IRepositories
+namespace Upgrow.Domain.IRepositories
 {
     public interface IRegistrationApiLogRepository
     {

@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities.Registration;
+using Upgrow.Domain.Entities.Registration;
 
-namespace VerifyIndia.Infrastructure.Configurations.CustomerPanel.Registration
+namespace Upgrow.Infrastructure.Configurations.CustomerPanel.Registration
 {
     public class CustomerEmailVerificationConfiguration
         : IEntityTypeConfiguration<CustomerEmailVerification>

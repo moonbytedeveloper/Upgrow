@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.WL.Master
+namespace Upgrow.Application.DTO.WL.Master
 {
     public class WLWhatsappCredentialDto
     {

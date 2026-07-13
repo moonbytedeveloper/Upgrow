@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Interfaces.Notification;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Application.Interfaces.Notification;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Infrastructure.Notifications;
+namespace Upgrow.Infrastructure.Notifications;
 
 public sealed class NotificationRepository
     : INotificationRepository

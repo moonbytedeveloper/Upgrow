@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Registration.VideoKyc
+namespace Upgrow.Application.DTO.Registration.VideoKyc
 {
     public sealed class UploadVideoKycRequestDto
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Domain.Enums
+namespace Upgrow.Domain.Enums
 {
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum NotificationChannel

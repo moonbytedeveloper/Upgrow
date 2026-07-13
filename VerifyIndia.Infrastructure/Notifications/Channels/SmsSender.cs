@@ -5,12 +5,12 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Notification;
-using VerifyIndia.Application.Interfaces.Notification;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Domain.Enums;
+using Upgrow.Application.DTO.Notification;
+using Upgrow.Application.Interfaces.Notification;
+using Upgrow.Application.IServices;
+using Upgrow.Domain.Enums;
 
-namespace VerifyIndia.Infrastructure.Notifications.Channels;
+namespace Upgrow.Infrastructure.Notifications.Channels;
 
 public sealed class SmsSender
         : INotificationChannelSender

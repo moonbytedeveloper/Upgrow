@@ -1,6 +1,6 @@
-using VerifyIndia.Application.Utilities;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Utilities;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
 public class VerificationRequestLogService : IVerificationRequestLogService
 {

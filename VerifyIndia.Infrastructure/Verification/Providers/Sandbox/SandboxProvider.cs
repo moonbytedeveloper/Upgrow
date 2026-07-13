@@ -6,17 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Verification.Common.Request;
-using VerifyIndia.Application.DTO.Verification.Common.Response;
-using VerifyIndia.Application.DTO.Verification.Sandbox;
-using VerifyIndia.Application.DTO.Verification.Sandbox.Response;
-using VerifyIndia.Application.Helper;
-using VerifyIndia.Application.Verification.Interfaces;
-using VerifyIndia.Application.Verification.Verification;
-using VerifyIndia.Domain.Models;
-using static VerifyIndia.Application.Constants;
+using Upgrow.Application.DTO.Verification.Common.Request;
+using Upgrow.Application.DTO.Verification.Common.Response;
+using Upgrow.Application.DTO.Verification.Sandbox;
+using Upgrow.Application.DTO.Verification.Sandbox.Response;
+using Upgrow.Application.Helper;
+using Upgrow.Application.Verification.Interfaces;
+using Upgrow.Application.Verification.Verification;
+using Upgrow.Domain.Models;
+using static Upgrow.Application.Constants;
 
-namespace VerifyIndia.Infrastructure.Verification.Providers.Sandbox;
+namespace Upgrow.Infrastructure.Verification.Providers.Sandbox;
 
 public sealed class SandboxProvider : IProviderAdapter
 {

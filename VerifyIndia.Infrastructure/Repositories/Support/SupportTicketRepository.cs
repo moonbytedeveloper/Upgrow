@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Support;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories.Support;
+using Upgrow.Application.DTO.Support;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories.Support;
 
-namespace VerifyIndia.Infrastructure.Repositories.Support
+namespace Upgrow.Infrastructure.Repositories.Support
 {
     public class SupportTicketRepository : ISupportTicketRepository
     {

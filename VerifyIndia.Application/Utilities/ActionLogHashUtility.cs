@@ -2,9 +2,9 @@ using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Application.Utilities
+namespace Upgrow.Application.Utilities
 {
     public static class ActionLogHashUtility
     {

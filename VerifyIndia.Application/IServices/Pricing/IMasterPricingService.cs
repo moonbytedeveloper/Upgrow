@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Pricing;
+using Upgrow.Application.DTO.Pricing;
 
-namespace VerifyIndia.Application.IServices.Pricing
+namespace Upgrow.Application.IServices.Pricing
 {
     public interface IMasterPricingService
     {

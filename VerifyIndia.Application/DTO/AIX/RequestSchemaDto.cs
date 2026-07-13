@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.AIX
+namespace Upgrow.Application.DTO.AIX
 {
     public class RequestSchemaDto
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Transaction
+namespace Upgrow.Application.DTO.Transaction
 {
     public class CartTransactionDetailDto
     {

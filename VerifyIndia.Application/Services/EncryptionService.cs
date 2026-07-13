@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Extensions.Options;
-using VerifyIndia.Application.DTO.Auth;
-using VerifyIndia.Application.IServices;
+using Upgrow.Application.DTO.Auth;
+using Upgrow.Application.IServices;
 using Microsoft.Extensions.Configuration;
 
-namespace VerifyIndia.Application.Services
+namespace Upgrow.Application.Services
 {
     public sealed class EncryptionService : IEncryptionService
     {

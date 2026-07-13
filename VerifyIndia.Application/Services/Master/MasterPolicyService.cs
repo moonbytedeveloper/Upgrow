@@ -2,16 +2,16 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
-using VerifyIndia.Application.DTO.Auth;
-using VerifyIndia.Application.DTO.Customer;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.IServices.Auth;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.Utilities;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories.Master;
+using Upgrow.Application.DTO.Auth;
+using Upgrow.Application.DTO.Customer;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.IServices.Auth;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.Utilities;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories.Master;
 
-namespace VerifyIndia.Application.Services.Master
+namespace Upgrow.Application.Services.Master
 {
     public class MasterPolicyService : IMasterPolicyService
     {

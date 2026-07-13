@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.Commands.Support
+namespace Upgrow.Application.Commands.Support
 {
     public class SupportTicketLineAttachmentCommand
     {

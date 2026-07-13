@@ -4,16 +4,16 @@ using System.Linq.Expressions;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
-using VerifyIndia.Application.DTO.ActionLogs;
-using VerifyIndia.Application.IServices.ActionLogs;
-using VerifyIndia.Application.IServices.WL.ActionLogs;
-using VerifyIndia.Application.Utilities;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.WL;
-using VerifyIndia.Domain.IRepositories.ActionLogs;
+using Upgrow.Application.DTO.ActionLogs;
+using Upgrow.Application.IServices.ActionLogs;
+using Upgrow.Application.IServices.WL.ActionLogs;
+using Upgrow.Application.Utilities;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.WL;
+using Upgrow.Domain.IRepositories.ActionLogs;
 
-namespace VerifyIndia.Application.Services.ActionLogs
+namespace Upgrow.Application.Services.ActionLogs
 {
     public class WLActionLogsService : IWLActionLogsService
     {

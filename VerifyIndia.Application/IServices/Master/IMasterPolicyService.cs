@@ -1,8 +1,8 @@
-using VerifyIndia.Application.DTO.Auth;
-using VerifyIndia.Application.DTO.Customer;
-using VerifyIndia.Application.DTO.Master;
+using Upgrow.Application.DTO.Auth;
+using Upgrow.Application.DTO.Customer;
+using Upgrow.Application.DTO.Master;
 
-namespace VerifyIndia.Application.IServices.Master
+namespace Upgrow.Application.IServices.Master
 {
     public interface IMasterPolicyService
     {

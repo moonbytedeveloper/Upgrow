@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Common.Dropdowns;
+using Upgrow.Application.Common.Dropdowns;
 
-namespace VerifyIndia.Application.IServices.Common
+namespace Upgrow.Application.IServices.Common
 {
     public interface IDropdownQueryService
     {

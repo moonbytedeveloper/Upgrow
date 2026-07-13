@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using VerifyIndia.Application.DTO.Auth;
-using VerifyIndia.Application.DTO.WL.Master;
-using VerifyIndia.Application.IServices.Auth;
-using VerifyIndia.Application.IServices.WL.Master;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.Auth;
-using VerifyIndia.Domain.Entities.WL.Master;
-using VerifyIndia.Domain.IRepositories;
-using VerifyIndia.Domain.IRepositories.WL;
+using Upgrow.Application.DTO.Auth;
+using Upgrow.Application.DTO.WL.Master;
+using Upgrow.Application.IServices.Auth;
+using Upgrow.Application.IServices.WL.Master;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.Auth;
+using Upgrow.Domain.Entities.WL.Master;
+using Upgrow.Domain.IRepositories;
+using Upgrow.Domain.IRepositories.WL;
 
-namespace VerifyIndia.Application.Services.WL.Auth
+namespace Upgrow.Application.Services.WL.Auth
 {
     public class WLAdminAuthService : IWLAdminAuthService
     {

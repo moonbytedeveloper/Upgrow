@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.WL;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.WL;
 using Microsoft.EntityFrameworkCore;
-using VerifyIndia.Domain.IRepositories.Master;
-using VerifyIndia.Domain.IRepositories.WL;
+using Upgrow.Domain.IRepositories.Master;
+using Upgrow.Domain.IRepositories.WL;
 
-namespace VerifyIndia.Infrastructure.Repositories.Master.WL
+namespace Upgrow.Infrastructure.Repositories.Master.WL
 {
     public class WLPasswordPolicyRepository : MasterRepositoryBase<WL_PasswordPolicy>, IWLPasswordPolicyRepository
     {

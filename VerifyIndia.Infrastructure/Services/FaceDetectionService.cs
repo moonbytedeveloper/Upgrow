@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Registration.VideoKyc;
-using VerifyIndia.Application.IServices.Registration;
+using Upgrow.Application.DTO.Registration.VideoKyc;
+using Upgrow.Application.IServices.Registration;
 
-namespace VerifyIndia.Infrastructure.Services
+namespace Upgrow.Infrastructure.Services
 {
     public sealed class FaceDetectionService
         : IFaceDetectionService

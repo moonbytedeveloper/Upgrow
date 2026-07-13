@@ -1,11 +1,11 @@
-﻿using VerifyIndia.Domain.Entities.Auth;
+﻿using Upgrow.Domain.Entities.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Domain.IRepositories
+namespace Upgrow.Domain.IRepositories
 {
     public interface IPasswordResetRepository
     {

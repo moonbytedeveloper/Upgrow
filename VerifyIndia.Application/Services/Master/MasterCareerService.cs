@@ -5,16 +5,16 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.Commands.Website;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.DTO.Website;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.IServices.Website;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.Commands.Website;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.DTO.Website;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.IServices.Website;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.Master
+namespace Upgrow.Application.Services.Master
 {
     public class MasterCareerService : MasterServiceBase<Master_Career, MasterCareerDto, MasterCareerCommand>, IMasterCareerService
     {

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.AIX;
-using VerifyIndia.Application.DTO.AIX;
-using VerifyIndia.Application.IServices.Master;
+using Upgrow.Application.Commands.AIX;
+using Upgrow.Application.DTO.AIX;
+using Upgrow.Application.IServices.Master;
 
-namespace VerifyIndia.Application.IServices.AIX
+namespace Upgrow.Application.IServices.AIX
 {
     public interface IReqResSchemaFieldsService : IMasterService<ReqResSchemaFieldDto, ReqResSchemaFieldCommand>
     {

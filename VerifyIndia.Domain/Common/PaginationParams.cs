@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Text.Json.Serialization;
 
-namespace VerifyIndia.Domain.Common;
+namespace Upgrow.Domain.Common;
 
 public class PaginationParams
 {

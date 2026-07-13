@@ -5,17 +5,17 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.WL;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.DTO.WL;
-using VerifyIndia.Application.IServices.WL;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.WL;
-using VerifyIndia.Domain.IRepositories;
-using VerifyIndia.Domain.IRepositories.WL;
+using Upgrow.Application.Commands.WL;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.DTO.WL;
+using Upgrow.Application.IServices.WL;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.WL;
+using Upgrow.Domain.IRepositories;
+using Upgrow.Domain.IRepositories.WL;
 
-namespace VerifyIndia.Application.Services.WL
+namespace Upgrow.Application.Services.WL
 {
     public class WLMasterEmailTemplateService
     : WLBaseService<WL_MasterEmailTemplate, WLMasterEmailTemplateDto, WLMasterEmailTemplateCommand>,

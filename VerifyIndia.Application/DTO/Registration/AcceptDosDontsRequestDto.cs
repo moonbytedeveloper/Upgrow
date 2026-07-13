@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Registration
+namespace Upgrow.Application.DTO.Registration
 {
     public sealed class AcceptDosDontsRequestDto
     {

@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Infrastructure.Configurations
+namespace Upgrow.Infrastructure.Configurations
 {
     public class ApiXCategoryConfiguration : IEntityTypeConfiguration<ApiXCategory>
     {

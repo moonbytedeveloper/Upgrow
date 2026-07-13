@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.WL;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.DTO.WL;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.Master
+namespace Upgrow.Application.Services.Master
 {
     public class TenantService : ITenantService
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.Constant
+namespace Upgrow.Application.Constant
 {
     public static class NotificationEvents
     {

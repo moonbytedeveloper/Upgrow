@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.CustomerPanel;
+using Upgrow.Application.DTO.CustomerPanel;
 
-namespace VerifyIndia.Application.IServices.CustomerPanel
+namespace Upgrow.Application.IServices.CustomerPanel
 {
     public interface ICustomerCreditMasterService
     {

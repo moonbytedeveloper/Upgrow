@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.DTOs.Master;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.IServices.Menu;
-using VerifyIndia.Domain.IRepositories.Master;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.DTOs.Master;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.IServices.Menu;
+using Upgrow.Domain.IRepositories.Master;
 
 
-namespace VerifyIndia.Infrastructure.Services
+namespace Upgrow.Infrastructure.Services
 {
     public sealed class MenuQueryService : IMenuQueryService
     {

@@ -4,13 +4,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.DTO.Customer;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.DTO.WL;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.DTO.Customer;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.DTO.WL;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Application.IServices.Master
+namespace Upgrow.Application.IServices.Master
 {
     public interface IMasterCustomerService : IMasterService<MasterCustomerDto, MasterCustomerCommand>
     {

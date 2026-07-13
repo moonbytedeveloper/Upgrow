@@ -1,10 +1,10 @@
 using System.Text.Json;
-using VerifyIndia.Application.DTO.Auth;
-using VerifyIndia.Application.IServices.Auth;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.DTO.Auth;
+using Upgrow.Application.IServices.Auth;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.Auth
+namespace Upgrow.Application.Services.Auth
 {
     public class RegistrationApiLogService : IRegistrationApiLogService
     {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Verification.Interfaces;
-using static VerifyIndia.Application.Constants;
+using Upgrow.Application.Verification.Interfaces;
+using static Upgrow.Application.Constants;
 
-namespace VerifyIndia.Application.Services.TransactionProcessor
+namespace Upgrow.Application.Services.TransactionProcessor
 {
     public sealed class VerificationStepResolver
     : IVerificationStepResolver

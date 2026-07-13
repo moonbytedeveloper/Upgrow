@@ -6,10 +6,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.Common;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.Common;
 
-namespace VerifyIndia.Infrastructure.Services
+namespace Upgrow.Infrastructure.Services
 {
     public class VideoProcessingService
         : IVideoProcessingService

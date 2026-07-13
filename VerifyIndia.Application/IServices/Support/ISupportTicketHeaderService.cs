@@ -1,10 +1,10 @@
-using VerifyIndia.Application.Commands.Support;
-using VerifyIndia.Application.DTO.Support;
-using VerifyIndia.Application.DTOs;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Domain.Common;
+using Upgrow.Application.Commands.Support;
+using Upgrow.Application.DTO.Support;
+using Upgrow.Application.DTOs;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Domain.Common;
 
-namespace VerifyIndia.Application.IServices.Support
+namespace Upgrow.Application.IServices.Support
 {
     public interface ISupportTicketHeaderService : IMasterService<SupportTicketDto, SupportTicketHeaderCommand>
     {

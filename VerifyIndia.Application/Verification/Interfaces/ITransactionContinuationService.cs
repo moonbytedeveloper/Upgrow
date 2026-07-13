@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Transaction;
-using VerifyIndia.Application.Verification.Documents;
+using Upgrow.Application.DTO.Transaction;
+using Upgrow.Application.Verification.Documents;
 
-namespace VerifyIndia.Application.Verification.Interfaces
+namespace Upgrow.Application.Verification.Interfaces
 {
     public interface ITransactionContinuationService
     {

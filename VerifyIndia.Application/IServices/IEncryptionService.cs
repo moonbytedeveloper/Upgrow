@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.IServices
+namespace Upgrow.Application.IServices
 {
     public interface IEncryptionService
     {

@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Common;
+using Upgrow.Application.Common;
 
-namespace VerifyIndia.Application.Commands.Master
+namespace Upgrow.Application.Commands.Master
 {
     public class MasterCityCommand : IMasterCommand, IValidatableObject
     {

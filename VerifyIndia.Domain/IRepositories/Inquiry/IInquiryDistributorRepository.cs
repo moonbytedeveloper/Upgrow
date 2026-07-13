@@ -1,6 +1,6 @@
-﻿using VerifyIndia.Domain.Entities.Inquiry;
+﻿using Upgrow.Domain.Entities.Inquiry;
 
-namespace VerifyIndia.Domain.IRepositories.Inquiry
+namespace Upgrow.Domain.IRepositories.Inquiry
 {
     public interface IInquiryDistributorRepository : IMasterRepository<Inquiry_Distributor>
     {

@@ -1,11 +1,11 @@
 ﻿using System.Linq.Expressions;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.Inquiry;
-using VerifyIndia.Domain.IRepositories.Inquiry;
-using VerifyIndia.Infrastructure.Repositories;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.Inquiry;
+using Upgrow.Domain.IRepositories.Inquiry;
+using Upgrow.Infrastructure.Repositories;
 
-namespace VerifyIndia.Infrastructure.Repositories.Inquiry
+namespace Upgrow.Infrastructure.Repositories.Inquiry
 {
     public class InquiryGeneralRepository : MasterRepositoryBase<Inquiry_General>, IInquiryGeneralRepository
     {

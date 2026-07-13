@@ -3,7 +3,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.Helper
+namespace Upgrow.Application.Helper
 {
     public class ApiResponse<T>
     {

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories.Master;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories.Master;
 
-namespace VerifyIndia.Infrastructure.Repositories.Api
+namespace Upgrow.Infrastructure.Repositories.Api
 {
     public class ApiProviderMappingRepository : MasterRepositoryBase<Api_ProviderMapping>
     {

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands;
-using VerifyIndia.Application.DTO;
-using VerifyIndia.Application.DTO.Cart;
-using VerifyIndia.Application.DTO.Transaction;
-using VerifyIndia.Application.IServices.Master;
+using Upgrow.Application.Commands;
+using Upgrow.Application.DTO;
+using Upgrow.Application.DTO.Cart;
+using Upgrow.Application.DTO.Transaction;
+using Upgrow.Application.IServices.Master;
 
-namespace VerifyIndia.Application.IServices
+namespace Upgrow.Application.IServices
 {
     public interface ICartService
     {

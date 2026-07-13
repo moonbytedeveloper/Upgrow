@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.IServices.Common
+namespace Upgrow.Application.IServices.Common
 {
     public interface IVideoProcessingService
     {

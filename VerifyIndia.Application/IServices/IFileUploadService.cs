@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace VerifyIndia.Application.IServices
+namespace Upgrow.Application.IServices
 {
     public interface IFileUploadService
     {    

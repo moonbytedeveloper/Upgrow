@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using VerifyIndia.Application.Commands.Master;
+using Upgrow.Application.Commands.Master;
 
-namespace VerifyIndia.Application.Commands.Master
+namespace Upgrow.Application.Commands.Master
 {
     public class MasterCompanyBasicDataCommand : IMasterCommand
     {

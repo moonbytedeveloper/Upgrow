@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using VerifyIndia.Application.Commands.WL;
+using Upgrow.Application.Commands.WL;
 
 namespace UpgrowAdminPanel.Models.WL
 {

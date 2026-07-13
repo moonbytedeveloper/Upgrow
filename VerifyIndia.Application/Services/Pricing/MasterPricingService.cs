@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Pricing;
-using VerifyIndia.Application.Interfaces.Pricing;
-using VerifyIndia.Application.IServices.Pricing;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Application.DTO.Pricing;
+using Upgrow.Application.Interfaces.Pricing;
+using Upgrow.Application.IServices.Pricing;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Application.Services.Pricing
+namespace Upgrow.Application.Services.Pricing
 {
     public class MasterPricingService
         : IMasterPricingService

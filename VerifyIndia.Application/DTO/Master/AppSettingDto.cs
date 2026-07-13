@@ -1,4 +1,4 @@
-﻿namespace VerifyIndia.Application.DTO.Master
+﻿namespace Upgrow.Application.DTO.Master
 {
     public class AppSettingDto  
     {

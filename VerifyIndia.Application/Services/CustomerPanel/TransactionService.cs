@@ -6,21 +6,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Common;
-using VerifyIndia.Application.DTO.Transaction;
-using VerifyIndia.Application.Interfaces;
-using VerifyIndia.Application.Interfaces.Notification;
-using VerifyIndia.Application.Interfaces.Registration;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.IServices.Payment;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
-using VerifyIndia.Domain.IRepositories.Master;
-using VerifyIndia.Domain.IRepositories.Registration;
-using static VerifyIndia.Application.Constants;
+using Upgrow.Application.Common;
+using Upgrow.Application.DTO.Transaction;
+using Upgrow.Application.Interfaces;
+using Upgrow.Application.Interfaces.Notification;
+using Upgrow.Application.Interfaces.Registration;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.IServices.Payment;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
+using Upgrow.Domain.IRepositories.Master;
+using Upgrow.Domain.IRepositories.Registration;
+using static Upgrow.Application.Constants;
 
-namespace VerifyIndia.Application.Services.CustomerPanel
+namespace Upgrow.Application.Services.CustomerPanel
 {
     public class TransactionService
         : ITransactionService

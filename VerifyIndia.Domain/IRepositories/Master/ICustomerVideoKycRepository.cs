@@ -1,6 +1,6 @@
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Domain.IRepositories.Master
+namespace Upgrow.Domain.IRepositories.Master
 {
     public interface ICustomerVideoKycRepository : IMasterRepository<CustomerVideoKYC>    
     {

@@ -1,4 +1,4 @@
-﻿namespace VerifyIndia.Application.DTO.Inquiry
+﻿namespace Upgrow.Application.DTO.Inquiry
 {
     public class InquiryGeneralDto
     {

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Verification;
-using VerifyIndia.Application.Verification.Interfaces;
-using VerifyIndia.Domain.Models;
+using Upgrow.Application.Verification;
+using Upgrow.Application.Verification.Interfaces;
+using Upgrow.Domain.Models;
 
-namespace VerifyIndia.Infrastructure.Verification.Providers.SprintVerify
+namespace Upgrow.Infrastructure.Verification.Providers.SprintVerify
 {
     public sealed class SprintProvider : IProviderAdapter
     {

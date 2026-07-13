@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Api
+namespace Upgrow.Application.DTO.Api
 {
     public class ApiXVersionDto
     {

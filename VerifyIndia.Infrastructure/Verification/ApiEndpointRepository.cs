@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Verification;
-using VerifyIndia.Application.Verification.Interfaces;
+using Upgrow.Application.Verification;
+using Upgrow.Application.Verification.Interfaces;
 
-namespace VerifyIndia.Infrastructure.Verification
+namespace Upgrow.Infrastructure.Verification
 {
     public class ApiEndpointRepository : IApiEndpointRepository
     {

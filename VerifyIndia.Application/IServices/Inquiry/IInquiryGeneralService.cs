@@ -1,6 +1,6 @@
-using VerifyIndia.Application.DTO.Inquiry;
+using Upgrow.Application.DTO.Inquiry;
 
-namespace VerifyIndia.Application.IServices.Inquiry
+namespace Upgrow.Application.IServices.Inquiry
 {
     public interface IInquiryGeneralService : IPagedService<InquiryGeneralDto>, IInquiryStatusUpdatable
     {

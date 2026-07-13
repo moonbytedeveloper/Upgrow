@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Master;
+using Upgrow.Application.DTO.Master;
 
-namespace VerifyIndia.Application.DTO.Auth
+namespace Upgrow.Application.DTO.Auth
 {
     public class ForgotPasswordDto
     {

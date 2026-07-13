@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.WL
+namespace Upgrow.Application.DTO.WL
 {
     /// <summary>
     /// DTO for WL Activity Log API serialization

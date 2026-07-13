@@ -5,19 +5,19 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.Commands.Website;
-using VerifyIndia.Application.Commands.WL;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.DTO.WL;
-using VerifyIndia.Application.DTOs;
-using VerifyIndia.Application.IServices.WL;
-using VerifyIndia.Application.Services.Master;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.Commands.Website;
+using Upgrow.Application.Commands.WL;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.DTO.WL;
+using Upgrow.Application.DTOs;
+using Upgrow.Application.IServices.WL;
+using Upgrow.Application.Services.Master;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.WL
+namespace Upgrow.Application.Services.WL
 {
     public class WLTenantDomainService :  MasterServiceBase<TenantDomain, WLTenantDomainDto, WLTenantDomainCommand>, IWLTenantDomainService
     {

@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace VerifyIndia.Domain.Entities
+namespace Upgrow.Domain.Entities
 {
     [Table("RegistrationApiLog")]
     public class RegistrationApiLog

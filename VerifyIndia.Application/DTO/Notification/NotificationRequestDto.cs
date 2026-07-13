@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Enums;
+using Upgrow.Domain.Enums;
 
-namespace VerifyIndia.Application.DTO.Notification
+namespace Upgrow.Application.DTO.Notification
 {
     public sealed class NotificationRequestDto
     {

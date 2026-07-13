@@ -7,10 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Interfaces;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Application.Interfaces;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Infrastructure.Repositories.CustomerPanel
+namespace Upgrow.Infrastructure.Repositories.CustomerPanel
 {
     public class TransactionRepository :
         ITransactionRepository

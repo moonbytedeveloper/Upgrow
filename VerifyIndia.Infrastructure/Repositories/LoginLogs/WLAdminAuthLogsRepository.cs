@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities.WL;
-using VerifyIndia.Domain.IRepositories.LoginLogs;
+using Upgrow.Domain.Entities.WL;
+using Upgrow.Domain.IRepositories.LoginLogs;
 
-namespace VerifyIndia.Infrastructure.Repositories.LoginLogs
+namespace Upgrow.Infrastructure.Repositories.LoginLogs
 {
     public class WLAdminAuthLogsRepository : IWLAdminAuthLogsRepository
     {

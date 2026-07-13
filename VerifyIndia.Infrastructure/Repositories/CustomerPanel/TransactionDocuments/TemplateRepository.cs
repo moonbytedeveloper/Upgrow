@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application;
-using VerifyIndia.Application.Verification.Documents;
+using Upgrow.Application;
+using Upgrow.Application.Verification.Documents;
 
-namespace VerifyIndia.Infrastructure.Repositories.CustomerPanel.TransactionDocuments
+namespace Upgrow.Infrastructure.Repositories.CustomerPanel.TransactionDocuments
 {
     public sealed class TemplateRepository
     : ITemplateRepository

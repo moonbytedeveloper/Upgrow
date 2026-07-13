@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Infrastructure.Common
+namespace Upgrow.Infrastructure.Common
 {
     public class DateOnlyJsonConverter
         : JsonConverter<DateOnly>

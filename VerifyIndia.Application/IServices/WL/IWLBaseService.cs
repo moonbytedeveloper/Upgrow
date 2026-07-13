@@ -4,11 +4,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.DropDown;
-using VerifyIndia.Application.DTOs;
-using VerifyIndia.Domain.Common;
+using Upgrow.Application.DTO.DropDown;
+using Upgrow.Application.DTOs;
+using Upgrow.Domain.Common;
 
-namespace VerifyIndia.Application.IServices.WL
+namespace Upgrow.Application.IServices.WL
 {
     public interface IWLBaseService<TEntity, TDto, TCommand>
     {

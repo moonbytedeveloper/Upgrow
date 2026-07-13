@@ -7,11 +7,11 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Helper;
-using VerifyIndia.Application.Verification.Interfaces;
-using VerifyIndia.Domain.Models;
+using Upgrow.Application.Helper;
+using Upgrow.Application.Verification.Interfaces;
+using Upgrow.Domain.Models;
 
-namespace VerifyIndia.Application.Verification.Pipeline
+namespace Upgrow.Application.Verification.Pipeline
 {
     public sealed class VerificationPipeline : IVerificationPipeline
     {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using VerifyIndia.Application;
-using VerifyIndia.Application.DTO.Inquiry;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.Inquiry;
-using VerifyIndia.Infrastructure.Filters;
+using Upgrow.Application;
+using Upgrow.Application.DTO.Inquiry;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.Inquiry;
+using Upgrow.Infrastructure.Filters;
 using UpgrowAdminPanel.Models.Inquiry;
 
 namespace UpgrowAdminPanel.Controllers

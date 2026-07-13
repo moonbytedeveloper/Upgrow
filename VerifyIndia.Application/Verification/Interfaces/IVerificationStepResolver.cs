@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.Verification.Interfaces
+namespace Upgrow.Application.Verification.Interfaces
 {
     public interface IVerificationStepResolver
     {

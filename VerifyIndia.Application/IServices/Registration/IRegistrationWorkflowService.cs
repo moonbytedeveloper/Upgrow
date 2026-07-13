@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Common.Results;
-using VerifyIndia.Application.DTO.Registration;
-using VerifyIndia.Application.DTO.Registration.AadhaarVerification;
-using VerifyIndia.Application.DTO.Registration.VideoKyc;
-using static VerifyIndia.Application.Services.Registration.RegistrationWorkflowService;
+using Upgrow.Application.Common.Results;
+using Upgrow.Application.DTO.Registration;
+using Upgrow.Application.DTO.Registration.AadhaarVerification;
+using Upgrow.Application.DTO.Registration.VideoKyc;
+using static Upgrow.Application.Services.Registration.RegistrationWorkflowService;
 
-namespace VerifyIndia.Application.IServices.Registration
+namespace Upgrow.Application.IServices.Registration
 {
     public interface IRegistrationWorkflowService
     {

@@ -1,10 +1,10 @@
-using VerifyIndia.Application.Commands.Auth;
-using VerifyIndia.Application.DTO.Auth;
-using VerifyIndia.Application.DTOs;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Domain.Common;
+using Upgrow.Application.Commands.Auth;
+using Upgrow.Application.DTO.Auth;
+using Upgrow.Application.DTOs;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Domain.Common;
 
-namespace VerifyIndia.Application.IServices.Auth
+namespace Upgrow.Application.IServices.Auth
 {
     public interface IWL_LoginLogoutService : IMasterService<LoginLogoutDto, WL_LoginLogoutCommand>
     {

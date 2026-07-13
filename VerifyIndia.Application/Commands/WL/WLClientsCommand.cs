@@ -7,9 +7,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
+using Upgrow.Application.Commands.Master;
 
-namespace VerifyIndia.Application.Commands.WL
+namespace Upgrow.Application.Commands.WL
 {
     public class WLClientsCommand : IMasterCommand
     {

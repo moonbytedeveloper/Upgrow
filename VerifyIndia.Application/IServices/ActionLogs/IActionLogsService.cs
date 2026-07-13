@@ -1,7 +1,7 @@
-using VerifyIndia.Application.DTO.ActionLogs;
-using VerifyIndia.Domain.Common;
+using Upgrow.Application.DTO.ActionLogs;
+using Upgrow.Domain.Common;
 
-namespace VerifyIndia.Application.IServices.ActionLogs
+namespace Upgrow.Application.IServices.ActionLogs
 {
     public interface IActionLogsService
     {

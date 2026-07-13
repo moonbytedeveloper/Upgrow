@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.IServices.Master
+namespace Upgrow.Application.IServices.Master
 {
     public interface IMasterCompanyBasicDataService : IMasterService<MasterCompanyBasicDataDto, MasterCompanyBasicDataCommand>
     {

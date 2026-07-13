@@ -5,16 +5,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Common;
-using VerifyIndia.Application.Constant;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.Verification.Documents;
-using VerifyIndia.Application.Verification.Interfaces;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories.Master;
-using VerifyIndia.Domain.Models;
+using Upgrow.Application.Common;
+using Upgrow.Application.Constant;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.Verification.Documents;
+using Upgrow.Application.Verification.Interfaces;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories.Master;
+using Upgrow.Domain.Models;
 
-namespace VerifyIndia.Application.Verification
+namespace Upgrow.Application.Verification
 {
     public class VerificationResultProcessor
         : IVerificationResultProcessor

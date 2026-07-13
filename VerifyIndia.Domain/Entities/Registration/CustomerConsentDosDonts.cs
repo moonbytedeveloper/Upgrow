@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Domain.Entities.Registration
+namespace Upgrow.Domain.Entities.Registration
 {
     public class CustomerConsentDosDonts
     {

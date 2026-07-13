@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.Commands.WL;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.DTO.WL;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Domain.Entities.WL;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.Commands.WL;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.DTO.WL;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Domain.Entities.WL;
 
-namespace VerifyIndia.Application.IServices.WL
+namespace Upgrow.Application.IServices.WL
 {
     public interface IWLMasterEmailTemplateService
         : IMasterService<WLMasterEmailTemplateDto, WLMasterEmailTemplateCommand>,

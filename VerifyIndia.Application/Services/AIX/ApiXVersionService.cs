@@ -5,16 +5,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.AIX;
-using VerifyIndia.Application.Commands.Api;
-using VerifyIndia.Application.DTO.AIX;
-using VerifyIndia.Application.DTO.Api;
-using VerifyIndia.Application.IServices.AIX;
-using VerifyIndia.Application.Services.Master;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.AIX;
+using Upgrow.Application.Commands.Api;
+using Upgrow.Application.DTO.AIX;
+using Upgrow.Application.DTO.Api;
+using Upgrow.Application.IServices.AIX;
+using Upgrow.Application.Services.Master;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.AIX
+namespace Upgrow.Application.Services.AIX
 {
     // Service implemented on top of MasterServiceBase to keep consistent patterns with other master services.
     public class ApiXVersionService : MasterServiceBase<ApiXVersion, ApixVersionDto, ApixVersionCommand>, IApiXVersionService

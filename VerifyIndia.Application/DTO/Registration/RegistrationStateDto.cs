@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Customer;
-using VerifyIndia.Application.DTO.DropDown;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.DTO.Verification.SprintVerify;
-using VerifyIndia.Application.DTOs.Master;
+using Upgrow.Application.DTO.Customer;
+using Upgrow.Application.DTO.DropDown;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.DTO.Verification.SprintVerify;
+using Upgrow.Application.DTOs.Master;
 
-namespace VerifyIndia.Application.DTO.Registration
+namespace Upgrow.Application.DTO.Registration
 {
     public sealed class RegistrationStateDto
     {

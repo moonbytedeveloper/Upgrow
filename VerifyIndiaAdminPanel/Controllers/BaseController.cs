@@ -4,17 +4,17 @@ using Microsoft.EntityFrameworkCore;
 using Moonbyte.UI;
 using System.Security.Claims;
 using TimeZoneConverter;
-using VerifyIndia.Application;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.DTOs;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.Services;
-using VerifyIndia.Application.Services.WL;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Infrastructure;
-using static VerifyIndia.Application.Constants;
+using Upgrow.Application;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.DTOs;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.Services;
+using Upgrow.Application.Services.WL;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Infrastructure;
+using static Upgrow.Application.Constants;
 
 namespace UpgrowAdminPanel.Controllers
 {

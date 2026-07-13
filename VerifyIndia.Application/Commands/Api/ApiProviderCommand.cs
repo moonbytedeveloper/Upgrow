@@ -4,11 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.Commands.Api;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.Commands.Api;
 
 
-namespace VerifyIndia.Application.Commands.Api
+namespace Upgrow.Application.Commands.Api
 {
     public class ApiProviderCommand : IMasterCommand
     {

@@ -7,12 +7,12 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.IServices.Auth;
-using VerifyIndia.Domain.IRepositories.Master;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.IServices.Auth;
+using Upgrow.Domain.IRepositories.Master;
 
 
-namespace VerifyIndia.Application.Services.Auth
+namespace Upgrow.Application.Services.Auth
 {
     public class NotificationService : INotificationChannel
     {

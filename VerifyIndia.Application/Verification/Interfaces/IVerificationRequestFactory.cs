@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.Verification.Interfaces
+namespace Upgrow.Application.Verification.Interfaces
 {
     public interface IVerificationRequestFactory
     {

@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.Auth;
-using VerifyIndia.Domain.IRepositories.Master;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.Auth;
+using Upgrow.Domain.IRepositories.Master;
 
-namespace VerifyIndia.Infrastructure.Repositories.Master
+namespace Upgrow.Infrastructure.Repositories.Master
 {
     public class MasterCustomerRepository : MasterRepositoryBase<Master_Customer>, IMasterCustomerRepository
     {

@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.AIX;
+using Upgrow.Application.DTO.AIX;
 
-namespace VerifyIndia.Application.IServices.Api
+namespace Upgrow.Application.IServices.Api
 {
     public interface IApiXStatusCodeService
     {

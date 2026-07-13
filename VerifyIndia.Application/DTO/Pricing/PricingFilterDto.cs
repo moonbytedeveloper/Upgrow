@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace VerifyIndia.Application.DTO.Pricing
+namespace Upgrow.Application.DTO.Pricing
 {
     public class PricingFilterDto
     {

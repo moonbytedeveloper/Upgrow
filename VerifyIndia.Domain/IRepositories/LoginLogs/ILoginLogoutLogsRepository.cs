@@ -1,7 +1,7 @@
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Domain.IRepositories.LoginLogs
+namespace Upgrow.Domain.IRepositories.LoginLogs
 {
     public interface ILoginLogoutLogsRepository
     {

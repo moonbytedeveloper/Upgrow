@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.DTO;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Application.Commands;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.DTO;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Application.IServices
+namespace Upgrow.Application.IServices
 {
     public interface IPinnedService : IMasterService<PinnedServiceDto, PinnedServiceCommand>
     {

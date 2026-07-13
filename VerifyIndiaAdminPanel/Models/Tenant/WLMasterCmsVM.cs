@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
-using VerifyIndia.Application.Commands.WL;
-using VerifyIndia.Application.DTOs.Master;
+using Upgrow.Application.Commands.WL;
+using Upgrow.Application.DTOs.Master;
 
 namespace UpgrowAdminPanel.Models.Tenant
 {

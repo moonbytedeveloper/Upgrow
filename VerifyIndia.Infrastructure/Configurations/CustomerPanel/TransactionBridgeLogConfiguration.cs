@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Infrastructure.Configurations.CustomerPanel
+namespace Upgrow.Infrastructure.Configurations.CustomerPanel
 {
     public class TransactionBridgeLogConfiguration
     : IEntityTypeConfiguration<TransactionBridgeLog>

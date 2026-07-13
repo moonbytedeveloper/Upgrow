@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Common;
+using Upgrow.Domain.Common;
 
-namespace VerifyIndia.Domain.Entities.Auth
+namespace Upgrow.Domain.Entities.Auth
 {
     public class Master_FAQCategory : IMasterEntity
     {

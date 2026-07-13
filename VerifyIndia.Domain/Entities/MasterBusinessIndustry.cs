@@ -1,4 +1,4 @@
-namespace VerifyIndia.Domain.Entities
+namespace Upgrow.Domain.Entities
 {
     public class MasterBusinessIndustry : BaseEntity
     {

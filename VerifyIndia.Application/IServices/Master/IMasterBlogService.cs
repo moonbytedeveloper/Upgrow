@@ -1,13 +1,13 @@
-﻿using VerifyIndia.Application.DTOs.Master;
+﻿using Upgrow.Application.DTOs.Master;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.IServices.Master;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.IServices.Master;
 
-namespace VerifyIndia.Application.IServices.Master
+namespace Upgrow.Application.IServices.Master
 {
     public interface IMasterBlogService : IMasterService<MasterBlogDto, MasterBlogCommand>
     {

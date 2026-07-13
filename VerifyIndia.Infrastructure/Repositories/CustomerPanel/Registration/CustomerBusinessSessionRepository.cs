@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities.Registration;
-using VerifyIndia.Domain.IRepositories.Registration;
+using Upgrow.Domain.Entities.Registration;
+using Upgrow.Domain.IRepositories.Registration;
 
-namespace VerifyIndia.Infrastructure.Repositories.CustomerPanel.Registration
+namespace Upgrow.Infrastructure.Repositories.CustomerPanel.Registration
 {
     public sealed class CustomerBusinessSessionRepository
         : ICustomerBusinessSessionRepository

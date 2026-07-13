@@ -10,9 +10,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Common;
+using Upgrow.Application.Common;
 
-namespace VerifyIndia.Application
+namespace Upgrow.Application
 {
     public class Utils
     {

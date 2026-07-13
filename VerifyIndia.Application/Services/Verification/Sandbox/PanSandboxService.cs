@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Verification.Sandbox;
-using VerifyIndia.Application.Helper;
-using VerifyIndia.Application.IServices.Verification.Sandbox;
-using VerifyIndia.Application.Services.Mapper;
+using Upgrow.Application.DTO.Verification.Sandbox;
+using Upgrow.Application.Helper;
+using Upgrow.Application.IServices.Verification.Sandbox;
+using Upgrow.Application.Services.Mapper;
 
-namespace VerifyIndia.Application.Services.Verification.Sandbox
+namespace Upgrow.Application.Services.Verification.Sandbox
 {
     public class PanSandboxService : IPanSandboxService
     {

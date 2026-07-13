@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.ActionLogs
+namespace Upgrow.Application.DTO.ActionLogs
 {
     public class ActionLogDto
     {

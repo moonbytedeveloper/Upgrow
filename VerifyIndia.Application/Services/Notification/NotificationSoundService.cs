@@ -5,18 +5,18 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.Commands.Notification;
-using VerifyIndia.Application.DTO.CustomerPanel;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.DTO.Notification;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.IServices.Notification;
-using VerifyIndia.Application.Services.Master;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.Commands.Notification;
+using Upgrow.Application.DTO.CustomerPanel;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.DTO.Notification;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.IServices.Notification;
+using Upgrow.Application.Services.Master;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.Notification
+namespace Upgrow.Application.Services.Notification
 {
     public class NotificationSoundService : MasterServiceBase<NotificationSound, NotificationSoundDto, NotificationSoundCommand>, INotificationSoundService
     {

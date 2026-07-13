@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Verification.Sandbox
+namespace Upgrow.Application.DTO.Verification.Sandbox
 {
     public class SB_PanVerifyDto
     {

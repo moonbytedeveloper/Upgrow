@@ -1,11 +1,11 @@
 using System.Linq.Expressions;
-using VerifyIndia.Application.DTO.Inquiry;
-using VerifyIndia.Application.DTOs;
-using VerifyIndia.Application.IServices.Inquiry;
-using VerifyIndia.Domain.Entities.Inquiry;
-using VerifyIndia.Domain.IRepositories.Inquiry;
+using Upgrow.Application.DTO.Inquiry;
+using Upgrow.Application.DTOs;
+using Upgrow.Application.IServices.Inquiry;
+using Upgrow.Domain.Entities.Inquiry;
+using Upgrow.Domain.IRepositories.Inquiry;
 
-namespace VerifyIndia.Application.Services.Inquiry
+namespace Upgrow.Application.Services.Inquiry
 {
     public class InquiryCareerService : IInquiryCareerService
     {

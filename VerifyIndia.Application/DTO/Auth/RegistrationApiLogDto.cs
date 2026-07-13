@@ -1,4 +1,4 @@
-namespace VerifyIndia.Application.DTO.Auth
+namespace Upgrow.Application.DTO.Auth
 {
     public class RegistrationApiLogDto
     {

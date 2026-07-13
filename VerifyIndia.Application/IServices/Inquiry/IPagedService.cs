@@ -1,11 +1,11 @@
-﻿using VerifyIndia.Application.DTOs;
+﻿using Upgrow.Application.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.IServices.Inquiry
+namespace Upgrow.Application.IServices.Inquiry
 {
     public interface IPagedService<Tdto>
     {

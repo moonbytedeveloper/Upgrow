@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.Interfaces.Notification
+namespace Upgrow.Application.Interfaces.Notification
 {
     public interface ITemplateRenderer
     {

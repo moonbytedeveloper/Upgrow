@@ -7,17 +7,17 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.DTO.DropDown;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.DTOs;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.Services.Master;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.DTO.DropDown;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.DTOs;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.Services.Master;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services
+namespace Upgrow.Application.Services
 {
     public class MasterStateService : MasterServiceBase<Master_State, MasterStateDto, MasterStateCommand>, IMasterStateService
     {

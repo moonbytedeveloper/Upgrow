@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Registration.Business
+namespace Upgrow.Application.DTO.Registration.Business
 {
     public sealed class BusinessMetadataResponseDto
     {

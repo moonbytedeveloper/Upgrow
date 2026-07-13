@@ -4,18 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Constant;
-using VerifyIndia.Application.DTO.Notification;
-using VerifyIndia.Application.DTO.Registration.EmailVerification;
-using VerifyIndia.Application.Interfaces.Notification;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.IServices.Registration;
-using VerifyIndia.Domain.Entities.Registration;
-using VerifyIndia.Domain.Enums;
-using VerifyIndia.Domain.IRepositories.Registration;
+using Upgrow.Application.Constant;
+using Upgrow.Application.DTO.Notification;
+using Upgrow.Application.DTO.Registration.EmailVerification;
+using Upgrow.Application.Interfaces.Notification;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.IServices.Registration;
+using Upgrow.Domain.Entities.Registration;
+using Upgrow.Domain.Enums;
+using Upgrow.Domain.IRepositories.Registration;
 
-namespace VerifyIndia.Application.Services.Registration
+namespace Upgrow.Application.Services.Registration
 {
     public class EmailVerificationService
         : IEmailVerificationService

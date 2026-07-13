@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Infrastructure.Configurations
+namespace Upgrow.Infrastructure.Configurations
 {
     public class Master_BrandConfiguration : IEntityTypeConfiguration<Master_Brand>
     {

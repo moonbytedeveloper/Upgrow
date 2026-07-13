@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Payment;
+using Upgrow.Application.DTO.Payment;
 
-namespace VerifyIndia.Application.IServices.Payment
+namespace Upgrow.Application.IServices.Payment
 {
     public interface IRazorpayService
     {

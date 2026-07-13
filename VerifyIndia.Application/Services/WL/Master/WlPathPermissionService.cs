@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.IServices.Menu;
-using VerifyIndia.Application.IServices.WL.Master;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.WL.Master;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.IServices.Menu;
+using Upgrow.Application.IServices.WL.Master;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.WL.Master;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.WL.Master
+namespace Upgrow.Application.Services.WL.Master
 {
     public class WlPathPermissionService : IWlPathPermissionService
     {

@@ -1,6 +1,6 @@
-using VerifyIndia.Application.DTO.Auth;
+using Upgrow.Application.DTO.Auth;
 
-namespace VerifyIndia.Application.IServices.Auth
+namespace Upgrow.Application.IServices.Auth
 {
     public interface IRegistrationApiLogService
     {

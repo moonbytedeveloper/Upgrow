@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Verification.Common.Request;
-using VerifyIndia.Application.DTO.Verification.Common.Response;
-using VerifyIndia.Application.DTO.Verification.Sandbox;
-using VerifyIndia.Application.DTO.Verification.Sandbox.Response;
+using Upgrow.Application.DTO.Verification.Common.Request;
+using Upgrow.Application.DTO.Verification.Common.Response;
+using Upgrow.Application.DTO.Verification.Sandbox;
+using Upgrow.Application.DTO.Verification.Sandbox.Response;
 
-namespace VerifyIndia.Infrastructure.Verification.Mapping
+namespace Upgrow.Infrastructure.Verification.Mapping
 {
     public class SandboxMappingProfile : Profile
     {

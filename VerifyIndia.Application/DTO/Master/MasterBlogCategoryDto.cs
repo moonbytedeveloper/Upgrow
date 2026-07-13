@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTOs.Master
+namespace Upgrow.Application.DTOs.Master
 {
     public class MasterBlogCategoryDto
     {

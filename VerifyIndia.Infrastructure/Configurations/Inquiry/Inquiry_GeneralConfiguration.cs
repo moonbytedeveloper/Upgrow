@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities.Inquiry;
+using Upgrow.Domain.Entities.Inquiry;
 
-namespace VerifyIndia.Infrastructure.Configurations.Inquiry
+namespace Upgrow.Infrastructure.Configurations.Inquiry
 {
     public class Inquiry_GeneralConfiguration : IEntityTypeConfiguration<Inquiry_General>
     {

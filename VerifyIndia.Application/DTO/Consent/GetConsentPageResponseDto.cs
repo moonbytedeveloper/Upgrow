@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Consent
+namespace Upgrow.Application.DTO.Consent
 {
     public class GetConsentPageResponseDto
     {

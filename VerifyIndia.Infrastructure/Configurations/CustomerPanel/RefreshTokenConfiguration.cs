@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Infrastructure.Configurations.CustomerPanel
+namespace Upgrow.Infrastructure.Configurations.CustomerPanel
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using VerifyIndia.Domain.Entities.Auth;
+    using Upgrow.Domain.Entities.Auth;
 
     public class RefreshTokensConfiguration : IEntityTypeConfiguration<RefreshTokens>
     {

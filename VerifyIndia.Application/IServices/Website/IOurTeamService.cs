@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Website;
-using VerifyIndia.Application.DTO.Website;
-using VerifyIndia.Application.IServices.Master;
+using Upgrow.Application.Commands.Website;
+using Upgrow.Application.DTO.Website;
+using Upgrow.Application.IServices.Master;
 
-namespace VerifyIndia.Application.IServices.Website
+namespace Upgrow.Application.IServices.Website
 {
     public interface IOurTeamService : IMasterService<OurTeamDto, OurTeamCommand>
     {

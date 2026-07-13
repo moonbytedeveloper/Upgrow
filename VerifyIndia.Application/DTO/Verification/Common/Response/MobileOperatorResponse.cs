@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Verification.Common.Response
+namespace Upgrow.Application.DTO.Verification.Common.Response
 {
     public class MobileOperatorResponse
     {

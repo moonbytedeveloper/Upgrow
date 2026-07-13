@@ -1,10 +1,10 @@
-using VerifyIndia.Application.Utilities;
-using VerifyIndia.Application.DTO;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Utilities;
+using Upgrow.Application.DTO;
+using Upgrow.Application.IServices;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services
+namespace Upgrow.Application.Services
 {
     public class ActivityLogsLogsService : IActivityLogsLogsService
     {

@@ -5,14 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Cart;
-using VerifyIndia.Application.DTO.Transaction;
-using VerifyIndia.Application.Interfaces;
-using VerifyIndia.Domain;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.DTO.Cart;
+using Upgrow.Application.DTO.Transaction;
+using Upgrow.Application.Interfaces;
+using Upgrow.Domain;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Infrastructure.Repositories.Cart
+namespace Upgrow.Infrastructure.Repositories.Cart
 {
     public class CartRepository : ICartRepository
     {

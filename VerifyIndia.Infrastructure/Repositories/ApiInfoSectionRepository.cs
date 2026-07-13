@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Infrastructure.Repositories
+namespace Upgrow.Infrastructure.Repositories
 {
     public class ApiInfoSectionRepository : MasterRepositoryBase<ApiInfoSection>
     {

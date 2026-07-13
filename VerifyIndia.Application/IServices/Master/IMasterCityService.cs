@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.Common.Dropdowns;
-using VerifyIndia.Application.DTO.DropDown;
-using VerifyIndia.Application.DTO.Master;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.Common.Dropdowns;
+using Upgrow.Application.DTO.DropDown;
+using Upgrow.Application.DTO.Master;
 
-namespace VerifyIndia.Application.IServices.Master
+namespace Upgrow.Application.IServices.Master
 {
     public interface IMasterCityService : IMasterService<MasterCityDto, MasterCityCommand>
     {

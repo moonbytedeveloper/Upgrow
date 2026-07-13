@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Transaction;
-using static VerifyIndia.Application.Services.CustomerPanel.TransactionService;
+using Upgrow.Application.DTO.Transaction;
+using static Upgrow.Application.Services.CustomerPanel.TransactionService;
 
-namespace VerifyIndia.Application.IServices
+namespace Upgrow.Application.IServices
 {
     public interface ITransactionService
     {

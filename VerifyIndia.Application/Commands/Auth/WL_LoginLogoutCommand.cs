@@ -1,7 +1,7 @@
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.IServices.Master;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.IServices.Master;
 
-namespace VerifyIndia.Application.Commands.Auth
+namespace Upgrow.Application.Commands.Auth
 {
     public class WL_LoginLogoutCommand : IMasterCommand
     {

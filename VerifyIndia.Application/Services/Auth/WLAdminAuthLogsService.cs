@@ -3,12 +3,12 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using VerifyIndia.Application.IServices.Auth;
-using VerifyIndia.Application.Utilities; // Assuming ActionLogHashUtility is here
-using VerifyIndia.Domain.Entities.WL;
-using VerifyIndia.Domain.IRepositories.LoginLogs;
+using Upgrow.Application.IServices.Auth;
+using Upgrow.Application.Utilities; // Assuming ActionLogHashUtility is here
+using Upgrow.Domain.Entities.WL;
+using Upgrow.Domain.IRepositories.LoginLogs;
 
-namespace VerifyIndia.Application.Services.Auth
+namespace Upgrow.Application.Services.Auth
 {
     public class WLAdminAuthLogsService : IWLAdminAuthLogsService
     {

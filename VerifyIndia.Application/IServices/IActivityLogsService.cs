@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.DTO;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.IServices
+namespace Upgrow.Application.IServices
 {
     public interface IActivityLogsService
     {

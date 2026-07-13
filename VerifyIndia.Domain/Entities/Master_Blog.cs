@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Domain.Entities
+namespace Upgrow.Domain.Entities
 {
     public class Master_Blog : BaseEntity
     {    

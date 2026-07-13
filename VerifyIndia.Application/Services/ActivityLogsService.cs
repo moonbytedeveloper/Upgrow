@@ -1,12 +1,12 @@
 ﻿using System.Linq.Expressions;
 using System.Text.Json;
-using VerifyIndia.Application.DTO;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.DTO;
+using Upgrow.Application.IServices;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services
+namespace Upgrow.Application.Services
 {
     public class ActivityLogsService : IActivityLogsService
     {

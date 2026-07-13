@@ -1,19 +1,19 @@
 ﻿using AutoMapper;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.DTOs;
-using VerifyIndia.Application.DTOs.Master;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.DTOs;
+using Upgrow.Application.DTOs.Master;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Common;
+using Upgrow.Domain.Common;
 
-namespace VerifyIndia.Application.Services.Master
+namespace Upgrow.Application.Services.Master
 {
     public class MasterBlogService : MasterServiceBase<Master_Blog, MasterBlogDto, MasterBlogCommand>, IMasterBlogService
     {

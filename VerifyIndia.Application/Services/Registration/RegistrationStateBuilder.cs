@@ -1,21 +1,21 @@
-﻿//using VerifyIndia.Application.Constant;
+﻿//using Upgrow.Application.Constant;
 using AuthenticateIndia.Shared.Constants;
 using AuthenticateIndia.Shared.Constants.Registration;
 using Microsoft.AspNetCore.Http.HttpResults;
 using System.Reflection.Metadata;
-using VerifyIndia.Application.DTO.Customer;
-using VerifyIndia.Application.DTO.Registration;
-using VerifyIndia.Application.DTOs.Master;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.IServices.Registration;
-using VerifyIndia.Domain.Entities.Registration;
-using VerifyIndia.Domain.IRepositories.Master;
-using VerifyIndia.Domain.IRepositories.Registration;
-using ICustomerVideoKycRepository = VerifyIndia.Application.Interfaces.Registration.ICustomerVideoKycRepository;
+using Upgrow.Application.DTO.Customer;
+using Upgrow.Application.DTO.Registration;
+using Upgrow.Application.DTOs.Master;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.IServices.Registration;
+using Upgrow.Domain.Entities.Registration;
+using Upgrow.Domain.IRepositories.Master;
+using Upgrow.Domain.IRepositories.Registration;
+using ICustomerVideoKycRepository = Upgrow.Application.Interfaces.Registration.ICustomerVideoKycRepository;
 
 
-namespace VerifyIndia.Application.Services.Registration
+namespace Upgrow.Application.Services.Registration
 {
     public class RegistrationStateBuilder : IRegistrationStateBuilder
     {

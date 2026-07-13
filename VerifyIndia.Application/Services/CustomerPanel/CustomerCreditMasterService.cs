@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.CustomerPanel;
-using VerifyIndia.Application.Interfaces;
-using VerifyIndia.Application.IServices.CustomerPanel;
+using Upgrow.Application.DTO.CustomerPanel;
+using Upgrow.Application.Interfaces;
+using Upgrow.Application.IServices.CustomerPanel;
 
-namespace VerifyIndia.Application.Services.CustomerPanel
+namespace Upgrow.Application.Services.CustomerPanel
 {
     public class CustomerCreditMasterService :ICustomerCreditMasterService
     {

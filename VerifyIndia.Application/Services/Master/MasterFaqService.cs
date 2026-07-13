@@ -5,16 +5,16 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.DTO.Api;
-using VerifyIndia.Application.DTO.CustomerPanel;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.Auth;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.DTO.Api;
+using Upgrow.Application.DTO.CustomerPanel;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.Auth;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.Master
+namespace Upgrow.Application.Services.Master
 {
     public class MasterFaqService : MasterServiceBase<Master_FAQ, MasterFaqDto, MasterFaqCommand>, IMasterFaqService
     {

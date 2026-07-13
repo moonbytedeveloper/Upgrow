@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Globalization;
-using VerifyIndia.Application;
-using VerifyIndia.Application.Commands.AIX;
-using VerifyIndia.Application.Commands.Api;
-using VerifyIndia.Application.DTO.AIX;
+using Upgrow.Application;
+using Upgrow.Application.Commands.AIX;
+using Upgrow.Application.Commands.Api;
+using Upgrow.Application.DTO.AIX;
 
 
 namespace UpgrowAdminPanel.Models.Apix

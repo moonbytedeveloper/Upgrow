@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using VerifyIndia.Application.DTOs;
-using VerifyIndia.Domain.Common;
+using Upgrow.Application.DTOs;
+using Upgrow.Domain.Common;
 
-namespace VerifyIndia.Infrastructure.Extensions;
+namespace Upgrow.Infrastructure.Extensions;
 
 public static class QueryableExtensions
 {

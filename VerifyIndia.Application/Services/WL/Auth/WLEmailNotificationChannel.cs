@@ -7,15 +7,15 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.IServices.Auth;
-using VerifyIndia.Application.Services.Auth;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
-using VerifyIndia.Domain.IRepositories.Master;
-using VerifyIndia.Domain.IRepositories.WL;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.IServices.Auth;
+using Upgrow.Application.Services.Auth;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
+using Upgrow.Domain.IRepositories.Master;
+using Upgrow.Domain.IRepositories.WL;
 
-namespace VerifyIndia.Application.Services.WL.Auth
+namespace Upgrow.Application.Services.WL.Auth
 {
     public class WLEmailNotificationChannel : INotificationChannel
     {

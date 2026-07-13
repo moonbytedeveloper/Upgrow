@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Domain.IRepositories.Support
+namespace Upgrow.Domain.IRepositories.Support
 {
     public interface ISupportTicketRepository 
     {

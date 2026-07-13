@@ -1,8 +1,8 @@
 using System.Security.Cryptography;
 using System.Text;
-using VerifyIndia.Application.IServices.Auth;
+using Upgrow.Application.IServices.Auth;
 
-namespace VerifyIndia.Application.Services.Auth
+namespace Upgrow.Application.Services.Auth
 {
     public class HmacService : IHmacService
     {

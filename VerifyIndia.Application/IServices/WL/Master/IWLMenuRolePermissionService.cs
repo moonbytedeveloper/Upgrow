@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Menu;
-using VerifyIndia.Application.Commands.WL.Master;
-using VerifyIndia.Application.DTO.Menu;
-using VerifyIndia.Application.DTO.WL.Master;
-using VerifyIndia.Application.IServices.Master;
+using Upgrow.Application.Commands.Menu;
+using Upgrow.Application.Commands.WL.Master;
+using Upgrow.Application.DTO.Menu;
+using Upgrow.Application.DTO.WL.Master;
+using Upgrow.Application.IServices.Master;
 
-namespace VerifyIndia.Application.IServices.WL.Master
+namespace Upgrow.Application.IServices.WL.Master
 {
     public interface IWLMenuRolePermissionService : IMasterService<WLMenuRolePermissionDto, WLMenuRolePermissionCommand>
     {

@@ -5,14 +5,14 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.WL.Master;
-using VerifyIndia.Application.DTO.WL.Master;
-using VerifyIndia.Application.IServices.WL.Master;
-using VerifyIndia.Application.Services.Master;
-using VerifyIndia.Domain.Entities.WL.Master;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.WL.Master;
+using Upgrow.Application.DTO.WL.Master;
+using Upgrow.Application.IServices.WL.Master;
+using Upgrow.Application.Services.Master;
+using Upgrow.Domain.Entities.WL.Master;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.WL.Master
+namespace Upgrow.Application.Services.WL.Master
 {
     public class WLWhatsappCredentialService : MasterServiceBase<WL_WhatsappCredential, WLWhatsappCredentialDto, WLWhatsappCredentialCommand>, IWLWhatsappCredentialService
     {

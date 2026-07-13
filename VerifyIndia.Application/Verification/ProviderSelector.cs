@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Verification.Interfaces;
-using VerifyIndia.Application.Verification.Verification;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Verification.Interfaces;
+using Upgrow.Application.Verification.Verification;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Verification;
+namespace Upgrow.Application.Verification;
 
 public class ProviderSelector : IProviderSelector
 {

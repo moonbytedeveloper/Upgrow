@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Constant;
-using VerifyIndia.Application.DTO.Notification;
-using VerifyIndia.Application.Interfaces.Notification;
+using Upgrow.Application.Constant;
+using Upgrow.Application.DTO.Notification;
+using Upgrow.Application.Interfaces.Notification;
 
-namespace VerifyIndia.Application.Services.Notification
+namespace Upgrow.Application.Services.Notification
 {
     public class ConsentNotificationService
         : IConsentNotificationService

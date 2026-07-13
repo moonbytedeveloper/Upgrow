@@ -1,4 +1,4 @@
-namespace VerifyIndia.Application.Options
+namespace Upgrow.Application.Options
 {
     public class FileUploadOptions
     {

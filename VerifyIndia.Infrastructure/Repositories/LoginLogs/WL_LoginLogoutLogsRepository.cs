@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities.WL;
-using VerifyIndia.Domain.IRepositories.LoginLogs;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities.WL;
+using Upgrow.Domain.IRepositories.LoginLogs;
 
-namespace VerifyIndia.Infrastructure.Repositories.LoginLogs
+namespace Upgrow.Infrastructure.Repositories.LoginLogs
 {
     public class WL_LoginLogoutLogsRepository : IWL_LoginLogoutLogsRepository
     {

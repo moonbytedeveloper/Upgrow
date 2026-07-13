@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Pricing;
-using VerifyIndia.Application.Interfaces.Pricing;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Application.DTO.Pricing;
+using Upgrow.Application.Interfaces.Pricing;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Infrastructure.Repositories.Pricing
+namespace Upgrow.Infrastructure.Repositories.Pricing
 {
     public class MasterPricingRepository
     : IMasterPricingRepository

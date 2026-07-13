@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Auth;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.DTO.WL.Master;
+using Upgrow.Application.DTO.Auth;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.DTO.WL.Master;
 
-namespace VerifyIndia.Application.IServices.Auth
+namespace Upgrow.Application.IServices.Auth
 {
     public interface IWLAdminAuthService
     {

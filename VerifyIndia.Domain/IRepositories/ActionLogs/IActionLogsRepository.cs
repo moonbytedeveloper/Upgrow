@@ -1,8 +1,8 @@
 using System.Linq.Expressions;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Domain.IRepositories.ActionLogs
+namespace Upgrow.Domain.IRepositories.ActionLogs
 {
     public interface IActionLogsRepository
     {

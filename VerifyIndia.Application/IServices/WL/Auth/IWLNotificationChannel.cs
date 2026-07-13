@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.IServices.WL.Auth
+namespace Upgrow.Application.IServices.WL.Auth
 {
     public interface IWLNotificationChannel
     {

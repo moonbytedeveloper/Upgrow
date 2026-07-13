@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
-using VerifyIndia.Domain.Common;
+using Upgrow.Domain.Common;
 
-namespace VerifyIndia.Application.DTOs;
+namespace Upgrow.Application.DTOs;
 
 public class DataTableRequest : PaginationParams
 {

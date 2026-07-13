@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace VerifyIndia.Application.DTO.Verification.Sandbox
+namespace Upgrow.Application.DTO.Verification.Sandbox
 {
     public class SB_PennyDropVerifyDto
     {

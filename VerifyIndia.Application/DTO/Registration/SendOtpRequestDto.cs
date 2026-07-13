@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Enums;
+using Upgrow.Domain.Enums;
 
-namespace VerifyIndia.Application.DTO.Registration
+namespace Upgrow.Application.DTO.Registration
 {
     public sealed class SendOtpRequestDto
     {

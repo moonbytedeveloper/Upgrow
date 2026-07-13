@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Support;
-using VerifyIndia.Application.DTO.Support;
-using VerifyIndia.Application.IServices.Support;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories.Support;
+using Upgrow.Application.Commands.Support;
+using Upgrow.Application.DTO.Support;
+using Upgrow.Application.IServices.Support;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories.Support;
 
-namespace VerifyIndia.Application.Services.Support
+namespace Upgrow.Application.Services.Support
 {
     public class SupportTicketService : ISupportTicketService
     {

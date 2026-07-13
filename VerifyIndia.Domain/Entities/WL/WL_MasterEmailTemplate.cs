@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Domain.Entities.WL
+namespace Upgrow.Domain.Entities.WL
 {
     public class WL_MasterEmailTemplate : TenantEntity
     {      

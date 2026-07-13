@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Website;
-using VerifyIndia.Application.DTO.CustomerPanel;
-using VerifyIndia.Application.DTO.Website;
-using VerifyIndia.Application.DTOs;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Domain.Common;
+using Upgrow.Application.Commands.Website;
+using Upgrow.Application.DTO.CustomerPanel;
+using Upgrow.Application.DTO.Website;
+using Upgrow.Application.DTOs;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Domain.Common;
 
-namespace VerifyIndia.Application.IServices.Website
+namespace Upgrow.Application.IServices.Website
 {
     public interface IKnowledgeHubService : IMasterService<KnowledgeHubDto, KnowledgeHubCommand>
     {

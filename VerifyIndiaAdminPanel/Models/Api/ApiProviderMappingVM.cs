@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using VerifyIndia.Application.Commands.Api;
-using VerifyIndia.Application.Commands.Master;
+using Upgrow.Application.Commands.Api;
+using Upgrow.Application.Commands.Master;
 
 namespace UpgrowAdminPanel.Models
 {

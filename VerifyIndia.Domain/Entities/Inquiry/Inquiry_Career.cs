@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Domain.Entities.Inquiry
+namespace Upgrow.Domain.Entities.Inquiry
 {
     public class Inquiry_Career : BaseEntity
     {

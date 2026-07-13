@@ -8,26 +8,26 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Common;
-using VerifyIndia.Application.Common.Results;
-using VerifyIndia.Application.Constant;
-using VerifyIndia.Application.DTO.Registration;
-using VerifyIndia.Application.DTO.Registration.AadhaarVerification;
-using VerifyIndia.Application.DTO.Registration.VideoKyc;
-using VerifyIndia.Application.Interfaces.Registration;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.Auth;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.IServices.Payment;
-using VerifyIndia.Application.IServices.Registration;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.Registration;
-using VerifyIndia.Domain.IRepositories.Master;
-using VerifyIndia.Domain.IRepositories.Registration;
-using ICustomerVideoKycRepository = VerifyIndia.Application.Interfaces.Registration.ICustomerVideoKycRepository;
+using Upgrow.Application.Common;
+using Upgrow.Application.Common.Results;
+using Upgrow.Application.Constant;
+using Upgrow.Application.DTO.Registration;
+using Upgrow.Application.DTO.Registration.AadhaarVerification;
+using Upgrow.Application.DTO.Registration.VideoKyc;
+using Upgrow.Application.Interfaces.Registration;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.Auth;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.IServices.Payment;
+using Upgrow.Application.IServices.Registration;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.Registration;
+using Upgrow.Domain.IRepositories.Master;
+using Upgrow.Domain.IRepositories.Registration;
+using ICustomerVideoKycRepository = Upgrow.Application.Interfaces.Registration.ICustomerVideoKycRepository;
 using RegistrationSteps = AuthenticateIndia.Shared.Constants.Registration.RegistrationSteps;
 
-namespace VerifyIndia.Application.Services.Registration
+namespace Upgrow.Application.Services.Registration
 {
     public class RegistrationWorkflowService: IRegistrationWorkflowService
     {

@@ -5,15 +5,15 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.WL;
-using VerifyIndia.Application.DTO.DropDown;
-using VerifyIndia.Application.DTO.WL;
-using VerifyIndia.Application.DTOs.Master;
-using VerifyIndia.Application.IServices.WL;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.WL;
+using Upgrow.Application.DTO.DropDown;
+using Upgrow.Application.DTO.WL;
+using Upgrow.Application.DTOs.Master;
+using Upgrow.Application.IServices.WL;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.WL
+namespace Upgrow.Application.Services.WL
 {
     public class WLMasterCmsService : WLBaseService<WL_MasterCMS, WLMasterCMSDto, WLMasterCMSCommand>, IWLMasterCmsService
     {

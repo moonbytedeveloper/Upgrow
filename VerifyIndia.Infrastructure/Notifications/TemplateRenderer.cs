@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Interfaces.Notification;
+using Upgrow.Application.Interfaces.Notification;
 
-namespace VerifyIndia.Infrastructure.Notifications;
+namespace Upgrow.Infrastructure.Notifications;
 
 public sealed class TemplateRenderer
     : ITemplateRenderer

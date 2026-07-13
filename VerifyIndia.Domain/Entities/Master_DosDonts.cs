@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Common;
+using Upgrow.Domain.Common;
 
-namespace VerifyIndia.Domain.Entities
+namespace Upgrow.Domain.Entities
 {
     public class Master_DosDonts
         : BaseEntity

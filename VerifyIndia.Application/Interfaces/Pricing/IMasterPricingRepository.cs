@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Pricing;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Application.DTO.Pricing;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Application.Interfaces.Pricing
+namespace Upgrow.Application.Interfaces.Pricing
 {
     public interface IMasterPricingRepository
     {

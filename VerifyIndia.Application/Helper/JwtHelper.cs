@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.Helper
+namespace Upgrow.Application.Helper
 {
     public class JwtHelper
     {

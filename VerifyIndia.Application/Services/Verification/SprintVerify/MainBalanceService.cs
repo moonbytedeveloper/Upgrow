@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System.Text.Json;
-using VerifyIndia.Application.DTO.Verification;
-using VerifyIndia.Application.Helper;
-using VerifyIndia.Application.IServices.Verification.SprintVerify;
-using VerifyIndia.Application.Services.Mapper;
+using Upgrow.Application.DTO.Verification;
+using Upgrow.Application.Helper;
+using Upgrow.Application.IServices.Verification.SprintVerify;
+using Upgrow.Application.Services.Mapper;
 
-namespace VerifyIndia.Application.Services.Verification.SprintVerify
+namespace Upgrow.Application.Services.Verification.SprintVerify
 {
     #region
     //Develeoper utsav 26-2-2026

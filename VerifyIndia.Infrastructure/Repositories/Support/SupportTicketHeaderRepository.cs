@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Infrastructure.Repositories.Support
+namespace Upgrow.Infrastructure.Repositories.Support
 {
     public class SupportTicketHeaderRepository : MasterRepositoryBase<Support_TicketHeader>
     {

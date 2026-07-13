@@ -4,9 +4,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Common;
+using Upgrow.Domain.Common;
 
-namespace VerifyIndia.Domain.IRepositories
+namespace Upgrow.Domain.IRepositories
 {
     public interface IMasterRepository<TEntity> where TEntity : class, IMasterEntity
     {

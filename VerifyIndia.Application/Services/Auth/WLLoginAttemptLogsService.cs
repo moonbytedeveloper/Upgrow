@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json;
-using VerifyIndia.Application.DTO.Auth;
-using VerifyIndia.Application.IServices.Auth;
-using VerifyIndia.Application.Utilities;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.DTO.Auth;
+using Upgrow.Application.IServices.Auth;
+using Upgrow.Application.Utilities;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.Auth
+namespace Upgrow.Application.Services.Auth
 {
     public class WLLoginAttemptLogsService : IWLLoginAttemptLogsService
     {

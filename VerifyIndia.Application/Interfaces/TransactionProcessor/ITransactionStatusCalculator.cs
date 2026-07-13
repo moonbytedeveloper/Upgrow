@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Application.Interfaces.TransactionProcessor
+namespace Upgrow.Application.Interfaces.TransactionProcessor
 {
     public interface ITransactionStatusCalculator
     {

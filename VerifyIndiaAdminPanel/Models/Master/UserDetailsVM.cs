@@ -1,4 +1,4 @@
-﻿using VerifyIndia.Application.DTO.Customer;
+﻿using Upgrow.Application.DTO.Customer;
 
 namespace UpgrowAdminPanel.Models.Master
 {

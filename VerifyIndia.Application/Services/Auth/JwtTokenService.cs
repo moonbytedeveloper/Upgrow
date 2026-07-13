@@ -3,16 +3,16 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
-using VerifyIndia.Application.DTO.Auth;
-using VerifyIndia.Application.DTO.Customer;
-using VerifyIndia.Application.IServices.Auth;
-using VerifyIndia.Application.Utilities;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.Auth;
-using VerifyIndia.Domain.IRepositories;
-using VerifyIndia.Domain.IRepositories.Master;
+using Upgrow.Application.DTO.Auth;
+using Upgrow.Application.DTO.Customer;
+using Upgrow.Application.IServices.Auth;
+using Upgrow.Application.Utilities;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.Auth;
+using Upgrow.Domain.IRepositories;
+using Upgrow.Domain.IRepositories.Master;
 
-namespace VerifyIndia.Application.Services.Auth
+namespace Upgrow.Application.Services.Auth
 {
     public class JwtTokenService : IJwtTokenService
     {

@@ -6,9 +6,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.DropDown;
+using Upgrow.Application.DTO.DropDown;
 
-namespace VerifyIndia.Application.Commands.Master
+namespace Upgrow.Application.Commands.Master
 {
     public class MasterBusinessIndustryCommand : IMasterCommand
     {

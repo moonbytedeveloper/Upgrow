@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Infrastructure.Verification.Providers.SprintVerify;
+namespace Upgrow.Infrastructure.Verification.Providers.SprintVerify;
 
 public static class SprintEndpoints
 {

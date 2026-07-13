@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.IdentityModel.Tokens;
-using VerifyIndia.Application.DTO.Verification.Common.Request;
-using VerifyIndia.Application.DTO.Verification.Common.Response;
-using VerifyIndia.Application.DTO.Verification.SprintVerify;
-using VerifyIndia.Application.DTO.Verification.SprintVerify.Response;
+using Upgrow.Application.DTO.Verification.Common.Request;
+using Upgrow.Application.DTO.Verification.Common.Response;
+using Upgrow.Application.DTO.Verification.SprintVerify;
+using Upgrow.Application.DTO.Verification.SprintVerify.Response;
 
-namespace VerifyIndia.Infrastructure.Verification.Mapping
+namespace Upgrow.Infrastructure.Verification.Mapping
 {
     public class SprintMappingProfile : Profile
     {

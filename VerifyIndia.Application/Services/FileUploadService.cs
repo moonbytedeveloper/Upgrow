@@ -3,10 +3,10 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.Options;
+using Upgrow.Application.IServices;
+using Upgrow.Application.Options;
 
-namespace VerifyIndia.Application.Services
+namespace Upgrow.Application.Services
 {
     public class FileUploadService : IFileUploadService
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Verification.SprintVerify
+namespace Upgrow.Application.DTO.Verification.SprintVerify
 {
     public class PassportVerifyDto
     {

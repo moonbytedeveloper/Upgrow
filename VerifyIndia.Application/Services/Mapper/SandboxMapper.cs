@@ -5,10 +5,10 @@ using System.Net;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Helper;
-using VerifyIndia.Application.IServices.Mapper;
+using Upgrow.Application.Helper;
+using Upgrow.Application.IServices.Mapper;
 
-namespace VerifyIndia.Application.Services.Mapper
+namespace Upgrow.Application.Services.Mapper
 {
     public sealed class SandboxMapper : IProviderMapper
     {

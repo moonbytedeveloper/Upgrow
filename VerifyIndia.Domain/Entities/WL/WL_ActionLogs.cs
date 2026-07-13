@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace VerifyIndia.Domain.Entities.WL
+namespace Upgrow.Domain.Entities.WL
 {
     [Table("WL_ActionLogs")]
     public class WL_ActionLogs

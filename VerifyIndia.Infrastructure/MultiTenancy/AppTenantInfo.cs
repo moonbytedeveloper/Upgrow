@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Infrastructure.MultiTenancy
+namespace Upgrow.Infrastructure.MultiTenancy
 {
     public class AppTenantInfo : ITenantInfo
     {

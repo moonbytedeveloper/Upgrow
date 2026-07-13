@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Http;
 using System.Text.Json;
-using VerifyIndia.Application.Commands.Auth;
-using VerifyIndia.Application.DTO.Auth;
-using VerifyIndia.Application.DTO.DropDown;
-using VerifyIndia.Application.DTOs;
-using VerifyIndia.Application.IServices.Auth;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.IRepositories.LoginLogs;
+using Upgrow.Application.Commands.Auth;
+using Upgrow.Application.DTO.Auth;
+using Upgrow.Application.DTO.DropDown;
+using Upgrow.Application.DTOs;
+using Upgrow.Application.IServices.Auth;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.IRepositories.LoginLogs;
 
-namespace VerifyIndia.Application.Services.Auth
+namespace Upgrow.Application.Services.Auth
 {
     public sealed class WL_LoginLogoutService : IWL_LoginLogoutService
     {

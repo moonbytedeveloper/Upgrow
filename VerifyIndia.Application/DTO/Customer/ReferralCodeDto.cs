@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Customer
+namespace Upgrow.Application.DTO.Customer
 {
     public class ReferralCodeDto
     {

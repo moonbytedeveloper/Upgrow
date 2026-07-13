@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.Commands.Website;
-using VerifyIndia.Application.DTO;
-using VerifyIndia.Application.DTO.CustomerPanel;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.DTOs;
-using VerifyIndia.Domain.Common;
+using Upgrow.Application.Commands;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.Commands.Website;
+using Upgrow.Application.DTO;
+using Upgrow.Application.DTO.CustomerPanel;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.DTOs;
+using Upgrow.Domain.Common;
 
-namespace VerifyIndia.Application.IServices.Master
+namespace Upgrow.Application.IServices.Master
 {
     public interface INewsService : IMasterService<NewsDto, NewsCommand>
     {

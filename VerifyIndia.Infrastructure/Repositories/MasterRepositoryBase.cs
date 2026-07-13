@@ -5,11 +5,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.IRepositories;
-using VerifyIndia.Infrastructure.Extensions;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.IRepositories;
+using Upgrow.Infrastructure.Extensions;
 
-namespace VerifyIndia.Infrastructure.Repositories
+namespace Upgrow.Infrastructure.Repositories
 {
     public class MasterRepositoryBase<TEntity> : IMasterRepository<TEntity>
     where TEntity : class, IMasterEntity

@@ -5,14 +5,14 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Application.IServices.Menu;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Application.IServices.Menu;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.Master
+namespace Upgrow.Application.Services.Master
 {
     public class WLMasterPathPermissionService : MasterServiceBase<WL_Master_PathPermission, WLMasterPathPermissionDto, WLMasterPathPermissionCommand>, IWLMasterPathPermissionService
     {

@@ -1,4 +1,4 @@
-﻿namespace VerifyIndia.Application.DTO.Website
+﻿namespace Upgrow.Application.DTO.Website
 {
     public class Website_IndustryPointsDto
     {

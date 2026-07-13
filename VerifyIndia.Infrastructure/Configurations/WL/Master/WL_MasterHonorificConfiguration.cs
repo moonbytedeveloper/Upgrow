@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities.WL.Master;
+using Upgrow.Domain.Entities.WL.Master;
 
-namespace VerifyIndia.Infrastructure.Configurations.WL.Master
+namespace Upgrow.Infrastructure.Configurations.WL.Master
 {
     internal class WL_MasterHonorificConfiguration : IEntityTypeConfiguration<WL_MasterHonorific>
     {

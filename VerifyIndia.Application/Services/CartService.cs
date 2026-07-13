@@ -6,25 +6,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands;
-using VerifyIndia.Application.DTO;
-using VerifyIndia.Application.DTO.Cart;
-using VerifyIndia.Application.DTO.CustomerPanel;
-using VerifyIndia.Application.DTO.Transaction;
-using VerifyIndia.Application.Helper;
-using VerifyIndia.Application.Interfaces;
-using VerifyIndia.Application.Interfaces.Pricing;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.CustomerPanel;
-using VerifyIndia.Application.Services.Master;
-using VerifyIndia.Domain;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.Registration;
-using VerifyIndia.Domain.IRepositories;
-using VerifyIndia.Domain.IRepositories.Master;
-using VerifyIndia.Domain.IRepositories.Registration;
+using Upgrow.Application.Commands;
+using Upgrow.Application.DTO;
+using Upgrow.Application.DTO.Cart;
+using Upgrow.Application.DTO.CustomerPanel;
+using Upgrow.Application.DTO.Transaction;
+using Upgrow.Application.Helper;
+using Upgrow.Application.Interfaces;
+using Upgrow.Application.Interfaces.Pricing;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.CustomerPanel;
+using Upgrow.Application.Services.Master;
+using Upgrow.Domain;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.Registration;
+using Upgrow.Domain.IRepositories;
+using Upgrow.Domain.IRepositories.Master;
+using Upgrow.Domain.IRepositories.Registration;
 
-namespace VerifyIndia.Application.Services.CustomerPanel
+namespace Upgrow.Application.Services.CustomerPanel
 {
     public class CartService : ICartService
     {

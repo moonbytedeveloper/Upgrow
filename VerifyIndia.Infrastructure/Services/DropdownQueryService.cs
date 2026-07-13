@@ -6,11 +6,11 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Common.Dropdowns;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Application.IServices.Common;
+using Upgrow.Application.Common.Dropdowns;
+using Upgrow.Domain.Entities;
+using Upgrow.Application.IServices.Common;
 
-namespace VerifyIndia.Infrastructure.Services
+namespace Upgrow.Infrastructure.Services
 {
     public class DropdownQueryService : IDropdownQueryService
     {

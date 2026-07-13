@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities.WL.Master;
+using Upgrow.Domain.Entities.WL.Master;
 
-namespace VerifyIndia.Infrastructure.Configurations.WL
+namespace Upgrow.Infrastructure.Configurations.WL
 {
     /// <summary>
     /// EF Core Configuration for WL_ActivityLogs entity

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Pricing
+namespace Upgrow.Application.DTO.Pricing
 {
     public class SavePricingItemDto
     {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.Auth;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.Auth;
 
-namespace VerifyIndia.Application.Common.Dropdowns
+namespace Upgrow.Application.Common.Dropdowns
 {
     public static class DropdownRegistry
     {

@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Verification.Verification;
-using VerifyIndia.Domain.Models;
+using Upgrow.Application.Verification.Verification;
+using Upgrow.Domain.Models;
 
-namespace VerifyIndia.Application.Verification.Pipeline;
+namespace Upgrow.Application.Verification.Pipeline;
 
 public class ProviderExecutionStep : IVerificationStep
 {

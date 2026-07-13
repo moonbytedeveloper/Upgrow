@@ -2,9 +2,9 @@
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Nodes;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Helper
+namespace Upgrow.Application.Helper
 {
     public sealed class SandboxClient
     {

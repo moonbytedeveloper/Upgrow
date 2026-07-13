@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.WL.Master;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.WL.Master;
 
-namespace VerifyIndia.Infrastructure.Configurations.WL.Master
+namespace Upgrow.Infrastructure.Configurations.WL.Master
 {
     public class WL_MasterPermissionGroupConfiguration : IEntityTypeConfiguration<WL_MasterPermissionGroup>
     {

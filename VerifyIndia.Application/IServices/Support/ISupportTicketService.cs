@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Support;
-using VerifyIndia.Application.DTO.Support;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Domain.Common;
+using Upgrow.Application.Commands.Support;
+using Upgrow.Application.DTO.Support;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Domain.Common;
 
-namespace VerifyIndia.Application.IServices.Support
+namespace Upgrow.Application.IServices.Support
 {
     public interface ISupportTicketService 
     {

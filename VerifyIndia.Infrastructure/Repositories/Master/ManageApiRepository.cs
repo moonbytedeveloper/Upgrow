@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application;
-using VerifyIndia.Application.Commands.Api;
-using VerifyIndia.Application.Interfaces;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories.Master;
+using Upgrow.Application;
+using Upgrow.Application.Commands.Api;
+using Upgrow.Application.Interfaces;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories.Master;
 
-namespace VerifyIndia.Infrastructure.Repositories.Master
+namespace Upgrow.Infrastructure.Repositories.Master
 {
     public class ManageApiRepository : IManageApiRepository
     {

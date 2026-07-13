@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Collections.Concurrent;
 using System.Diagnostics.Metrics;
 using System.Timers;
-using VerifyIndia.Application.DTO.CustomerPanel;
-using VerifyIndia.Application.DTO.CustomerPanel.QueryResults;
-using VerifyIndia.Application.Interfaces;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Application.DTO.CustomerPanel;
+using Upgrow.Application.DTO.CustomerPanel.QueryResults;
+using Upgrow.Application.Interfaces;
+using Upgrow.Domain.Entities;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace VerifyIndia.Infrastructure.Repositories.CustomerPanel
+namespace Upgrow.Infrastructure.Repositories.CustomerPanel
 {
     public class DashboardRepository : IDashboardRepository
     {

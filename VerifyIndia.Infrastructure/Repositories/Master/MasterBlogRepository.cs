@@ -4,11 +4,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
 
 
-namespace VerifyIndia.Infrastructure.Repositories.Master
+namespace Upgrow.Infrastructure.Repositories.Master
 {
     public class MasterBlogRepository : MasterRepositoryBase<Master_Blog>
     {

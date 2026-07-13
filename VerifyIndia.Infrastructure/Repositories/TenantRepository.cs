@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Infrastructure.Repositories
+namespace Upgrow.Infrastructure.Repositories
 {
     public class TenantRepository : MasterRepositoryBase<Tenant>, ITenantRepository
     {       

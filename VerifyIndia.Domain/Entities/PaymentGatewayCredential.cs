@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Domain.Entities
+namespace Upgrow.Domain.Entities
 {
     public class PaymentGatewayCredential :BaseEntity
     {

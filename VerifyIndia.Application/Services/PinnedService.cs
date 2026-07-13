@@ -5,15 +5,15 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using AutoMapper;
-using VerifyIndia.Application.Commands;
-using VerifyIndia.Application.DTO.CustomerPanel;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.Services.Master;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
-using VerifyIndia.Application.DTO;
+using Upgrow.Application.Commands;
+using Upgrow.Application.DTO.CustomerPanel;
+using Upgrow.Application.IServices;
+using Upgrow.Application.Services.Master;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
+using Upgrow.Application.DTO;
 
-namespace VerifyIndia.Application.Services
+namespace Upgrow.Application.Services
 {
     // Follow project pattern: inherit MasterServiceBase<TEntity, TDto, TCommand>
     public class PinnedService : MasterServiceBase<Pinned_Services, PinnedServiceDto, PinnedServiceCommand>, IPinnedService

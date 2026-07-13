@@ -1,4 +1,4 @@
-﻿namespace VerifyIndia
+﻿namespace Upgrow
 {
     public class ApiLogs
     {

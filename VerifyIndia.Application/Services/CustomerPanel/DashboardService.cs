@@ -2,16 +2,16 @@
 using Microsoft.EntityFrameworkCore;
 using Razorpay.Api;
 using System.Text.Json;
-using VerifyIndia.Application.Commands;
-using VerifyIndia.Application.DTO.CustomerPanel;
-using VerifyIndia.Application.Interfaces;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.CustomerPanel;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands;
+using Upgrow.Application.DTO.CustomerPanel;
+using Upgrow.Application.Interfaces;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.CustomerPanel;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.CustomerPanel
+namespace Upgrow.Application.Services.CustomerPanel
 {
     public class DashboardService : IDashboardService
     {

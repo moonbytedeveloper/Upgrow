@@ -1,9 +1,9 @@
 ﻿using Finbuckle.MultiTenant.Abstractions;
-using VerifyIndia.Application.DTO.WL;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.DTO.WL;
+using Upgrow.Application.IServices;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Infrastructure.MultiTenancy
+namespace Upgrow.Infrastructure.MultiTenancy
 {
     public class TenantSetupService : ITenantSetupService
     {

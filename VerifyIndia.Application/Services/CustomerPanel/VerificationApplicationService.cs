@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.IServices.CustomerPanel;
-using VerifyIndia.Application.Verification.Interfaces;
-using VerifyIndia.Application.Verification.Verification;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Models;
+using Upgrow.Application.IServices.CustomerPanel;
+using Upgrow.Application.Verification.Interfaces;
+using Upgrow.Application.Verification.Verification;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Models;
 
-namespace VerifyIndia.Application.Services.CustomerPanel
+namespace Upgrow.Application.Services.CustomerPanel
 {
     public class VerificationApplicationService : IVerificationApplicationService
     {

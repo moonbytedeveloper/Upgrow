@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.Common.Dropdowns
+namespace Upgrow.Application.Common.Dropdowns
 {
     public sealed class DropdownDefinition
     {

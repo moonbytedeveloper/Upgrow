@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Interfaces.TransactionProcessor;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Application.Interfaces.TransactionProcessor;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Application.Services.TransactionProcessor
+namespace Upgrow.Application.Services.TransactionProcessor
 {
     public class TransactionStatusCalculator
         : ITransactionStatusCalculator

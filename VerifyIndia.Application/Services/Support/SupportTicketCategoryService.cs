@@ -5,19 +5,19 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.Commands.Support;
-using VerifyIndia.Application.DTO.Customer;
-using VerifyIndia.Application.DTO.Support;
-using VerifyIndia.Application.DTO.WL;
-using VerifyIndia.Application.IServices.Support;
-using VerifyIndia.Application.Services.Master;
-using VerifyIndia.Application.Services.Support;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
-using VerifyIndia.Domain.IRepositories.Master;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.Commands.Support;
+using Upgrow.Application.DTO.Customer;
+using Upgrow.Application.DTO.Support;
+using Upgrow.Application.DTO.WL;
+using Upgrow.Application.IServices.Support;
+using Upgrow.Application.Services.Master;
+using Upgrow.Application.Services.Support;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
+using Upgrow.Domain.IRepositories.Master;
 
-namespace VerifyIndia.Application.Services.Support
+namespace Upgrow.Application.Services.Support
 {
     public class SupportTicketCategoryService : MasterServiceBase<Support_TicketCategory, SupportTicketCategoryDto, SupportTicketCategoryCommand>, ISupportTicketCategoryService
     {

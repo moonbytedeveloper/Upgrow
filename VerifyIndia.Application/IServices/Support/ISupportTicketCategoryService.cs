@@ -4,16 +4,16 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Master;
-using VerifyIndia.Application.Commands.Support;
-using VerifyIndia.Application.DTO.DropDown;
-using VerifyIndia.Application.DTO.Master;
-using VerifyIndia.Application.DTO.Support;
-using VerifyIndia.Application.DTO.WL;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Domain.Entities;
+using Upgrow.Application.Commands.Master;
+using Upgrow.Application.Commands.Support;
+using Upgrow.Application.DTO.DropDown;
+using Upgrow.Application.DTO.Master;
+using Upgrow.Application.DTO.Support;
+using Upgrow.Application.DTO.WL;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Domain.Entities;
 
-namespace VerifyIndia.Application.IServices.Support
+namespace Upgrow.Application.IServices.Support
 {
     public interface ISupportTicketCategoryService : IMasterService<SupportTicketCategoryDto, SupportTicketCategoryCommand>
     {

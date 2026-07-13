@@ -1,13 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Linq.Expressions;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.Entities.WL;
-using VerifyIndia.Domain.IRepositories.ActionLogs;
-using VerifyIndia.Infrastructure.Extensions;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.Entities.WL;
+using Upgrow.Domain.IRepositories.ActionLogs;
+using Upgrow.Infrastructure.Extensions;
 
-namespace VerifyIndia.Infrastructure.Repositories.ActionLogs
+namespace Upgrow.Infrastructure.Repositories.ActionLogs
 {
     public class WLActionLogsRepository : IWLActionLogsRepository
     {

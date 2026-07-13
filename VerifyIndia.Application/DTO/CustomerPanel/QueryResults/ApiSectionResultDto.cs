@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.CustomerPanel.QueryResults
+namespace Upgrow.Application.DTO.CustomerPanel.QueryResults
 {
     public class ApiSectionResultDto
     {

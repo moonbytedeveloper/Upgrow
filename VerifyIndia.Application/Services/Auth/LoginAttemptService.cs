@@ -1,12 +1,12 @@
 using System.Text.Json;
-using VerifyIndia.Application.Commands.Auth;
-using VerifyIndia.Application.DTO.Auth;
-using VerifyIndia.Application.DTOs;
-using VerifyIndia.Application.IServices.Auth;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.Auth;
+using Upgrow.Application.DTO.Auth;
+using Upgrow.Application.DTOs;
+using Upgrow.Application.IServices.Auth;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.Auth
+namespace Upgrow.Application.Services.Auth
 {
     public sealed class LoginAttemptService : ILoginAttemptService
     {
@@ -160,8 +160,8 @@ namespace VerifyIndia.Application.Services.Auth
         public Task<bool> ToggleActiveAsync(string uuid, string userUuid, string ip)
             => throw new NotSupportedException("Login attempt logs are read-only.");
         public Task<LoginAttemptDto?> GetByUuidAsync(string uuid) => Task.FromResult<LoginAttemptDto?>(null);
-        public Task<List<VerifyIndia.Application.DTO.DropDown.MasterDropDownDto>> GetDropdownAsync(Func<LoginAttemptCommand, string> displaySelector)
-            => Task.FromResult(new List<VerifyIndia.Application.DTO.DropDown.MasterDropDownDto>());
+        public Task<List<Upgrow.Application.DTO.DropDown.MasterDropDownDto>> GetDropdownAsync(Func<LoginAttemptCommand, string> displaySelector)
+            => Task.FromResult(new List<Upgrow.Application.DTO.DropDown.MasterDropDownDto>());
 
         private static LoginAttemptDto? Deserialize(string? payload)
         {

@@ -5,14 +5,14 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Verification;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
-using VerifyIndia.Domain.IRepositories.Master;
+using Upgrow.Application.DTO.Verification;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
+using Upgrow.Domain.IRepositories.Master;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
-namespace VerifyIndia.Infrastructure.Repositories.WL.Master
+namespace Upgrow.Infrastructure.Repositories.WL.Master
 {
     public class WLMasterCmsRepository : MasterRepositoryBase<WL_MasterCMS>
     {

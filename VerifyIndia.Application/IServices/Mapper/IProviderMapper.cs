@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Helper;
+using Upgrow.Application.Helper;
 
-namespace VerifyIndia.Application.IServices.Mapper
+namespace Upgrow.Application.IServices.Mapper
 {
     public interface IProviderMapper
     {

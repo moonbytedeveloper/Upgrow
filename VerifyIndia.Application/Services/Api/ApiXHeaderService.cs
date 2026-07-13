@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using System.Linq.Expressions;
-using VerifyIndia.Application.Commands.Api;
-using VerifyIndia.Application.DTO.Api;
-using VerifyIndia.Application.IServices.Master;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.Api;
+using Upgrow.Application.DTO.Api;
+using Upgrow.Application.IServices.Master;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.Master
+namespace Upgrow.Application.Services.Master
 {
     public class ApiXHeaderService : MasterServiceBase<ApiXHeaders, ApiXHeaderDto, ApiXHeaderCommand>, IApiXHeaderService
     {

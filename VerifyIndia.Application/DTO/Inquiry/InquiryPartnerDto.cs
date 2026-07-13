@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Inquiry
+namespace Upgrow.Application.DTO.Inquiry
 {
     public class InquiryPartnerDto
     {

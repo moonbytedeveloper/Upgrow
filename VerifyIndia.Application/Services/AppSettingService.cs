@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.IServices;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services
+namespace Upgrow.Application.Services
 {
     public class AppSettingService
         : IAppSettingService

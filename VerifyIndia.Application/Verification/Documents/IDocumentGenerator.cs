@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Models;
+using Upgrow.Domain.Models;
 
-namespace VerifyIndia.Application.Verification.Documents
+namespace Upgrow.Application.Verification.Documents
 {
     public interface IDocumentGenerator
     {

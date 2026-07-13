@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Registration.EmailVerification;
+using Upgrow.Application.DTO.Registration.EmailVerification;
 
-namespace VerifyIndia.Application.IServices.Registration
+namespace Upgrow.Application.IServices.Registration
 {
     public interface IEmailVerificationService
     {

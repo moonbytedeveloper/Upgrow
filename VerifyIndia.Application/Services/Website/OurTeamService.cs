@@ -5,14 +5,14 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.Commands.Website;
-using VerifyIndia.Application.DTO.Website;
-using VerifyIndia.Application.IServices.Website;
-using VerifyIndia.Application.Services.Master;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.Commands.Website;
+using Upgrow.Application.DTO.Website;
+using Upgrow.Application.IServices.Website;
+using Upgrow.Application.Services.Master;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.Website
+namespace Upgrow.Application.Services.Website
 {
     public class OurTeamService : MasterServiceBase<OurTeam, OurTeamDto, OurTeamCommand>, IOurTeamService
     {

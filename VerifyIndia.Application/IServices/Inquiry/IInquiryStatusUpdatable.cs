@@ -1,4 +1,4 @@
-namespace VerifyIndia.Application.IServices.Inquiry
+namespace Upgrow.Application.IServices.Inquiry
 {
     public interface IInquiryStatusUpdatable
     {

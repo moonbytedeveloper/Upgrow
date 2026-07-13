@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Registration;
-using VerifyIndia.Application.Helper;
-using VerifyIndia.Application.Interfaces.Registration;
+using Upgrow.Application.DTO.Registration;
+using Upgrow.Application.Helper;
+using Upgrow.Application.Interfaces.Registration;
 
-namespace VerifyIndia.Application.Services.Registration
+namespace Upgrow.Application.Services.Registration
 {
     public class AadhaarVerificationService
         : IAadhaarVerificationService

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.Registration;
-using VerifyIndia.Application.DTO.Registration.Business;
+using Upgrow.Application.DTO.Registration;
+using Upgrow.Application.DTO.Registration.Business;
 
-namespace VerifyIndia.Application.IServices.Registration
+namespace Upgrow.Application.IServices.Registration
 {
     public interface IBusinessRegistrationService
     {

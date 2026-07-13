@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VerifyIndia.Application\VerifyIndia.Application.csproj" />
+    <ProjectReference Include="..\VerifyIndia.Application\Upgrow.Application.csproj" />
     <ProjectReference Include="..\VerifyIndia.Domain\VerifyIndia.Domain.csproj" />
   </ItemGroup>
 

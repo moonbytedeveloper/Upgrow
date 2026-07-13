@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace VerifyIndia
+namespace Upgrow
 {
     public class ApplicationDbContext : DbContext
     {

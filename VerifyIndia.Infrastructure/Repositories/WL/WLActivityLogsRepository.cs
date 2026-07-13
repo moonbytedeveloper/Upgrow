@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using VerifyIndia.Application.DTO.WL;
-using VerifyIndia.Domain.Common;
-using VerifyIndia.Domain.Entities.WL.Master;
-using VerifyIndia.Domain.IRepositories.WL;
+using Upgrow.Application.DTO.WL;
+using Upgrow.Domain.Common;
+using Upgrow.Domain.Entities.WL.Master;
+using Upgrow.Domain.IRepositories.WL;
 
-namespace VerifyIndia.Infrastructure.Repositories.WL
+namespace Upgrow.Infrastructure.Repositories.WL
 {
     public class WLActivityLogsRepository : IWLActivityLogsRepository
     {

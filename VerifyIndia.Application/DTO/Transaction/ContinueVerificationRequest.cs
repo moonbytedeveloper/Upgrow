@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace VerifyIndia.Application.DTO.Transaction
+namespace Upgrow.Application.DTO.Transaction
 {
     public sealed class ContinueVerificationRequest
     {

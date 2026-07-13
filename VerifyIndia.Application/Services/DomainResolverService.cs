@@ -1,15 +1,15 @@
-﻿// VerifyIndia.Application.Services.WL\TenantDomainResolverService.cs
+﻿// Upgrow.Application.Services.WL\TenantDomainResolverService.cs
 using Microsoft.Extensions.Options;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using VerifyIndia.Application.IServices;
-using VerifyIndia.Application.IServices.WL;
-using VerifyIndia.Application.Options;
-using VerifyIndia.Domain.Entities;
-using VerifyIndia.Domain.IRepositories;
+using Upgrow.Application.IServices;
+using Upgrow.Application.IServices.WL;
+using Upgrow.Application.Options;
+using Upgrow.Domain.Entities;
+using Upgrow.Domain.IRepositories;
 
-namespace VerifyIndia.Application.Services.WL
+namespace Upgrow.Application.Services.WL
 {
     public class DomainResolverService : IDomainResolverService
     {

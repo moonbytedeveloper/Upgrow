@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VerifyIndia.Domain.Enums;
-using static VerifyIndia.Application.Constants;
+using Upgrow.Domain.Enums;
+using static Upgrow.Application.Constants;
 
-namespace VerifyIndia.Application.Constant
+namespace Upgrow.Application.Constant
 {
     public static class NotificationRouting
     {

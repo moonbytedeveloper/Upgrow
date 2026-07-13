@@ -1,8 +1,8 @@
-﻿using VerifyIndia.Domain.Entities;
+﻿using Upgrow.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace VerifyIndia.Infrastructure.Configurations
+namespace Upgrow.Infrastructure.Configurations
 {
     public class Master_BlogConfiguration : IEntityTypeConfiguration<Master_Blog>
     {

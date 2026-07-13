@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Http;
 
-namespace VerifyIndia.Application.DTO.Auth
+namespace Upgrow.Application.DTO.Auth
 {
     public class VerifyVideoKycRequestDto
     {
