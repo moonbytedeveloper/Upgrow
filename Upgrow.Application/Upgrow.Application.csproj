@@ -28,10 +28,8 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.16.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AuthenticateIndia.Shared\Upgrow.Shared.csproj" />
     <ProjectReference Include="..\Upgrow.Domain\Upgrow.Domain.csproj" />
     <ProjectReference Include="..\Upgrow.Shared\Upgrow.Shared.csproj" />
-    <ProjectReference Include="..\VerifyIndia.Domain\Upgrow.Domain.csproj" />
   </ItemGroup>
 
 	<ItemGroup>
