@@ -1,5 +1,7 @@
-﻿@using VerifyIndia.Application.Common.Dropdowns
-@model VerifyIndiaAdminPanel.Models.Master.MasterCareerVM
+﻿@using UpgrowAdminPanel
+@using UpgrowAdminPanel.Models
+@using VerifyIndia.Application.Common.Dropdowns
+@model UpgrowAdminPanel.Models.Master.MasterCareerVM
 @{
     var isEdit = Model?.Career != null && !string.IsNullOrEmpty(Model.Career.UUID);
     ViewData["Title"] = isEdit ? "Edit Career" : "Add Career";

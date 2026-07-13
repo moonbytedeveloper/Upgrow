@@ -16,7 +16,7 @@ using VerifyIndia.Domain.Entities;
 using VerifyIndia.Infrastructure;
 using static VerifyIndia.Application.Constants;
 
-namespace VerifyIndiaAdminPanel.Controllers
+namespace UpgrowAdminPanel.Controllers
 {
     public class BaseController : Controller
     {

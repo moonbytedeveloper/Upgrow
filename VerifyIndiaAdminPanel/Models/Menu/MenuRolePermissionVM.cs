@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using VerifyIndia.Application.Commands.Menu;
 
-namespace VerifyIndiaAdminPanel.Models.Menu
+namespace UpgrowAdminPanel.Models.Menu
 {
     public class MenuRolePermissionVM
     {

@@ -36,14 +36,14 @@ using VerifyIndia.Application.Services.Website;
 using VerifyIndia.Application.Services.WL;
 using VerifyIndia.Domain.Entities;
 using VerifyIndia.Infrastructure.Filters;
-using VerifyIndiaAdminPanel.Models;
-using VerifyIndiaAdminPanel.Models.Api;
-using VerifyIndiaAdminPanel.Models.Master;
-using VerifyIndiaAdminPanel.Models.Website;
+using UpgrowAdminPanel.Models;
+using UpgrowAdminPanel.Models.Api;
+using UpgrowAdminPanel.Models.Master;
+using UpgrowAdminPanel.Models.Website;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using static VerifyIndia.Application.Constants;
 
-namespace VerifyIndiaAdminPanel.Controllers
+namespace UpgrowAdminPanel.Controllers
 {
     public class MasterController : BaseController
     {
@@ -5703,7 +5703,7 @@ namespace VerifyIndiaAdminPanel.Controllers
         [ActivityLog(ActivityType = "View", Description = "View Policy", MenuName = "Master_Policy")]
         public async Task<IActionResult> MasterViewPolicy(string? selectedUuid = null)
         {
-            var vm = new VerifyIndiaAdminPanel.Models.Master.PolicyVersionVM();
+            var vm = new UpgrowAdminPanel.Models.Master.PolicyVersionVM();
 
             try
             {

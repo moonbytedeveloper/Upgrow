@@ -19,10 +19,10 @@ using VerifyIndia.Application.Services.AIX;
 using VerifyIndia.Application.Services.Api;
 using VerifyIndia.Application.Services.Master;
 using VerifyIndia.Infrastructure.Filters;
-using VerifyIndiaAdminPanel.Models;
-using VerifyIndiaAdminPanel.Models.Apix;
+using UpgrowAdminPanel.Models;
+using UpgrowAdminPanel.Models.Apix;
 
-namespace VerifyIndiaAdminPanel.Controllers
+namespace UpgrowAdminPanel.Controllers
 {
     public class AIXController : BaseController
     {

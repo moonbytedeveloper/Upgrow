@@ -4,9 +4,9 @@ using VerifyIndia.Application.DTO.Inquiry;
 using VerifyIndia.Application.IServices;
 using VerifyIndia.Application.IServices.Inquiry;
 using VerifyIndia.Infrastructure.Filters;
-using VerifyIndiaAdminPanel.Models.Inquiry;
+using UpgrowAdminPanel.Models.Inquiry;
 
-namespace VerifyIndiaAdminPanel.Controllers
+namespace UpgrowAdminPanel.Controllers
 {
     public class InquiryController : BaseController
     {

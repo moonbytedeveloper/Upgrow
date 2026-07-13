@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using VerifyIndia.Application.Commands.Api;
 
-namespace VerifyIndiaAdminPanel.Models.Api
+namespace UpgrowAdminPanel.Models.Api
 {
     public class ApiInfoFieldsVM
     {

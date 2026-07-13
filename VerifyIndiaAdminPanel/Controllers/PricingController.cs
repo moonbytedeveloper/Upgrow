@@ -9,7 +9,7 @@ using VerifyIndia.Application.IServices.Pricing;
 using VerifyIndia.Application.Services;
 using VerifyIndia.Application.Services.WL;
 
-namespace VerifyIndiaAdminPanel.Controllers
+namespace UpgrowAdminPanel.Controllers
 {
     public class PricingController : BaseController
     {

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using VerifyIndia.Application.DTO.Master;
 
-namespace VerifyIndiaAdminPanel.Models.Master
+namespace UpgrowAdminPanel.Models.Master
 {
     public class ChangePasswordVM
     {

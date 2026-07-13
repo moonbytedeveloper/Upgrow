@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using VerifyIndia.Application.Commands.Support;
 using VerifyIndia.Application.DTO.Support;
 
-namespace VerifyIndiaAdminPanel.Models.Support
+namespace UpgrowAdminPanel.Models.Support
 {
     public class SupportTicketsVM
     {

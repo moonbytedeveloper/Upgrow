@@ -2,7 +2,7 @@
 using VerifyIndia.Application.Commands.Master;
 using VerifyIndia.Application.Commands.WL;
 
-namespace VerifyIndiaAdminPanel.Models.WL
+namespace UpgrowAdminPanel.Models.WL
 {
     public class TenantDomainVM
     {

@@ -1,4 +1,4 @@
-namespace VerifyIndiaAdminPanel.Models
+namespace UpgrowAdminPanel.Models
 {
     public class ErrorViewModel
     {

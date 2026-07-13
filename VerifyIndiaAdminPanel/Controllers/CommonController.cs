@@ -12,7 +12,7 @@ using VerifyIndia.Application.Services.Master;
 using VerifyIndia.Application.Services.Website;
 using VerifyIndia.Infrastructure.Filters;
 
-namespace VerifyIndiaAdminPanel.Controllers
+namespace UpgrowAdminPanel.Controllers
 {
     [ActivityLog]
     public class CommonController : BaseController

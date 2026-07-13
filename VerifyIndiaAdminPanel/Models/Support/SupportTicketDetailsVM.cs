@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace VerifyIndiaAdminPanel.Models.Support
+namespace UpgrowAdminPanel.Models.Support
 {
     public class SupportTicketDetailsVM
     {

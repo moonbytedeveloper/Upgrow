@@ -1,4 +1,4 @@
-﻿@model VerifyIndiaAdminPanel.Models.Api.ApiProviderComponentMappingVM
+﻿@model UpgrowAdminPanel.Models.Api.ApiProviderComponentMappingVM
 @{
     var isEdit = Model?.ApiComponentMapping != null && !string.IsNullOrEmpty(Model.ApiComponentMapping.UUID);
     ViewData["Title"] = isEdit ? "Edit Api Provider Component Mapping" : "Add Api Provider Component Mapping";
@@ -77,7 +77,7 @@
     <script>
         $(document).ready(function () {
             // Initialize API -> Provider dependent dropdown filtering
-            var mappings = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ApiProviderMappings ?? new List<VerifyIndiaAdminPanel.Models.Api.ApiProviderMapsItem>()));
+            var mappings = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ApiProviderMappings ?? new List<UpgrowAdminPanel.Models.Api.ApiProviderMapsItem>()));
 
             window.DependentDropdowns.initApiProviderDependency(
                 '#ApiComponentMapping_ApiUUID',      // API dropdown selector

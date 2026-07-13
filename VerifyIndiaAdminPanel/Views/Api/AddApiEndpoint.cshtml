@@ -1,4 +1,4 @@
-﻿@model VerifyIndiaAdminPanel.Models.Api.ApiEndpointVM
+﻿@model UpgrowAdminPanel.Models.Api.ApiEndpointVM
 @{
     var isEdit = Model?.ApiEndpoint != null && !string.IsNullOrEmpty(Model.ApiEndpoint.UUID);
     ViewData["Title"] = isEdit ? "Edit Api Endpoint" : "Add Api Endpoint";
@@ -86,7 +86,7 @@
 
     <script>
         $(document).ready(function () {
-            var mappings = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ApiProviderMapping ?? new List<VerifyIndiaAdminPanel.Models.Api.ApiProvidermapsItem>()));
+            var mappings = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ApiProviderMapping ?? new List<UpgrowAdminPanel.Models.Api.ApiProvidermapsItem>()));
 
 
             window.DependentDropdowns.initApiProviderDependency(

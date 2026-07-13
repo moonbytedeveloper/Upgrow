@@ -13,9 +13,9 @@ using VerifyIndia.Application.IServices.Menu;
 using VerifyIndia.Application.Services.Menu;
 using VerifyIndia.Infrastructure.Filters;
 using VerifyIndia.Infrastructure.Services;
-using VerifyIndiaAdminPanel.Models.Menu;
+using UpgrowAdminPanel.Models.Menu;
 
-namespace VerifyIndiaAdminPanel.Controllers
+namespace UpgrowAdminPanel.Controllers
 {
     [ActivityLog]
     public class MenuController : BaseController

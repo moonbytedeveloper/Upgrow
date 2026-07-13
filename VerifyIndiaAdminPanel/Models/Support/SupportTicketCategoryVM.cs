@@ -2,7 +2,7 @@
 using VerifyIndia.Application.Commands.Master;
 using VerifyIndia.Application.Commands.Support;
 
-namespace VerifyIndiaAdminPanel.Models.Support
+namespace UpgrowAdminPanel.Models.Support
 {
     public class SupportTicketCategoryVM
     {

@@ -7,7 +7,7 @@ using VerifyIndia.Application.IServices;
 using VerifyIndia.Application.IServices.Credential;
 using VerifyIndia.Infrastructure.Filters;
 
-namespace VerifyIndiaAdminPanel.Controllers
+namespace UpgrowAdminPanel.Controllers
 {
     public class CredentialController : BaseController
     {

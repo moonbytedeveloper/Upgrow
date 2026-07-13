@@ -72,7 +72,7 @@ using VerifyIndia.Infrastructure.Repositories.Support;
 using VerifyIndia.Infrastructure.Repositories.Website;
 using VerifyIndia.Infrastructure.Repositories.WL.Master;
 using VerifyIndia.Infrastructure.Services;
-using VerifyIndiaAdminPanel.Filters;
+using UpgrowAdminPanel.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -267,7 +267,7 @@ builder.Services.AddScoped<IMasterCompanyBasicDataService, MasterCompanyBasicDat
 //builder.Services.AddScoped<IProductFeatures, ProductFeatureService>();
 //builder.Services.AddScoped<IPagedService<InquiryProductDto>, InquiryProductService>();
 //builder.Services.AddScoped<IPagedService<InquiryContactDto>, InquiryContactService>();
-builder.Services.AddScoped<VerifyIndiaAdminPanel.Filters.PathPermissionFilter>();
+builder.Services.AddScoped<UpgrowAdminPanel.Filters.PathPermissionFilter>();
 builder.Services.AddScoped<IMasterFinancialYearService, MasterFinancialYearService>();
 
 builder.Services.AddScoped<IWLSocialMediaService, WLSocialMediaService>();

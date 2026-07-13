@@ -6,5 +6,5 @@
   <Project Path="VerifyIndia.Application/VerifyIndia.Application.csproj" />
   <Project Path="VerifyIndia.Domain/VerifyIndia.Domain.csproj" Id="7750cae2-0630-4415-a52b-d1aa9a25cc95" />
   <Project Path="VerifyIndia.Infrastructure/VerifyIndia.Infrastructure.csproj" Id="88f1b75a-69cc-4c75-b463-55d2d8a22afc" />
-  <Project Path="VerifyIndiaAdminPanel/VerifyIndiaAdminPanel.csproj" Id="5d862f53-fe3c-4ebc-9a6d-5b66e1e4c713" />
+  <Project Path="VerifyIndiaAdminPanel/UpgrowAdminPanel.csproj" Id="5d862f53-fe3c-4ebc-9a6d-5b66e1e4c713" />
 </Solution>

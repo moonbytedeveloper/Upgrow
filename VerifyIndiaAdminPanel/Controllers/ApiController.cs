@@ -11,12 +11,12 @@ using VerifyIndia.Application.IServices.Api;
 using VerifyIndia.Application.IServices.Master;
 using VerifyIndia.Application.Services.Master;
 using VerifyIndia.Infrastructure.Filters;
-using VerifyIndiaAdminPanel.Models;
-using VerifyIndiaAdminPanel.Models.Api;
-using VerifyIndiaAdminPanel.Models.Master;
-using static VerifyIndiaAdminPanel.Models.ApiProviderMappingVM;
+using UpgrowAdminPanel.Models;
+using UpgrowAdminPanel.Models.Api;
+using UpgrowAdminPanel.Models.Master;
+using static UpgrowAdminPanel.Models.ApiProviderMappingVM;
 
-namespace VerifyIndiaAdminPanel.Controllers
+namespace UpgrowAdminPanel.Controllers
 {
     [ActivityLog]
     public class ApiController : BaseController

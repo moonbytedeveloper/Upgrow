@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using VerifyIndia.Application.Commands.Master;
 
-namespace VerifyIndiaAdminPanel.Models.Master
+namespace UpgrowAdminPanel.Models.Master
 {
     public class MasterDocumentVM
     {

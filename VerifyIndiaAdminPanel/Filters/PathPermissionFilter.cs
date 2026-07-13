@@ -7,7 +7,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using VerifyIndia.Application.IServices.Master;
 
-namespace VerifyIndiaAdminPanel.Filters
+namespace UpgrowAdminPanel.Filters
 {
     public class PathPermissionFilter : IAsyncActionFilter
     {

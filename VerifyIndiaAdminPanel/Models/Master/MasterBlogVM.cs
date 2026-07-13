@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using VerifyIndia.Application.Commands.Master;
 
-namespace VerifyIndiaAdminPanel.Models.Master
+namespace UpgrowAdminPanel.Models.Master
 {
     public class MasterBlogVM
     {

@@ -30,7 +30,7 @@ using VerifyIndia.Infrastructure.Filters;
 using VerifyIndia.Infrastructure.Repositories;
 using static VerifyIndia.Application.Constants;
 
-namespace VerifyIndiaAdminPanel.Controllers
+namespace UpgrowAdminPanel.Controllers
 {
     [ActivityLog]
     public class AuthController : BaseController

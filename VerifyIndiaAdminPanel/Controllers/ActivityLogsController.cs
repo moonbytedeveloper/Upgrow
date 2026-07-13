@@ -4,7 +4,7 @@ using VerifyIndia.Application.IServices;
 using VerifyIndia.Domain.Common;
 using VerifyIndia.Infrastructure;
 
-namespace VerifyIndiaAdminPanel.Controllers
+namespace UpgrowAdminPanel.Controllers
 {
     public class ActivityLogsController : BaseController
     {

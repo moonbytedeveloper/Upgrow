@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using VerifyIndia.Application.Commands.WL;
 using VerifyIndia.Application.DTOs.Master;
 
-namespace VerifyIndiaAdminPanel.Models.Tenant
+namespace UpgrowAdminPanel.Models.Tenant
 {
     public class WLMasterCmsVM
     {

@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using VerifyIndiaAdminPanel.Models;
+using UpgrowAdminPanel.Models;
 
-namespace VerifyIndiaAdminPanel.Controllers
+namespace UpgrowAdminPanel.Controllers
 {
     public class HomeController : Controller
     {

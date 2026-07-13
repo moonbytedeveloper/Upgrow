@@ -2,7 +2,7 @@
 using VerifyIndia.Application.Commands.Master;
 using VerifyIndia.Application.Commands.Website;
 
-namespace VerifyIndiaAdminPanel.Models.Website
+namespace UpgrowAdminPanel.Models.Website
 {
     public class FaqVM
     {

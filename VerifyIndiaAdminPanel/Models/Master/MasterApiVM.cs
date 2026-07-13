@@ -2,7 +2,7 @@
 using VerifyIndia.Application.Commands.Api;
 using VerifyIndia.Application.Commands.Master;
 
-namespace VerifyIndiaAdminPanel.Models.Master
+namespace UpgrowAdminPanel.Models.Master
 {
     public class MasterApiVM
     {

@@ -7,7 +7,7 @@ using VerifyIndia.Application.Commands.Api;
 using VerifyIndia.Application.DTO.AIX;
 
 
-namespace VerifyIndiaAdminPanel.Models.Apix
+namespace UpgrowAdminPanel.Models.Apix
 {
     public class ApiXVersionVM
     {

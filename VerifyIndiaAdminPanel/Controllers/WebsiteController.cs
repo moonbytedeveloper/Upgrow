@@ -14,11 +14,11 @@ using VerifyIndia.Application.IServices.Master;
 using VerifyIndia.Application.IServices.Website;
 using VerifyIndia.Application.Services.WL;
 using VerifyIndia.Infrastructure.Filters;
-using VerifyIndiaAdminPanel.Models.Master;
-using VerifyIndiaAdminPanel.Models.Website;
+using UpgrowAdminPanel.Models.Master;
+using UpgrowAdminPanel.Models.Website;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
-namespace VerifyIndiaAdminPanel.Controllers
+namespace UpgrowAdminPanel.Controllers
 {
     [ActivityLog]
     public class WebsiteController : BaseController

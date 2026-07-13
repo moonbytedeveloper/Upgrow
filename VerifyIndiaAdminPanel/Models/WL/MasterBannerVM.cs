@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using VerifyIndia.Application.Commands.WL;
 
-namespace VerifyIndiaAdminPanel.Models.WL
+namespace UpgrowAdminPanel.Models.WL
 {
     public class MasterBannerVM /*: IValidatableObject*/
     {

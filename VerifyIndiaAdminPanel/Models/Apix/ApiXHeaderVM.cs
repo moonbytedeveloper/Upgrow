@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using VerifyIndia.Domain.Entities;
 
-namespace VerifyIndiaAdminPanel.Models.Apix
+namespace UpgrowAdminPanel.Models.Apix
 {
     public class ApiXHeaderVM
     {

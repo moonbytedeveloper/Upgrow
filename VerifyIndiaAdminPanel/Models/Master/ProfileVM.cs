@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace VerifyIndiaAdminPanel.Models.Master
+namespace UpgrowAdminPanel.Models.Master
 {
     public class ProfileVM
     {

@@ -13,12 +13,12 @@ using VerifyIndia.Application.IServices.Support;
 using VerifyIndia.Application.IServices.WL;
 using VerifyIndia.Application.Services;
 using VerifyIndia.Infrastructure.Filters;
-using VerifyIndiaAdminPanel.Models.Master;
-using VerifyIndiaAdminPanel.Models.Support;
+using UpgrowAdminPanel.Models.Master;
+using UpgrowAdminPanel.Models.Support;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using static System.Net.WebRequestMethods;
 
-namespace VerifyIndiaAdminPanel.Controllers
+namespace UpgrowAdminPanel.Controllers
 {
     [ActivityLog]
     public class SupportController : BaseController

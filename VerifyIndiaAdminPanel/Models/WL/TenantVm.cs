@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace VerifyIndiaAdminPanel.Models.WL
+namespace UpgrowAdminPanel.Models.WL
 {
     public class TenantVm
     {

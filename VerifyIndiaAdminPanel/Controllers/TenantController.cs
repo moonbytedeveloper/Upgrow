@@ -26,11 +26,11 @@ using VerifyIndia.Domain.Common;
 using VerifyIndia.Domain.Entities;
 using VerifyIndia.Domain.IRepositories;
 using VerifyIndia.Infrastructure.Filters;
-using VerifyIndiaAdminPanel.Models.Master;
-using VerifyIndiaAdminPanel.Models.Tenant;
-using VerifyIndiaAdminPanel.Models.WL;
+using UpgrowAdminPanel.Models.Master;
+using UpgrowAdminPanel.Models.Tenant;
+using UpgrowAdminPanel.Models.WL;
 
-namespace VerifyIndiaAdminPanel.Controllers
+namespace UpgrowAdminPanel.Controllers
 {
     [ActivityLog]
     public class TenantController : BaseController

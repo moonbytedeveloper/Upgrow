@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
-namespace VerifyIndiaAdminPanel.Models.Inquiry
+namespace UpgrowAdminPanel.Models.Inquiry
 {
     public class InquiryGeneralStatusVM
     {

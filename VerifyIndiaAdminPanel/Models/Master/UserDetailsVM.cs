@@ -1,6 +1,6 @@
 ﻿using VerifyIndia.Application.DTO.Customer;
 
-namespace VerifyIndiaAdminPanel.Models.Master
+namespace UpgrowAdminPanel.Models.Master
 {
     public class UserDetailsVM
     {

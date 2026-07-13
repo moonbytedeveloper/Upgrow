@@ -3,7 +3,7 @@ using VerifyIndia.Application.IServices.ActionLogs;
 using VerifyIndia.Domain.Common;
 using VerifyIndia.Infrastructure;
 
-namespace VerifyIndiaAdminPanel.Controllers
+namespace UpgrowAdminPanel.Controllers
 {
     public class ActionLogsController : Controller
     {

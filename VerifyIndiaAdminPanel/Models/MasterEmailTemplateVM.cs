@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using VerifyIndia.Application.Commands.Master;
 
-namespace VerifyIndiaAdminPanel.Models
+namespace UpgrowAdminPanel.Models
 {
     public class MasterEmailTemplateVM
     {
