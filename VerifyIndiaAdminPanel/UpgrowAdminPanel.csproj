@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -14,7 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Moonbyte.UI\Moonbyte.UI.csproj" />
     <ProjectReference Include="..\VerifyIndia.Application\Upgrow.Application.csproj" />
-    <ProjectReference Include="..\VerifyIndia.Infrastructure\VerifyIndia.Infrastructure.csproj" />
+    <ProjectReference Include="..\VerifyIndia.Infrastructure\Upgrow.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

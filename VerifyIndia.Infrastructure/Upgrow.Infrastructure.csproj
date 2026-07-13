@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\VerifyIndia.Application\Upgrow.Application.csproj" />
-    <ProjectReference Include="..\VerifyIndia.Domain\VerifyIndia.Domain.csproj" />
+    <ProjectReference Include="..\VerifyIndia.Domain\Upgrow.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
