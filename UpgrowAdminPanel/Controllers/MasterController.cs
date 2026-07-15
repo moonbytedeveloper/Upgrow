@@ -111,7 +111,6 @@ namespace UpgrowAdminPanel.Controllers
         private readonly IMasterProgrammingLanguageService _masterProgrammingLanguageService;
         private readonly IApiProviderService _ProviderService;
         private readonly IApiProviderMappingService _apiProviderMappingService;
-        private readonly IApiComponentsService _componentService;
         private readonly IApiProviderComponentMappingService _componentMappingService;
         private readonly IProviderApisService _providerapiservice;
         private readonly IMasterSkillsService _websiteSkillsService;
@@ -266,7 +265,6 @@ namespace UpgrowAdminPanel.Controllers
             _apiProviderMappingService = apiProviderMappingService;
             _masterProgrammingLanguageService = masterProgrammingLanguageService;
             _providerapiservice = providerApisService;
-            _componentService = apiComponentsService;
             _componentMappingService = componentMappingService;
             _apiInfoSectionService = apiInfoSectionService;
             _apiInfoFieldsService = apiInfoFieldsService;
