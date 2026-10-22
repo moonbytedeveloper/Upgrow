@@ -13,9 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Upgrow.Application\Upgrow.Application.csproj" />
-    <ProjectReference Include="..\Upgrow.Domain\Upgrow.Domain.csproj" />
-    <ProjectReference Include="..\Upgrow.Shared\Upgrow.Shared.csproj" />
+    <ProjectReference Include="..\Upgrow.Application\GigSure.Application.csproj" />
+    <ProjectReference Include="..\Upgrow.Domain\GigSure.Domain.csproj" />
+    <ProjectReference Include="..\Upgrow.Shared\GigSure.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

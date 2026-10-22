@@ -13,8 +13,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Moonbyte.UI\Moonbyte.UI.csproj" />
-    <ProjectReference Include="..\Upgrow.Application\Upgrow.Application.csproj" />
-    <ProjectReference Include="..\Upgrow.Infrastructure\Upgrow.Infrastructure.csproj" />
+    <ProjectReference Include="..\Upgrow.Application\GigSure.Application.csproj" />
+    <ProjectReference Include="..\Upgrow.Infrastructure\GigSure.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
